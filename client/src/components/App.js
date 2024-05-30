@@ -1,8 +1,29 @@
 import React, { useEffect, useState } from "react";
-import { Switch, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom"
+import Home from "../pages/Home"
+import Header from "./Header";
+import AvailableDogs from "../pages/AvailableDogs";
+import ListDog from "../pages/ListDog";
+import About from "../pages/About";
+import Login from "../pages/Login";
+import Signup from "../pages/Signup";
 
 function App() {
-  return <h1>Project Client</h1>;
+  return (
+    <BrowserRouter>
+      <div className="app">
+        <Header />
+        <Routes> 
+          <Route path="/" element={<Home />} /> 
+          <Route path="/availabledogs" element={<AvailableDogs/>} />
+          <Route path="/listdog" element={<ListDog/>} />
+          <Route path="/about" element={<About/>} />
+          <Route path="/login" element={<Login/>} />
+          <Route path="/signup" element={<Signup/>} />
+        </Routes>
+      </div>
+    </BrowserRouter>
+  )
 }
 
 export default App;

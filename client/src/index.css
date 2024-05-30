@@ -1,7 +1,101 @@
-:root {
-  --bg: #282c34;
-  --header: #fff;
-  --link: #61dafb;
-  --text: hsla(0, 0%, 100%, 0.88);
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;600&display=swap');
+
+/* Reset some basic styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+body {
+  font-family: 'Open Sans', sans-serif;
+  background-color: #F5F5F5;
+  color: #333;
+}
+
+/* Header styling */
+header {
+  background-color: #D2691E; /* Chocolate brown */
+  color: #FFFFFF;
+  padding: 1rem;
+  text-align: center;
+}
+
+header h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2rem;
+  margin: 0;
+}
+
+/* Navbar styling */
+nav {
+  display: flex;
+  justify-content: space-between; /* Space between left and right links */
+  align-items: center; /* Center vertically */
+  background-color: #F4A460; /* Sandy brown */
+  padding: 1rem;
+}
+
+.nav-left,
+.nav-right {
+  display: flex;
+}
+
+.nav-left a,
+.nav-right a {
+  color: #FFFFFF; /* White text for contrast */
+  text-decoration: none;
+  margin: 0 1rem;
+  font-weight: 600;
+  transition: color 0.3s ease, background-color 0.3s ease;
+  padding: 0.5rem 1rem; /* Add padding for better hover effect */
+}
+
+.nav-left a:hover,
+.nav-right a:hover {
+  color: #D2691E; /* Chocolate brown for strong contrast */
+  background-color: #FFF0E0; /* Light cream background for visibility */
+  border-radius: 5px; /* Rounded corners for hover effect */
+}
+
+/* Page containers */
+.container {
+  padding: 2rem;
+}
+
+/* Buttons */
+button {
+  background-color: #D2691E; /* Chocolate brown */
+  color: #FFFFFF;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #A0522D; /* Darker brown */
+}
+
+/* Example component styling */
+.card {
+  background-color: #FFFFFF;
+  border: 1px solid #E0E0E0;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1rem;
+}
+
+.card h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.card p {
+  font-size: 1rem;
+  line-height: 1.5;
+}
