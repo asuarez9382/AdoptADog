@@ -70,37 +70,6 @@ url = "https://api.thedogapi.com/v1/images/search?limit=30&has_breeds=true&api_k
 
 response = requests.get(url)
     
-
-    
-    
-#What data looks like
-'''
-{
-    'breeds': [
-        {
-            'weight': {
-                'imperial': '90 - 120', 
-                'metric': '41 - 54'
-                }, 
-            'height': {
-                'imperial': '28 - 34', 
-                'metric': '71 - 86'
-                }, 
-            'id': 5, 
-            'name': 'Akbash Dog', 
-            'bred_for': 'Sheep guarding', 
-            'breed_group': 'Working', 
-            'life_span': '10 - 12 years', 
-            'temperament': 'Loyal, Independent, Intelligent, Brave', 
-            'origin': '', 
-            'reference_image_id': '26pHT3Qk7'
-        }], 
-        'id': 'SyfsC19NQ', 
-        'url': 'https://cdn2.thedogapi.com/images/SyfsC19NQ_1280.jpg', 
-        'width': 1100, 
-        'height': 733
-}
-'''
     
 
 if __name__ == '__main__':
