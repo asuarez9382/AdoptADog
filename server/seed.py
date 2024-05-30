@@ -5,6 +5,7 @@ import random
 from random import randint, choice as rc
 import requests
 
+
 # Remote library imports
 from faker import Faker
 from faker.providers import BaseProvider
@@ -12,6 +13,8 @@ from faker.providers import BaseProvider
 # Local imports
 from app import app
 from models import db, Dog
+from secrets import API_KEY
+
 
 
 #To help generate random dog names
@@ -60,9 +63,10 @@ class DogTemperamentProvider(BaseProvider):
     def dog_temperament(self):
         return self.random_element(self.dog_temperaments)
 
-api_key='live_3YhNm4PBfxNZ81CZV6EtIE5sOpsu4rBtS5MWQVmXL4Fz6w3cD44CioHH5GgV0wog'
 
-url = "https://api.thedogapi.com/v1/images/search?limit=30&has_breeds=true&api_key=" + api_key
+
+
+url = "https://api.thedogapi.com/v1/images/search?limit=30&has_breeds=true&api_key=" + API_KEY
 
 response = requests.get(url)
     
