@@ -66,4 +66,4 @@ instance
 package-lock.json
 
 # secrets
-secrets.py
+my_secrets.py

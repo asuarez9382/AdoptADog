@@ -1,9 +1,11 @@
 import React from "react";
+import DogList from "../components/DogList";
+
 
 function AvailableDogs() {
     return (
         <div className="dog-list-container">
-            <h1>AvailableDogs</h1>
+            <DogList />
         </div>
     );
 }

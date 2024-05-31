@@ -13,7 +13,7 @@ from faker.providers import BaseProvider
 # Local imports
 from app import app
 from models import db, Dog
-from secrets import API_KEY
+from my_secrets import API_KEY
 
 
 

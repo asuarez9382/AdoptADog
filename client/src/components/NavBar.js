@@ -12,7 +12,7 @@ function NavBar() {
                     AdoptADog
                 </Link>
                 <Link
-                    to="/availabledogs"
+                    to="/dogs"
                     className="nav-link"
                 >
                     Available Dogs
