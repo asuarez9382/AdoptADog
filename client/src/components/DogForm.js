@@ -29,6 +29,15 @@ function DogForm(){
         
         const { name, breed, price, age, description, image } = formData
 
+        setFormData({
+            name: '',
+            breed: '',
+            price: '',
+            age: '',
+            description: '',
+            image: ''
+            })
+
             fetch('/dogs', {
                 method: 'POST',
                 headers: {
