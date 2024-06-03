@@ -95,7 +95,7 @@ button:hover {
 .dog-list {
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* 3 columns */
-  gap: 20px; /* Space between cards */
+  gap: 30px; /* Space between cards increased */
   padding: 20px;
 }
 
@@ -110,6 +110,7 @@ button:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 30px; /* Space between rows increased */
 }
 
 .dog-card:hover {
@@ -176,6 +177,8 @@ button:hover {
   margin-top: 10px; /* Space above the price */
   font-weight: bold; /* Make the price bold */
 }
+
+
 
 
 
