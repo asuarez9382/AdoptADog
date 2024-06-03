@@ -15,6 +15,7 @@ class Dog(db.Model, SerializerMixin):
     description = db.Column(db.String, nullable=False)
     is_adopted = db.Column(db.Boolean, default=False)
     image = db.Column(db.String, nullable=False)
+    price = db.Column(db.Integer, default=500)
     
     def __repr__(self):
         return f'<Dog {self.name} Age: {self.age} Breed: {self.breed}'
