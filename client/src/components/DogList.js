@@ -35,6 +35,7 @@ function DogList(){
                         isAdopted={dog.isAdopted}
                         age={dog.age}
                         description={dog.description} 
+                        price={dog.price}
                     />
                 ))}
             </div>

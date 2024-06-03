@@ -80,19 +80,10 @@ button:hover {
 }
 
 
-/* Container for the dog cards */
-.dog-list {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 columns */
-  gap: 20px; /* Space between cards */
-  padding: 20px;
-}
-
 .dog-list-container {
   text-align: center; /* Center the contents horizontally */
   margin-bottom: 20px; /* Add some space below the title */
   padding-top: 20px; /* Add padding above the title */
-  border-bottom: 2px solid #ff9800; /* Add a border below the title */
 }
 
 .dog-list-title {
@@ -101,9 +92,13 @@ button:hover {
   margin-bottom: 20px; /* Add some space below the title */
 }
 
+.dog-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns */
+  gap: 20px; /* Space between cards */
+  padding: 20px;
+}
 
-
-/* Style for the dog cards */
 .dog-card {
   background-color: #fff8e1; /* Light cream background */
   border: 2px solid #ff9800; /* Orange border */
@@ -122,7 +117,6 @@ button:hover {
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
 }
 
-/* Container for the dog image */
 .dog-image-container {
   width: 100%;
   height: 200px; /* Fixed height */
@@ -134,20 +128,17 @@ button:hover {
   margin-bottom: 15px;
 }
 
-/* Style for the dog image */
 .dog-image {
   max-width: 100%;
   max-height: 100%;
 }
 
-/* Style for the dog name */
 .dog-name {
   font-size: 1.5rem;
   color: #ff9800; /* Orange color for the name */
   margin-bottom: 10px;
 }
 
-/* Style for the dog status */
 .dog-status {
   font-size: 1.2rem;
   font-weight: bold;
@@ -162,25 +153,30 @@ button:hover {
   color: #f44336; /* Red color for adopted */
 }
 
-/* Style for the dog breed */
 .dog-breed {
   font-size: 1.2rem;
   color: #795548; /* Brown color for breed */
   margin-bottom: 10px;
 }
 
-/* Style for the dog age */
 .dog-age {
   font-size: 1.2rem;
   color: #795548; /* Brown color for age */
   margin-bottom: 10px;
 }
 
-/* Style for the dog description */
 .dog-description {
   font-size: 1rem;
   color: #757575; /* Grey color for description */
 }
+
+.dog-price {
+  font-size: 1.2rem;
+  color: #ff9800; /* Orange color for price */
+  margin-top: 10px; /* Space above the price */
+  font-weight: bold; /* Make the price bold */
+}
+
 
 
 

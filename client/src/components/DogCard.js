@@ -7,7 +7,8 @@ function DogCard({
   age,
   description,
   isAdopted,
-  image
+  image,
+  price
 }) {
   return (
     <div className="dog-card">
@@ -19,6 +20,7 @@ function DogCard({
             {isAdopted ? "Adopted" : "Available for Adoption"}
         </h3>
         <h3 className="dog-breed">{breed}</h3>
+        <h3 className="dog-price">${price}</h3>
         <h3 className="dog-age">Age: {age}</h3>
         <p className="dog-description">{description}</p>
     </div>
