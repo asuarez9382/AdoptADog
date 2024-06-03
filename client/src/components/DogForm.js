@@ -4,7 +4,7 @@ function DogForm(){
 
     return(
         <div className="dog-form">
-            <h1>Dog Form</h1>
+            <h1>Dog Details</h1>
             <form>
                 <div className="form-group">
                     <label>Dog Name:</label>
