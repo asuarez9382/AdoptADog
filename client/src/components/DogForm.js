@@ -1,15 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { DogContext } from "./AppContext";
 
 
 
 function DogForm(){
+
+    const { dogList, setDogList } = useContext(DogContext);
 
     const [formData, setFormData] = useState({
         name: '',
         breed: '',
         price: '',
         age: '',
-        description: ''
+        description: '',
+        image: ''
         })
 
     function handleChange(e){
@@ -22,15 +26,37 @@ function DogForm(){
 
     function handleSubmit(e){
         e.preventDefault();
-        console.log(formData)
+        
+        const { name, breed, price, age, description, image } = formData
 
-        setFormData({
-            name: '',
-            breed: '',
-            price: '',
-            age: '',
-            description: ''
+            fetch('/dogs', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    name: name,
+                    breed: breed,
+                    price: parseInt(price),
+                    age: age,
+                    description: description,
+                    image: image,
+                }),
             })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('New dog data:', data);
+                return setDogList([...dogList, data])
+    
+            })
+            .catch(error => {
+                console.error('Error adding new dog:', error);
+            });
     }
     
 
@@ -45,6 +71,10 @@ function DogForm(){
                 <div className="form-group">
                     <label>Dog Breed:</label>
                     <input type='text' name='breed' value={formData.breed} onChange={handleChange}/>
+                </div>
+                <div className="form-group">
+                    <label>Image:</label>
+                    <input type='text' name='image' value={formData.image} onChange={handleChange}/>
                 </div>
                 <div className="form-group">
                     <label>Price:</label>

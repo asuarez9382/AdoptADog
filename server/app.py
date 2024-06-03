@@ -32,6 +32,37 @@ class Dogs(Resource):
         
         return response
     
+    def post(self):
+        
+        dog_data = request.get_json()
+        
+        try:
+            
+            newDog = Dog(
+                breed=dog_data['breed'],
+                image=dog_data['image'],
+                name=dog_data['name'],
+                description=dog_data['description'],
+                age=dog_data['age'],
+                price=dog_data['price']
+            )
+            
+            db.session.add(newDog)
+            db.session.commit()
+            
+            newdog_dict = newDog.to_dict()
+            
+            response = make_response(
+                newdog_dict,
+                201
+            )
+            
+            return response 
+    
+        except:
+            return { "errors": ["validation errors"] }, 400
+        
+    
 api.add_resource(Dogs, "/dogs")
 
 
