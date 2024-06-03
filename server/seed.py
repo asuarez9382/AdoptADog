@@ -95,6 +95,11 @@ if __name__ == '__main__':
                 
                 dogs.append(myDog)
                 
+        # Generate 30 random numbers between 500 and 2000
+        dog_prices = [random.randint(500, 2000) for _ in range(30)]
+        
+        for price, dog in zip(dog_prices, dogs):
+            dog['price'] = price
 
         #Generating 30 random dog names and adding to dog object
         dog_names = [fake.dog_name() for _ in range(30)]
@@ -128,7 +133,8 @@ if __name__ == '__main__':
                 image=dog['image'],
                 name=dog['name'],
                 description=dog['temperament'],
-                age=dog['age']
+                age=dog['age'],
+                price=dog['price']
             )
             newDogs.append(newDog)
             
