@@ -1,25 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import DogCard from "./DogCard";
+import { DogContext } from "./AppContext";
 
 
 function DogList(){
 
-    const [dogList, setDogList] = useState([]);
-    
+    const { dogList } = useContext(DogContext);
 
-    useEffect(() => {
-        fetch("/dogs")
-        .then(r => {
-            if(r.ok){
-                r.json()
-                .then(dogs => {
-                    setDogList(dogs)
-                })
-            } else {
-                console.log(r)
-            }
-        })
-    },[]);
+    if (!dogList) {
+        // Handle the case where dogList is null or undefined
+        return <div>Loading...</div>; // or any other loading indicator
+    }
 
     return (
         <div className="dog-list-container">

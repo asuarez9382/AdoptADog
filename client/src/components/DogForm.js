@@ -24,6 +24,13 @@ function DogForm(){
         e.preventDefault();
         console.log(formData)
 
+        setFormData({
+            name: '',
+            breed: '',
+            price: '',
+            age: '',
+            description: ''
+            })
     }
     
 
