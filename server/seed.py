@@ -96,7 +96,7 @@ if __name__ == '__main__':
                 dogs.append(myDog)
                 
         # Generate 30 random numbers between 500 and 2000
-        dog_prices = [random.randint(500, 2000) for _ in range(30)]
+        dog_prices = [random.randint(50, 200) * 10 for _ in range(30)]
         
         for price, dog in zip(dog_prices, dogs):
             dog['price'] = price
