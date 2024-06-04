@@ -5,7 +5,7 @@ import { formSchema } from "../formSchema";
 
 function DogForm(){
 
-    const {dogList, setDogList } = useContext(DogContext)
+    const { dogList, setDogList } = useContext(DogContext)
 
     const formik = useFormik({
         initialValues: {

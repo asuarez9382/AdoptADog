@@ -30,33 +30,6 @@
             image: ''
             })
 
-            fetch('/dogs', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    name: name,
-                    breed: breed,
-                    price: parseInt(price),
-                    age: age,
-                    description: description,
-                    image: image,
-                }),
-            })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.json();
-            })
-            .then(data => {
-                console.log('New dog data:', data);
-                return setDogList([...dogList, data])
-    
-            })
-            .catch(error => {
-                console.error('Error adding new dog:', error);
-            });
+            
     }
     */
