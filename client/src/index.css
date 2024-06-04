@@ -171,6 +171,11 @@ button:hover {
   color: #757575; /* Grey color for description */
 }
 
+.form-error{
+  color:#4caf50;
+  font-weight:bold;
+}
+
 .dog-price {
   font-size: 1.2rem;
   color: #ff9800; /* Orange color for price */

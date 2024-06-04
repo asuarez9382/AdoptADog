@@ -33,7 +33,7 @@ function DogForm(){
                         value={formik.values.name}
                         onChange={formik.handleChange}
                     />
-                    <p style={{ color: "red" }}> {formik.errors.name}</p>
+                    <p className="form-error"> {formik.errors.name}</p>
                 </div>
                 <div className="form-group">
                     <label>Dog Breed:</label>
