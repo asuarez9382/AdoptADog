@@ -18,4 +18,16 @@ class Dog(db.Model, SerializerMixin):
     price = db.Column(db.Integer, default=500)
     
     def __repr__(self):
-        return f'<Dog {self.name} Age: {self.age} Breed: {self.breed}'
+        return f'<Dog: ID: {self.id} Name: {self.name} Age: {self.age} Breed: {self.breed}'
+    
+class User(db.Model, SerializerMixin):
+    __tablename__='users'
+    
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String, nullable=False)
+    email = db.Column(db.String, nullable=False)
+    _password_hash = db.Column(db.String)
+    
+    def __repr__(self):
+        return f'User: ID:{self.id} Username: {self.username} Email: {self.email}'
+    
