@@ -78,6 +78,34 @@ class Users(Resource):
         
         return response
     
+    def post(self):
+        
+        user_data = request.get_json()
+        
+        try:
+            
+            newUser = User(
+                username=user_data['username'],
+                email=user_data['email']
+            )
+            
+            newUser.password_hash = user_data['password']
+            
+            db.session.add(newUser)
+            db.session.commit()
+            
+            newUser_dict = newUser.to_dict()
+            
+            response = make_response(
+                newUser_dict,
+                201
+            )
+            
+            return response 
+    
+        except:
+            return { "errors": ["validation errors"] }, 400
+        
     
 
 api.add_resource(Dogs, "/dogs")
