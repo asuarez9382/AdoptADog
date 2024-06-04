@@ -1,106 +1,93 @@
 import React, { useState, useContext } from "react";
 import { DogContext } from "./AppContext";
-
-
+import { useFormik } from "formik";
+import { formSchema } from "../formSchema";
 
 function DogForm(){
 
-    const { dogList, setDogList } = useContext(DogContext);
-
-    const [formData, setFormData] = useState({
-        name: '',
-        breed: '',
-        price: '',
-        age: '',
-        description: '',
-        image: ''
-        })
-
-    function handleChange(e){
-        const { name, value } = e.target
-        setFormData({
-            ...formData,
-            [name]:value
-        })
-    }
-
-    function handleSubmit(e){
-        e.preventDefault();
-        
-        const { name, breed, price, age, description, image } = formData
-
-        setFormData({
-            name: '',
-            breed: '',
-            price: '',
-            age: '',
-            description: '',
-            image: ''
-            })
-
-            fetch('/dogs', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    name: name,
-                    breed: breed,
-                    price: parseInt(price),
-                    age: age,
-                    description: description,
-                    image: image,
-                }),
-            })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.json();
-            })
-            .then(data => {
-                console.log('New dog data:', data);
-                return setDogList([...dogList, data])
-    
-            })
-            .catch(error => {
-                console.error('Error adding new dog:', error);
-            });
-    }
-    
+    const formik = useFormik({
+        initialValues: {
+            name: "",
+            breed: "",
+            image: "",
+            price: "",
+            age: "",
+            description: ""
+        },
+        validationSchema: formSchema,
+        onSubmit: values => {
+            console.log(values);
+        }
+    });
 
     return(
         <div className="dog-form">
             <h1>Dog Details</h1>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={formik.handleSubmit}>
                 <div className="form-group">
                     <label>Dog Name:</label>
-                    <input type='text' name='name' value={formData.name} onChange={handleChange}/>
+                    <input 
+                        placeholder="Enter your dog's name"
+                        type='text' 
+                        name='name' 
+                        value={formik.values.name}
+                        onChange={formik.handleChange}
+                    />
+                    <p style={{ color: "red" }}> {formik.errors.name}</p>
                 </div>
                 <div className="form-group">
                     <label>Dog Breed:</label>
-                    <input type='text' name='breed' value={formData.breed} onChange={handleChange}/>
+                    <input 
+                        placeholder="Enter your dog's breed"
+                        type='text' 
+                        name='breed'
+                        value={formik.values.breed}
+                        onChange={formik.handleChange} 
+                    />
                 </div>
                 <div className="form-group">
                     <label>Image:</label>
-                    <input type='text' name='image' value={formData.image} onChange={handleChange}/>
+                    <input 
+                        placeholder="Input a picture of your dog"
+                        type='text' 
+                        name='image' 
+                        value={formik.values.image}
+                        onChange={formik.handleChange}
+                    />
                 </div>
                 <div className="form-group">
                     <label>Price:</label>
-                    <input type='number' name='price' value={formData.price} onChange={handleChange}/>
+                    <input 
+                        placeholder="Enter a price for your dog"
+                        type='number' 
+                        name='price' 
+                        value={formik.values.price}
+                        onChange={formik.handleChange}
+                    />
                 </div>
                 <div className="form-group">
                     <label>Age:</label>
-                    <input type='number' name='age' value={formData.age} onChange={handleChange}/>
+                    <input 
+                        placeholder="Enter your dog's age"
+                        type='number' 
+                        name='age' 
+                        value={formik.values.age}
+                        onChange={formik.handleChange}
+                    />
                 </div>
                 <div className="form-group">
                     <label>Description:</label>
-                    <input type='text' name='description' value={formData.description} onChange={handleChange}/>
+                    <input 
+                        placeholder="Enter a description of your dog"
+                        type='text' 
+                        name='description' 
+                        value={formik.values.description}
+                        onChange={formik.handleChange}
+                    />
                 </div>
                 <button type="submit">Submit</button>
             </form>
         </div>
-
     );
 }
 
