@@ -9,7 +9,7 @@ from flask_restful import Resource
 # Local imports
 from config import app, db, api
 # Add your model imports
-from models import Dog
+from models import Dog, User
 
 
 # Views go here!
@@ -63,7 +63,25 @@ class Dogs(Resource):
             return { "errors": ["validation errors"] }, 400
         
     
+class Users(Resource):
+    
+    def get(self):
+        
+        users = User.query.all()
+        
+        users_list = [ user.to_dict() for user in users ]
+        
+        response = make_response(
+            users_list,
+            200
+        )
+        
+        return response
+    
+    
+
 api.add_resource(Dogs, "/dogs")
+api.add_resource(Users, "/users")
 
 
 if __name__ == '__main__':
