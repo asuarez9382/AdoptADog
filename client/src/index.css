@@ -250,6 +250,68 @@ button[type="submit"]:hover {
   transform: translateY(-2px);
 }
 
+/* Styles for SignupForm component */
+.signup-form {
+  max-width: 500px;
+  margin: 100px auto;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #fff8e1; /* Light cream background */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+
+
+.signup-form h1 {
+  color: #ff9800; /* Orange color for the title */
+  margin-bottom: 20px;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.signup-form .form-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.signup-form .form-group label {
+  display: block;
+  font-size: 1rem;
+  color: #795548; /* Brown color for labels */
+  margin-bottom: 5px;
+}
+
+.signup-form .form-group input {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.signup-form button[type="submit"] {
+  background-color: #ff9800; /* Orange background */
+  color: #fff; /* White text */
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.signup-form button[type="submit"]:hover {
+  background-color: #e68900; /* Darker orange on hover */
+  transform: translateY(-2px);
+}
+
+.signup-form .form-error {
+  color: #f44336; /* Red color for error messages */
+  font-weight: bold;
+  margin-top: 5px;
+}
+
 
 
 
