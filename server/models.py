@@ -24,13 +24,20 @@ class Dog(db.Model, SerializerMixin):
 class User(db.Model, SerializerMixin):
     __tablename__='users'
     
+    
     id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String, nullable=False, unique=True)
+    username = db.Column(db.String, nullable=False)
     email = db.Column(db.String, nullable=False)
     _password_hash = db.Column(db.String)
     
+    __table_args__ = (
+        db.UniqueConstraint('username', name='uq_user_username'),
+        db.UniqueConstraint('email', name='uq_user_email'),
+    )
+    
     def __repr__(self):
         return f'User: ID:{self.id} Username: {self.username} Email: {self.email}'
+    
     
     @hybrid_property
     def password_hash(self):
