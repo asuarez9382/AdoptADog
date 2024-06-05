@@ -7,6 +7,20 @@ import { userFormSchema } from "../formSchema";
 
 function UserForm() {
 
+    const handleUsernameChange = (e) => {
+        // Clear unique username error when user starts typing in username field
+        setUniqueUsernameError(false);
+        // Call formik's handleChange to update the form values
+        formik.handleChange(e);
+      };
+
+      const handleEmailChange = (e) => {
+        // Clear unique username error when user starts typing in username field
+        setUniqEmailError(false);
+        // Call formik's handleChange to update the form values
+        formik.handleChange(e);
+      };
+
     const { userList, setUserList } = useContext(DogContext)
     const [ uniqueUsernameError, setUniqueUsernameError ] = useState(false)
     const [ uniqueEmailError, setUniqEmailError ] = useState(false)
@@ -80,7 +94,7 @@ function UserForm() {
                         name="username"
                         placeholder="Enter username"
                         value={formik.values.username}
-                        onChange={formik.handleChange}
+                        onChange={handleUsernameChange}
                         onBlur={formik.handleBlur}
                     />
                     { formik.errors.username && formik.touched.username ? <p className="form-error"> {formik.errors.username}</p> : ""}
@@ -93,7 +107,7 @@ function UserForm() {
                         name="email"
                         placeholder="Enter a valid email"
                         value={formik.values.email}
-                        onChange={formik.handleChange}
+                        onChange={handleEmailChange}
                         onBlur={formik.handleBlur}
                     />
                     { formik.errors.email && formik.touched.email ? <p className="form-error"> {formik.errors.email}</p> : ""}
