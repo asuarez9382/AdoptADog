@@ -4,6 +4,7 @@ import { DogContext } from "./AppContext";
 import { userFormSchema } from "../formSchema";
 
 
+
 function UserForm() {
 
     const { userList, setUserList } = useContext(DogContext)
@@ -13,7 +14,7 @@ function UserForm() {
             username: "",
             email: "",
             password: "",
-            confirm_password: ""
+            confirmPassword: ""
         },
         validationSchema: userFormSchema,
         onSubmit: values => {
@@ -58,8 +59,9 @@ function UserForm() {
                         placeholder="Enter username"
                         value={formik.username}
                         onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
                     />
-                    <p className="form-error"> {formik.errors.username}</p>
+                    { formik.errors.username && formik.touched.username ? <p className="form-error"> {formik.errors.username}</p> : ""}
                 </div>
                 <div className="form-group">
                     <label>Email</label>
@@ -69,8 +71,9 @@ function UserForm() {
                         placeholder="Enter a valid email"
                         value={formik.email}
                         onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
                     />
-                    <p className="form-error"> {formik.errors.email}</p>
+                    { formik.errors.email && formik.touched.email ? <p className="form-error"> {formik.errors.email}</p> : ""}
                 </div>
                 <div className="form-group">
                     <label>Create a Password</label>
@@ -80,20 +83,23 @@ function UserForm() {
                         placeholder="Enter password"
                         value={formik.password}
                         onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
                     />
-                    <p className="form-error"> {formik.errors.password}</p>
+                    { formik.errors.password && formik.touched.password ? <p className="form-error"> {formik.errors.password}</p> : ""}
                 </div>
                 <div className="form-group">
                     <label>Confirm Password</label>
                     <input 
                         type="password"
-                        name="password-confirmation"
+                        name="confirmPassword"
                         placeholder="Confirm Password"
-                        value={formik.confirm_password}
+                        value={formik.confirmPassword}
                         onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
                     />
-                    <p className="form-error"> {formik.errors.confirm_password}</p>
+                    { formik.errors.confirmPassword && formik.touched.confirmPassword ? <p className="form-error"> {formik.errors.confirmPassword}</p> : ""}
                 </div>
+                <button type="submit">Submit</button>
             </form>
         </div>
     );

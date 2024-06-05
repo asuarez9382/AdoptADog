@@ -13,9 +13,10 @@ export const formSchema = yup.object().shape({
   
   export const userFormSchema = yup.object().shape({
     username: yup.string().required("Must enter a username").max(15),
-    email: yup.string().required("Must enter an email").max(15),
-    password: yup.string().required("Must enter a password"),
-    confirm_password: yup.string()
+    email: yup.string().email("Please enter a valid email").required("Must enter an email").max(15),
+    password: yup.string().min(8).required("Must enter a password"),
+    confirmPassword: yup
+    .string()
     .oneOf([yup.ref('password'), null], 'Passwords must match')
-    .required("Must confirm the password")
+    .required("Required")
   });
