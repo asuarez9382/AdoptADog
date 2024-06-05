@@ -308,8 +308,8 @@ button[type="submit"]:hover {
 }
 
 .signup-form .form-error {
-  color: #f44336; /* Red color for error messages */
-  font-weight: bold;
+  color:#4caf50;
+  font-weight:bold;
   margin-top: 5px;
 }
 
