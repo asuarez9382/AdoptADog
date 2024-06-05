@@ -62,8 +62,9 @@ function DogForm(){
                         name='name' 
                         value={formik.values.name}
                         onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
                     />
-                    <p className="form-error"> {formik.errors.name}</p>
+                    {formik.touched.name && formik.errors.name ? <p className="form-error"> {formik.errors.name}</p> : ""}
                 </div>
                 <div className="form-group">
                     <label>Dog Breed:</label>
@@ -72,9 +73,10 @@ function DogForm(){
                         type='text' 
                         name='breed'
                         value={formik.values.breed}
-                        onChange={formik.handleChange} 
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur} 
                     />
-                    <p className="form-error"> {formik.errors.breed}</p>
+                    { formik.touched.breed && formik.errors.breed ?  <p className="form-error"> {formik.errors.breed}</p> : "" }
                 </div>
                 <div className="form-group">
                     <label>Image:</label>
@@ -84,8 +86,9 @@ function DogForm(){
                         name='image' 
                         value={formik.values.image}
                         onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
                     />
-                    <p className="form-error"> {formik.errors.image}</p>
+                    { formik.touched.image && formik.errors.image ? <p className="form-error"> {formik.errors.image}</p> : "" }
                 </div>
                 <div className="form-group">
                     <label>Price:</label>
@@ -95,8 +98,9 @@ function DogForm(){
                         name='price' 
                         value={formik.values.price}
                         onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
                     />
-                    <p className="form-error"> {formik.errors.price}</p>
+                    { formik.touched.price && formik.errors.price ? <p className="form-error"> {formik.errors.price}</p> : ""}
                 </div>
                 <div className="form-group">
                     <label>Age:</label>
@@ -106,8 +110,9 @@ function DogForm(){
                         name='age' 
                         value={formik.values.age}
                         onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
                     />
-                    <p className="form-error"> {formik.errors.age}</p>
+                    { formik.touched.age && formik.errors.age ?  <p className="form-error"> {formik.errors.age}</p> : "" }
                 </div>
                 <div className="form-group">
                     <label>Description:</label>
@@ -117,8 +122,9 @@ function DogForm(){
                         name='description' 
                         value={formik.values.description}
                         onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
                     />
-                    <p className="form-error"> {formik.errors.description}</p>
+                    { formik.touched.description && formik.errors.description ? <p className="form-error"> {formik.errors.description}</p> : "" }
                 </div>
                 <button type="submit">Submit</button>
             </form>

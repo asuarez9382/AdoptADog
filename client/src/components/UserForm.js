@@ -41,7 +41,7 @@ function UserForm() {
     
             })
             .catch(error => {
-                console.error('Error adding new dog:', error);
+                console.error('Error adding new user:', error);
             });
             formik.resetForm();
         }
