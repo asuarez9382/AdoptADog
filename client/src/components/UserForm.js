@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { useFormik } from "formik";
 import { DogContext } from "./AppContext";
 import { userFormSchema } from "../formSchema";
@@ -8,6 +8,8 @@ import { userFormSchema } from "../formSchema";
 function UserForm() {
 
     const { userList, setUserList } = useContext(DogContext)
+    const [ uniqueUsernameError, setUniqueUsernameError ] = useState(false)
+    const [ uniqueEmailError, setUniqEmailError ] = useState(false)
 
     const formik = useFormik({
         initialValues: {
@@ -36,9 +38,29 @@ function UserForm() {
                 return response.json();
             })
             .then(data => {
-                console.log('New user data:', data);
-                return setUserList([...userList, data])
-    
+                if(data.length == 2){
+                    console.log(data)
+                    const error_messages = data[0]
+                    setUniqueUsernameError(false);
+                    setUniqEmailError(false);
+                    for(let error of error_messages){
+                        const error_words = error.split(" ")
+                        if (error_words[0] == "Username"){
+                            setUniqueUsernameError(true)
+                        }
+                        if (error_words[0] == "Email"){
+                            setUniqEmailError(true)
+                        }
+                    }
+                }
+                else {
+                    // Reset state variables if no error messages
+                    setUniqueUsernameError(false);
+                    setUniqEmailError(false);
+                    formik.resetForm();
+                    setUserList([...userList, data]);
+                    console.log('New user data:', data);
+                }
             })
             .catch(error => {
                 console.error('Error adding new user:', error);
@@ -62,6 +84,7 @@ function UserForm() {
                         onBlur={formik.handleBlur}
                     />
                     { formik.errors.username && formik.touched.username ? <p className="form-error"> {formik.errors.username}</p> : ""}
+                    { uniqueUsernameError ? <p className="form-error">Username already taken</p> : "" }
                 </div>
                 <div className="form-group">
                     <label>Email</label>
@@ -74,6 +97,7 @@ function UserForm() {
                         onBlur={formik.handleBlur}
                     />
                     { formik.errors.email && formik.touched.email ? <p className="form-error"> {formik.errors.email}</p> : ""}
+                    { uniqueEmailError ? <p className="form-error">Email already taken</p> : "" }
                 </div>
                 <div className="form-group">
                     <label>Create a Password</label>
