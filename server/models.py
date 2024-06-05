@@ -30,10 +30,6 @@ class User(db.Model, SerializerMixin):
     email = db.Column(db.String, nullable=False)
     _password_hash = db.Column(db.String)
     
-    __table_args__ = (
-        db.UniqueConstraint('username', name='uq_user_username'),
-        db.UniqueConstraint('email', name='uq_user_email'),
-    )
     
     def __repr__(self):
         return f'User: ID:{self.id} Username: {self.username} Email: {self.email}'

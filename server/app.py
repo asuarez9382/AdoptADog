@@ -3,7 +3,7 @@
 # Standard library imports
 
 # Remote library imports
-from flask import request, make_response
+from flask import request, make_response, jsonify
 from flask_restful import Resource
 
 # Local imports
@@ -81,6 +81,23 @@ class Users(Resource):
     def post(self):
         
         user_data = request.get_json()
+        
+        errors = []
+        
+        if User.query.filter_by(username = user_data['username']).first():
+            error = "Username already exists in database"
+            errors.append(error) 
+        
+        if User.query.filter_by(email = user_data['email']).first():
+            error = "Email already exists in database"
+            errors.append(error)
+            
+        if errors:
+            response = make_response(jsonify(
+                errors, 
+                400
+            ))
+            return response
         
         try:
             
