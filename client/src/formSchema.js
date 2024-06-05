@@ -1,7 +1,7 @@
 import * as yup from "yup";
 
 
-export const formSchema = yup.object().shape({
+export const dogFormSchema = yup.object().shape({
     name: yup.string().required("Must enter a name").max(15),
     breed: yup.string().required("Must enter a breed").max(15),
     description: yup.string().required("Must enter a description"),

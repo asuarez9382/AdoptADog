@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import { DogContext } from "./AppContext";
 import { useFormik } from "formik";
-import { formSchema } from "../formSchema";
+import { dogFormSchema } from "../formSchema";
 
 function DogForm(){
 
@@ -16,7 +16,7 @@ function DogForm(){
             age: "",
             description: ""
         },
-        validationSchema: formSchema,
+        validationSchema: dogFormSchema,
         onSubmit: values => {
             fetch('/dogs', {
                 method: 'POST',

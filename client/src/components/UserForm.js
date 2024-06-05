@@ -57,7 +57,7 @@ function UserForm() {
                         type="text"
                         name="username"
                         placeholder="Enter username"
-                        value={formik.username}
+                        value={formik.values.username}
                         onChange={formik.handleChange}
                         onBlur={formik.handleBlur}
                     />
@@ -69,7 +69,7 @@ function UserForm() {
                         type="text"
                         name="email"
                         placeholder="Enter a valid email"
-                        value={formik.email}
+                        value={formik.values.email}
                         onChange={formik.handleChange}
                         onBlur={formik.handleBlur}
                     />
@@ -81,7 +81,7 @@ function UserForm() {
                         type="password"
                         name="password"
                         placeholder="Enter password"
-                        value={formik.password}
+                        value={formik.values.password}
                         onChange={formik.handleChange}
                         onBlur={formik.handleBlur}
                     />
@@ -93,7 +93,7 @@ function UserForm() {
                         type="password"
                         name="confirmPassword"
                         placeholder="Confirm Password"
-                        value={formik.confirmPassword}
+                        value={formik.values.confirmPassword}
                         onChange={formik.handleChange}
                         onBlur={formik.handleBlur}
                     />
