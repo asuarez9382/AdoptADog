@@ -3,7 +3,7 @@
 # Standard library imports
 
 # Remote library imports
-from flask import request, make_response, jsonify
+from flask import request, make_response, jsonify, session
 from flask_restful import Resource
 
 # Local imports
@@ -111,6 +111,8 @@ class Users(Resource):
             db.session.add(newUser)
             db.session.commit()
             
+            session['user_id'] = newUser.id
+            
             newUser_dict = newUser.to_dict()
             
             response = make_response(
@@ -123,11 +125,53 @@ class Users(Resource):
         except:
             return { "errors": ["validation errors"] }, 400
         
+        
+class Login(Resource):
     
+    def post(self):
+        
+        user_data = request.get_json()
+        
+        username = user_data['username']
+        password = user_data['password']
+        
+        user = User.query.filter_by(username = username).first()
+        
+        if user:
+            if user.authenticate(password):
+                session['user_id'] = user.id
+                return user.to_dict(), 200
+            return { 'error': '401 Unauthorized' }, 401
+        else:
+            return { 'error': '401 Unauthorized' }, 401
+    
+
+class Logout(Resource):
+    
+    def delete(self):
+        
+        if session.get('user_id'):
+            
+            session['user_id'] = None
+            
+            return {}, 204
+        return { 'error': '401 Unauthorized' }, 401
+    
+class CheckSession(Resource):
+    
+    def get(self):
+        user = User.query.filter(User.id == session['user_id']).first()
+        
+        if user:
+            return user.to_dict(), 200
+        else:
+            return { 'error': '401 Unauthorized' }, 401
 
 api.add_resource(Dogs, "/dogs")
 api.add_resource(Users, "/users")
-
+api.add_resource(Login, "/login")
+api.add_resource(Logout, "/logout")
+api.add_resource(CheckSession, "/check_session")
 
 if __name__ == '__main__':
     app.run(port=5555, debug=True)
