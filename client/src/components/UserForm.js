@@ -81,7 +81,7 @@ function UserForm() {
                         //Get rid of this when implementing login feature
                         setFormSubmitted(false);
                         navigate('/'); // Redirect to home page after 3 seconds
-                    }, 3000);
+                    }, 1000);
                 }
             })
             .catch(error => {

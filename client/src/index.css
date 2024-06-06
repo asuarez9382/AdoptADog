@@ -313,6 +313,40 @@ button[type="submit"]:hover {
   margin-top: 5px;
 }
 
+.confirmation-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full viewport height */
+  background-color: #fff; /* White background for the whole page */
+}
+
+.confirmation-card {
+  background-color: #fff8e1; /* Specified brown color */
+  border: 2px solid #ff9800; /* Orange border */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* Center vertically */
+  margin-top: -17vh; /* Positioning the card in the upper 2/3 */
+}
+
+.confirmation-message {
+  color: #ff9800; /* Orange color for contrast against the brown background */
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 20px; /* Space below the message */
+}
+
+
+
+
+
 
 
 
