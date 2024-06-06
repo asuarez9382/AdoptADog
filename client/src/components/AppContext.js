@@ -9,10 +9,7 @@ const Provider = ({ children }) => {
     const [dogList, setDogList] = useState([]);
     const [userList, setUserList] = useState([]);
     const [ formSubmitted, setFormSubmitted ] = useState(false);
-    const [ userData, setUserData ] = useState({
-        username: "",
-        email: ""
-    })
+    const [ userData, setUserData ] = useState("")
 
     useEffect(() => {
 
@@ -42,6 +39,15 @@ const Provider = ({ children }) => {
             }
         })
     },[]);
+
+    useEffect(() => {
+        // auto-login
+        fetch("/check_session").then((r) => {
+          if (r.ok) {
+            r.json().then((data) => setUserData(data));
+          }
+        });
+      }, []);
 
   return (
     <DogContext.Provider

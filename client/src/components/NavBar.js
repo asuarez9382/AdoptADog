@@ -7,6 +7,13 @@ function NavBar() {
     const { userData, setUserData } = useContext(DogContext);
     
 
+    function handleLogoutClick() {
+        fetch("/logout", { method: "DELETE" }).then((r) => {
+          if (r.ok) {
+            setUserData("");
+          }
+        });
+      }
 
     return (
         <nav className="navbar">
@@ -19,7 +26,7 @@ function NavBar() {
             <div className="nav-right">
                 {userData ? (
                     <>
-                        <Link to="/logout" className="nav-link">Logout</Link>
+                        <button onClick={handleLogoutClick}>Logout</button>
                         <Link to={`/users/${userData.id}`} className="nav-link">{userData.username}</Link>
                     </>
                 ) : (
