@@ -398,6 +398,37 @@ button[type="submit"]:hover {
   transform: translateY(-2px);
 }
 
+/* UserPage.css */
+
+/* UserPage.css */
+
+.user-page-container {
+  background-color: #fff; /* White background for the whole page */
+  height: 100vh; /* Full viewport height */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.welcome-banner {
+  background-color: #fff8e1; /* Light cream background */
+  border: 2px solid #ff9800; /* Orange border */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  width: 50%; /* Spanning most of the width of the page */
+  margin-top: 20px; /* Space below the navigation bar */
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.welcome-banner h1 {
+  color: #ff9800; /* Orange color for the title */
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 0;
+}
+
 
 
 
