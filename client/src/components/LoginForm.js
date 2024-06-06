@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { getUserPage } from "../helpFunctions";
 
 
 function LoginForm(){
@@ -40,11 +41,12 @@ function LoginForm(){
             return response.json();
         })
         .then(data => {
-            console.log('Login data:', data);
+            getUserPage(data)
             setFormData({
                 username: "",
                 password: ""
             })
+
         })
         .catch(error => {
             console.error('Error adding new dog:', error);
