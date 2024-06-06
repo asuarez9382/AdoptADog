@@ -1,4 +1,5 @@
 import React, { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import { DogContext } from "./AppContext";
 import { userFormSchema } from "../formSchema";
@@ -6,6 +7,12 @@ import { userFormSchema } from "../formSchema";
 
 
 function UserForm() {
+
+    const { setFormSubmitted } = useContext(DogContext);
+    const navigate = useNavigate();
+    const { userList, setUserList } = useContext(DogContext)
+    const [ uniqueUsernameError, setUniqueUsernameError ] = useState(false)
+    const [ uniqueEmailError, setUniqEmailError ] = useState(false)
 
     const handleUsernameChange = (e) => {
         // Clear unique username error when user starts typing in username field
@@ -20,10 +27,6 @@ function UserForm() {
         // Call formik's handleChange to update the form values
         formik.handleChange(e);
       };
-
-    const { userList, setUserList } = useContext(DogContext)
-    const [ uniqueUsernameError, setUniqueUsernameError ] = useState(false)
-    const [ uniqueEmailError, setUniqEmailError ] = useState(false)
 
     const formik = useFormik({
         initialValues: {
@@ -73,7 +76,12 @@ function UserForm() {
                     setUniqEmailError(false);
                     formik.resetForm();
                     setUserList([...userList, data]);
-                    console.log('New user data:', data);
+                    setFormSubmitted(true)
+                    setTimeout(() => {
+                        //Get rid of this when implementing login feature
+                        setFormSubmitted(false);
+                        navigate('/'); // Redirect to home page after 3 seconds
+                    }, 3000);
                 }
             })
             .catch(error => {

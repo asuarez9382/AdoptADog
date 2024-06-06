@@ -8,7 +8,7 @@ const Provider = ({ children }) => {
     
     const [dogList, setDogList] = useState([]);
     const [userList, setUserList] = useState([]);
-    
+    const [ formSubmitted, setFormSubmitted ] = useState(false);
 
     useEffect(() => {
 
@@ -41,7 +41,14 @@ const Provider = ({ children }) => {
 
   return (
     <DogContext.Provider
-        value={ { dogList, setDogList, userList, setUserList} }    
+        value={ { 
+            dogList, 
+            setDogList, 
+            userList, 
+            setUserList,
+            formSubmitted, 
+            setFormSubmitted
+        } }    
     >
         { children }
     </DogContext.Provider>
