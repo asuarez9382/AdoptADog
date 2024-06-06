@@ -30,7 +30,7 @@ function DogForm(){
                     age: values.age,
                     description: values.description,
                     image: values.image,
-                }),
+                })
             })
             .then(response => {
                 if (!response.ok) {
