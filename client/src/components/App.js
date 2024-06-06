@@ -8,6 +8,7 @@ import ListDog from "../pages/ListDog";
 import About from "../pages/About";
 import Login from "../pages/Login";
 import Signup from "../pages/Signup";
+import UserPage from "../pages/UserPage";
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
             <Route path="/about" element={<About/>} />
             <Route path="/login" element={<Login/>} />
             <Route path="/signup" element={<Signup/>} />
+            <Route path="/users/:id" element={<UserPage/>} />
           </Routes>
         </div>
       </BrowserRouter>

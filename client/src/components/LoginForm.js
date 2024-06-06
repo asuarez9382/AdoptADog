@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import { getUserPage } from "../helpFunctions";
-
+import React, { useState, useContext, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { DogContext } from "./AppContext";
 
 function LoginForm(){
 
@@ -8,6 +8,9 @@ function LoginForm(){
         username: '',
         password: ''
     });
+
+    const { userData, setUserData } = useContext(DogContext)
+    const navigate = useNavigate();
 
     function handleChange(e) {
         const { name, value } = e.target
@@ -20,6 +23,7 @@ function LoginForm(){
     function handleSubmit(e) {
         e.preventDefault()
         
+        //Calls login endpoint in API
         fetch("/login", {
             method: "POST",
             headers: {
@@ -41,18 +45,38 @@ function LoginForm(){
             return response.json();
         })
         .then(data => {
-            getUserPage(data)
             setFormData({
                 username: "",
                 password: ""
             })
 
+            //Starts calling userByID endpoint in api
+            fetch(`/users/${data['id']}`)
+            .then(response => {
+                if(!response){
+                    throw new Error('Network response was not ok');
+                }
+                return response.json()
+            })
+            .then(userData => {
+                setUserData({
+                    username: userData.username,
+                    email: userData.email
+                })
+                navigate(`/users/${userData.id}`);
+            })
         })
         .catch(error => {
             console.error('Error adding new dog:', error);
         });
     }
 
+
+    useEffect(() => {
+        if (userData.username) {
+          console.log('User data updated:', userData);
+        }
+      }, [userData]);
 
     return(
         <div className="login-container">
