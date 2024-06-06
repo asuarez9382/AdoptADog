@@ -31,6 +31,10 @@ function LoginForm(){
         })
         .then(response => {
             if (!response.ok) {
+                setFormData({
+                    username: "",
+                    password: ""
+                })
                 throw new Error('Network response was not ok');
             }
             return response.json();
