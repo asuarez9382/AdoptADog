@@ -117,9 +117,11 @@ button:hover {
 }
 
 .dog-list-title {
-  color: #ff9800; /* Orange color for the title */
-  font-size: 2rem; /* Larger font size */
-  margin-bottom: 20px; /* Add some space below the title */
+  color: #F4A460; /* Sandy brown color for title */
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 30px;
+  margin-top: 20px;
 }
 
 .dog-list {
@@ -642,6 +644,19 @@ button[type="submit"]:hover {
   border-bottom-left-radius: 0; /* Ensure bottom-left corner is square */
 }
 
+/*Filtered List */
+.filtered-list-container {
+  max-width: 800px; /* Adjust the max-width as needed */
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.filtered-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Space between list items */
+}
 
 
 
