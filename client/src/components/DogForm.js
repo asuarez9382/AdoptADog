@@ -3,6 +3,8 @@ import { DogContext } from "./AppContext";
 import { useFormik } from "formik";
 import { dogFormSchema } from "../formSchema";
 
+//Add thank you for once dog is submitted
+
 function DogForm(){
 
     const { dogList, setDogList } = useContext(DogContext)
