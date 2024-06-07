@@ -1,33 +1,24 @@
-import React, { useCallback, useContext, useState } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import Autosuggest from 'react-autosuggest';
 import { DogContext } from './AppContext';
-
-
-const languages = [
-  {
-    name: 'C',
-    year: 1972
-  },
-  {
-    name: 'C#',
-    year: 2000
-  },
-  {
-    name: 'C++',
-    year: 1983
-  }
-];
-
 
 function SearchBar() {
   const [value, setValue] = useState('');
   const [suggestions, setSuggestions] = useState([]);
+  const [uniqueBreeds, setUniqueBreeds] = useState([]);
 
-  const { dogList, setDogList } = useContext(DogContext)
+  const { dogList } = useContext(DogContext);
 
+  useEffect(() => {
+    const breedSet = new Set();
+    dogList.forEach(dog => {
+      breedSet.add(dog.breed);
+    });
+    setUniqueBreeds(Array.from(breedSet));
+  }, [dogList]);
 
   function handleClick(e) {
-    console.log(value)
+    console.log(value);
   }
 
   function escapeRegexCharacters(str) {
@@ -43,10 +34,10 @@ function SearchBar() {
   
     const regex = new RegExp('^' + escapedValue, 'i');
   
-    return dogList.filter(dog => regex.test(dog.breed));
+    return uniqueBreeds.filter(breed => regex.test(breed));
   }
 
-  const onChange = (event, { newValue, method }) => {
+  const onChange = (event, { newValue }) => {
     setValue(newValue);
   };
   
@@ -58,10 +49,10 @@ function SearchBar() {
     setSuggestions([]);
   };
 
-  const getSuggestionValue = suggestion => suggestion.breed;
+  const getSuggestionValue = suggestion => suggestion;
 
   const renderSuggestion = suggestion => (
-    <span>{suggestion.breed}</span>
+    <span>{suggestion}</span>
   );
 
   const inputProps = {
@@ -85,5 +76,6 @@ function SearchBar() {
 }
 
 export default SearchBar;
+
 
 
