@@ -10,6 +10,7 @@ const Provider = ({ children }) => {
     const [userList, setUserList] = useState([]);
     const [ formSubmitted, setFormSubmitted ] = useState(false);
     const [ userData, setUserData ] = useState("")
+    const [filteredList, setFilteredList] = useState([]);
     
 
     useEffect(() => {
@@ -61,6 +62,8 @@ const Provider = ({ children }) => {
             setFormSubmitted,
             userData,
             setUserData,
+            filteredList,
+            setFilteredList
         } }    
     >
         { children }

@@ -1,13 +1,16 @@
 import React, { useState, useContext, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Autosuggest from 'react-autosuggest';
 import { DogContext } from './AppContext';
+import DogCard from './DogCard';
 
 function SearchBar() {
   const [value, setValue] = useState('');
   const [suggestions, setSuggestions] = useState([]);
   const [uniqueBreeds, setUniqueBreeds] = useState([]);
 
-  const { dogList } = useContext(DogContext);
+  const { dogList, filteredList, setFilteredList } = useContext(DogContext);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const breedSet = new Set();
@@ -19,6 +22,12 @@ function SearchBar() {
 
   function handleClick(e) {
     console.log(value);
+
+    const uniqueDogs = dogList.filter(dog => dog.breed == value)
+    setFilteredList(uniqueDogs)
+    setValue("")
+    console.log(uniqueDogs)
+    navigate(`/dogs/${uniqueDogs[0].breed}`)
   }
 
   function escapeRegexCharacters(str) {
@@ -62,16 +71,16 @@ function SearchBar() {
   };
 
   return (
-    <div className='searchbar-container'>
-      <Autosuggest 
-        suggestions={suggestions}
-        onSuggestionsFetchRequested={onSuggestionsFetchRequested}
-        onSuggestionsClearRequested={onSuggestionsClearRequested}
-        getSuggestionValue={getSuggestionValue}
-        renderSuggestion={renderSuggestion}
-        inputProps={inputProps} />
-      <button onClick={handleClick}>Search</button>
-    </div>
+      <div className='searchbar-container'>
+        <Autosuggest 
+          suggestions={suggestions}
+          onSuggestionsFetchRequested={onSuggestionsFetchRequested}
+          onSuggestionsClearRequested={onSuggestionsClearRequested}
+          getSuggestionValue={getSuggestionValue}
+          renderSuggestion={renderSuggestion}
+          inputProps={inputProps} />
+        <button onClick={handleClick}>Search</button>
+      </div>
   );
 }
 
