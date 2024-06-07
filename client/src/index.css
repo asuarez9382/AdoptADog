@@ -31,6 +31,9 @@ header h1 {
 /* Navbar styling */
 nav {
   display: flex;
+  top: 0;
+  width: 100%;
+  z-index: 10;
   justify-content: space-between; /* Space between left and right links */
   align-items: center; /* Center vertically */
   background-color: #F4A460; /* Sandy brown */
@@ -473,6 +476,80 @@ button[type="submit"]:hover {
 .logout-button:hover {
   background-color: #ff9800; /* Darker red on hover */
   color: white;
+}
+
+/*Search Bar styles */
+/* Search Bar styles */
+.search-bar {
+  margin: 20px 0;
+  width: 100%;
+  display: flex;  /* Ensure the search bar container is a flex container */
+  justify-content: center;  /* Center the search bar within its container */
+}
+
+.search-bar input {
+  padding: 10px;
+  width: 50%; /* Adjust width to take a larger portion of the container */
+  max-width: 600px; /* Optional: Limit maximum width for better readability on large screens */
+  border: 2px solid #F4A460; /* Sandy brown border */
+  border-radius: 5px; /* Rounded corners */
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+.search-bar input:focus {
+  border-color: #D2691E; /* Darker brown on focus */
+  outline: none;
+}
+
+
+/*Home page styles */
+
+.home-main {
+  display: flex;
+  align-items: flex-start; /* Align items to the start (top) of the container */
+  justify-content: center;
+  height: 100vh; /* Full height of the viewport */
+  background-color: #fff8e1; /* Light cream background for the home page */
+}
+
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center; /* Center text */
+  padding: 20px; /* Padding for spacing */
+  margin-top: 20vh; /* Move the container down to the 2/3 mark */
+  width: 80%; /* Take 80% of the page width */
+  max-width: 1200px; /* Optional: Limit maximum width for better readability on large screens */
+}
+
+.home-container h1 {
+  color: #F4A460; /* Sandy brown color for the title */
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.home-container p {
+  color: #D2691E; /* Darker brown for the paragraph text */
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+.explore-button {
+  background-color: #F4A460; /* Sandy brown background for button */
+  color: white; /* White text */
+  border: none; /* Remove border */
+  border-radius: 5px; /* Rounded corners */
+  padding: 10px 20px; /* Padding for button size */
+  font-size: 1rem;
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s ease;
+}
+
+.explore-button:hover {
+  background-color: #D2691E; /* Darker brown on hover */
 }
 
 

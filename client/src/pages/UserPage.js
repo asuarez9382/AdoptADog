@@ -6,11 +6,13 @@ function UserPage() {
     const { userData } = useContext(DogContext)
 
     return(
-        <div className="user-page-container">
-            <div className="welcome-banner">
-                <h1>Welcome, {userData.username}!</h1>
+        
+            <div className="user-page-container">
+                <div className="welcome-banner">
+                    <h1>Welcome, {userData.username}!</h1>
+                </div>
             </div>
-        </div>
+        
     );
 }
 

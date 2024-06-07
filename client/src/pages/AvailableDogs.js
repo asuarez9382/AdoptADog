@@ -5,9 +5,9 @@ import DogList from "../components/DogList";
 function AvailableDogs() {
 
     return (
-        <div className="dog-list-container">
-            <DogList />
-        </div>
+            <div className="dog-list-container">
+                <DogList />
+            </div>
     );
 }
 
