@@ -9,7 +9,14 @@ function SearchBar() {
   const [suggestions, setSuggestions] = useState([]);
   const [uniqueBreeds, setUniqueBreeds] = useState([]);
 
-  const { dogList, filteredList, setFilteredList } = useContext(DogContext);
+  const { 
+      dogList, 
+      filteredList, 
+      setFilteredList, 
+      currentBreed, 
+      setCurrentBreed 
+    } = useContext(DogContext);
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -27,6 +34,7 @@ function SearchBar() {
     setFilteredList(uniqueDogs)
     setValue("")
     console.log(uniqueDogs)
+    setCurrentBreed(uniqueDogs[0].breed)
     navigate(`/dogs/${uniqueDogs[0].breed}`)
   }
 

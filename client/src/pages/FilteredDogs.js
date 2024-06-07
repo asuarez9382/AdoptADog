@@ -1,14 +1,22 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { DogContext } from "../components/AppContext";
 import DogCard from "../components/DogCard";
 
 function FilteredDogs() {
 
-    const { filteredList, setFilteredList } = useContext(DogContext);
+    const { filteredList, setFilteredList, currentBreed } = useContext(DogContext);
+
+    const navigate = useNavigate();
+
+    
+    if(filteredList){
+        navigate("/");
+    }
 
     return(
         <div className="filtered-list-container">
-            <h1 className="dog-list-title">Available {filteredList[0]['breed']}'s</h1>
+            <h1 className="dog-list-title">Available {currentBreed}'s</h1>
             <div className="filtered-list">
                 {filteredList.map(dog => (
                     <DogCard
