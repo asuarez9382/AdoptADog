@@ -387,6 +387,10 @@ button[type="submit"]:hover {
   margin-bottom: 20px; /* Space below the heading */
 }
 
+.login-container p {
+  color:#4caf50
+}
+
 /* Form styling */
 .login-form .form-group {
   margin-bottom: 20px;
@@ -458,9 +462,9 @@ button[type="submit"]:hover {
 /*Logout Button */
 
 .logout-button {
-  background-color: #fff8e1; /* Red background color */
+  background-color: #fff8e1; 
   border: 10px solid #ff9800;
-  color: #ff9800; /* White text color */
+  color: #ff9800; 
   padding: 10px 20px; /* Padding */
   border: none; /* No border */
   border-radius: 5px; /* Rounded corners */
@@ -470,8 +474,8 @@ button[type="submit"]:hover {
 }
 
 .logout-button:hover {
-  background-color: #cc0000; /* Darker red on hover */
-  transform: translateY(-2px); /* Move up slightly on hover */
+  background-color: #ff9800; /* Darker red on hover */
+  color: white;
 }
 
 

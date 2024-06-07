@@ -8,11 +8,13 @@ function LoginForm(){
         username: '',
         password: ''
     });
+    const [ loginFail, setLoginFail ] = useState(false)
 
     const { userData, setUserData } = useContext(DogContext)
     const navigate = useNavigate();
 
     function handleChange(e) {
+        setLoginFail(false)
         const { name, value } = e.target
         setFormData({
             ...formData,
@@ -40,6 +42,7 @@ function LoginForm(){
                     username: "",
                     password: ""
                 })
+                setLoginFail(true)
                 throw new Error('Network response was not ok');
             }
             return response.json();
@@ -81,6 +84,7 @@ function LoginForm(){
     return(
         <div className="login-container">
             <h1>Login</h1>
+            { loginFail ? <p>Invalid Username or Password</p> : "" }
             <form className="login-form" onSubmit={handleSubmit}> 
                 <div className="form-group">
                     <label>Username</label>
