@@ -18,9 +18,7 @@ function Home() {
                 <p>Your perfect pet is just a click away.</p>
                 <button className="explore-button" onClick={handleClick}>Explore Available Dogs</button>
             </div>  
-            <div className="searchbar-container">
-                <SearchBar />
-            </div>  
+            <SearchBar />
         </main>
     );
 }
