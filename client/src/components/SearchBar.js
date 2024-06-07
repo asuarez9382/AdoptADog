@@ -26,6 +26,9 @@ function SearchBar() {
   const { dogList, setDogList } = useContext(DogContext)
 
 
+  function handleClick(e) {
+    console.log(value)
+  }
 
   function escapeRegexCharacters(str) {
     return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -76,7 +79,7 @@ function SearchBar() {
         getSuggestionValue={getSuggestionValue}
         renderSuggestion={renderSuggestion}
         inputProps={inputProps} />
-      <button>Search</button>
+      <button onClick={handleClick}>Search</button>
     </div>
   );
 }
