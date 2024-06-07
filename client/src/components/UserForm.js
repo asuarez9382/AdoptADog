@@ -9,6 +9,7 @@ import { userFormSchema } from "../formSchema";
 function UserForm() {
 
     const { setFormSubmitted } = useContext(DogContext);
+    const { userData, setUserData } = useContext(DogContext)
     const navigate = useNavigate();
     const { userList, setUserList } = useContext(DogContext)
     const [ uniqueUsernameError, setUniqueUsernameError ] = useState(false)
@@ -77,10 +78,11 @@ function UserForm() {
                     formik.resetForm();
                     setUserList([...userList, data]);
                     setFormSubmitted(true)
+                    setUserData(data)
                     setTimeout(() => {
                         //Get rid of this when implementing login feature
                         setFormSubmitted(false);
-                        navigate('/'); // Redirect to home page after 3 seconds
+                        navigate("/"); // Redirect to home page after 3 seconds
                     }, 1000);
                 }
             })
