@@ -15,9 +15,12 @@ function Home() {
         <main className="home-main">
             <div className="home-container"> 
                 <h1>Welcome to AdoptADog</h1>
-                <p>Your perfect pet is just a click away.</p>                    <button className="explore-button" onClick={handleClick}>Explore Available Dogs</button>
+                <p>Your perfect pet is just a click away.</p>
+                <button className="explore-button" onClick={handleClick}>Explore Available Dogs</button>
+            </div>  
+            <div className="searchbar-container">
                 <SearchBar />
-            </div>
+            </div>  
         </main>
     );
 }
