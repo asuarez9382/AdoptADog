@@ -35,7 +35,7 @@ function SearchBar() {
     setValue("")
     console.log(uniqueDogs)
     setCurrentBreed(uniqueDogs[0].breed)
-    navigate(`/dogs/${uniqueDogs[0].breed}`)
+    navigate(`/filtered-dogs/${uniqueDogs[0].breed}`)
   }
 
   function escapeRegexCharacters(str) {

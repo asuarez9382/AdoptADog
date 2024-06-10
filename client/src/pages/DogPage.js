@@ -17,7 +17,7 @@ function DogPage(){
                 console.log(r)
             }
         })
-        .then(data => console.log(data))
+        .then(data => setDogInfo(data))
     })
 
     if (!dogInfo) {
