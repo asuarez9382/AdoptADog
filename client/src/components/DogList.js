@@ -23,7 +23,7 @@ function DogList(){
                         name={dog.name}
                         breed={dog.breed}
                         image={dog.image}
-                        isAdopted={dog.isAdopted}
+                        is_adopted={dog.is_adopted}
                         age={dog.age}
                         description={dog.description} 
                         price={dog.price}

@@ -718,6 +718,25 @@ button[type="submit"]:hover {
   text-align: justify; /* Align description text to the left */
 }
 
+/*Adopt button */
+.adopt-btn {
+  background-color: #F4A460; /* Green background */
+  margin-top: 10px;
+  color: #fff; /* White text */
+  border: none; /* No border */
+  border-radius: 5px; /* Rounded corners */
+  padding: 10px 20px; /* Padding for button size */
+  font-size: 1rem; /* Font size */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s ease; /* Transition effect for background color */
+}
+
+.adopt-btn:hover {
+  background-color: #de8612; /* Darker orange on hover */
+}
+
+
+
 
 
 

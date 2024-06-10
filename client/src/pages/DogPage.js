@@ -6,6 +6,8 @@ function DogPage(){
 
     const { id } = useParams();
     const [dogInfo, setDogInfo] = useState("")
+    const [adopted, setAdopted] = useState("")
+   
 
     useEffect(() => {
         fetch(`/dogs/${id}`)
@@ -17,8 +19,11 @@ function DogPage(){
                 console.log(r)
             }
         })
-        .then(data => setDogInfo(data))
-    })
+        .then(data => {
+            setAdopted(data.is_adopted)
+            return setDogInfo(data)
+        })
+    }, [])
 
     if (!dogInfo) {
         return <div>Loading...</div>;
@@ -26,7 +31,7 @@ function DogPage(){
 
     return (
         <div className="dog-page-container">
-            <h1 className="dog-page-title">Adopt {dogInfo['name']}</h1>
+            <h1 className="dog-page-title">{ adopted ? "Adopted" : `Adopt ${dogInfo['name']}`}</h1>
             <div className="dog-page-content">
                 <div className="dog-page-left">
                     <div className="dog-page-image-container">
