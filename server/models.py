@@ -21,8 +21,9 @@ class Dog(db.Model, SerializerMixin):
     
     user = db.relationship('User', back_populates='dogs', cascade='all')
     
+    
     def __repr__(self):
-        return f'<Dog: ID: {self.id} Name: {self.name} Age: {self.age} Breed: {self.breed}'
+        return f'<Dog: ID: {self.id} Name: {self.name} Age: {self.age} Breed: {self.breed}>'
     
 class User(db.Model, SerializerMixin):
     __tablename__='users'
@@ -34,6 +35,7 @@ class User(db.Model, SerializerMixin):
     _password_hash = db.Column(db.String)
     
     dogs = db.relationship('Dog', back_populates='user', cascade='all')
+    
     
     def __repr__(self):
         return f'User: ID:{self.id} Username: {self.username} Email: {self.email}'
