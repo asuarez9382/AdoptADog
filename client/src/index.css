@@ -676,6 +676,7 @@ button[type="submit"]:hover {
 .dog-page-title {
   text-align: center; /* Center the title */
   margin-bottom: 50px;
+  color: #F4A460;
 }
 
 .dog-page-content {
@@ -694,6 +695,10 @@ button[type="submit"]:hover {
   width: 300px; /* Adjust image width as needed */
 }
 
+.dog-page-price {
+  color:#4caf50;
+}
+
 .dog-page-image {
   width: 100%;
   border-radius: 10px; /* Rounded corners for the image */
@@ -704,12 +709,13 @@ button[type="submit"]:hover {
   max-width: 300px; /* Limit details width */
   margin-top: 20px;
   text-align: center;
+  color: #795548;
 }
 
 .dog-page-description {
   flex: 1; /* Take remaining space */
   max-width: 600px; /* Limit description width */
-  text-align: left; /* Align description text to the left */
+  text-align: justify; /* Align description text to the left */
 }
 
 

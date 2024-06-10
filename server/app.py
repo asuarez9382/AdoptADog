@@ -81,6 +81,30 @@ class DogByID(Resource):
         
         else:
             return { "error": "Dog not found" }, 404
+        
+    def patch(self, id):
+        
+        dog_data = request.get_json()
+        
+        dog = Dog.query.filter_by(id=id).first()
+        
+        if dog:
+            
+            dog.is_adopted = dog_data['is_adopted']
+            
+            db.session.commit()
+    
+            dog_dict = dog.to_dict()
+    
+            response = make_response(
+                dog_dict,
+                200
+            )
+            
+            return response 
+        
+        else:
+            return { "error": "Dog does not exist" }
     
     
 class Users(Resource):
@@ -163,7 +187,9 @@ class UserByID(Resource):
             return response 
             
         else:
-            return { "error": "User does not exist" }, 404        
+            return { "error": "User does not exist" }, 404
+        
+                
         
 class Login(Resource):
     

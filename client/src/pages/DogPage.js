@@ -40,12 +40,9 @@ function DogPage(){
                 </div>
                 <div className="dog-page-description">
                     <p>
-                        Meet {dogInfo['name']}, a lovable {dogInfo['breed']} with a heart full of affection and a playful spirit. 
-                        {dogInfo['name']} has grown into a well-mannered and loyal companion, always ready to share a cuddle or join in on an adventure. 
-                        This delightful {dogInfo['age']}-year-old pup enjoys long walks, playing fetch, and exploring new places, making them an excellent companion for an active individual or family.
-                        {dogInfo['name']} has a gentle temperament and gets along well with other pets and children, making them a perfect fit for a variety of homes. 
-                        They are also very smart and have mastered basic commands, showing great potential for further training. 
-                        {dogInfo['name']}'s favorite pastime is lounging in the sun and soaking up all the love and attention they can get.
+                        Meet {dogInfo['name']}, a lovable {dogInfo['breed']} with a heart full of affection and a playful spirit. {dogInfo['name']} has grown into a well-mannered and loyal companion, always ready to share a cuddle or join in on an adventure. 
+                        This delightful {dogInfo['age']}-year-old pup enjoys long walks, playing fetch, and exploring new places, making them an excellent companion for an active individual or family. {dogInfo['name']} has a gentle temperament and gets along well with other pets and children, making them a perfect fit for a variety of homes. 
+                        They are also very smart and have mastered basic commands, showing great potential for further training. {dogInfo['name']}'s favorite pastime is lounging in the sun and soaking up all the love and attention they can get.
                         With a striking coat and expressive eyes, {dogInfo['name']} is not only beautiful but also has a personality that will instantly warm your heart. 
                         They are up to date on all vaccinations, neutered/spayed, and fully vetted, ready to become a cherished member of their new family. 
                         If you're looking for a loyal, loving, and playful companion, {dogInfo['name']} is the perfect dog for you.
