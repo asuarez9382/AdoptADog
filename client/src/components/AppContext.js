@@ -13,6 +13,8 @@ const Provider = ({ children }) => {
     const [filteredList, setFilteredList] = useState([]);
     const [currentBreed, setCurrentBreed] = useState("");
     
+    
+    
 
     useEffect(() => {
 
@@ -41,7 +43,7 @@ const Provider = ({ children }) => {
                 console.log(r)
             }
         })
-    },[]);
+    },[dogList]);
 
     useEffect(() => {
         // auto-login
@@ -51,6 +53,7 @@ const Provider = ({ children }) => {
           }
         });
       }, []);
+
 
   return (
     <DogContext.Provider
@@ -66,7 +69,7 @@ const Provider = ({ children }) => {
             filteredList,
             setFilteredList,
             currentBreed,
-            setCurrentBreed
+            setCurrentBreed,
         } }    
     >
         { children }

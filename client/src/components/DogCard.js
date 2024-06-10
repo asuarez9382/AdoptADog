@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { DogContext } from "./AppContext";
 import { Link } from "react-router-dom";
 
 function DogCard({
@@ -12,7 +13,8 @@ function DogCard({
   price
 }) {
 
-  const [adopted, setAdopted] = useState(is_adopted)
+  
+  const { dogList, setDogList } = useContext(DogContext)
 
   function handleClick(e){
     fetch(`/dogs/${id}`, {
@@ -32,8 +34,6 @@ function DogCard({
     })
     .then(data => {
       console.log('Success:', data);
-      setAdopted(true) 
-      // Handle success response here
     })
     .catch(error => {
       console.error('Error:', error);
@@ -49,8 +49,8 @@ function DogCard({
           </Link>
         </div>
         <h3 className="dog-name">{name}</h3>
-        <h3 className={`dog-status ${adopted ? 'adopted' : 'available'}`}>
-            {adopted ? "Adopted" : "Available for Adoption"}
+        <h3 className={`dog-status ${is_adopted ? 'adopted' : 'available'}`}>
+            {is_adopted ? "Adopted" : "Available for Adoption"}
         </h3>
         <h3 className="dog-breed">{breed}</h3>
         <h3 className="dog-price">${price}</h3>

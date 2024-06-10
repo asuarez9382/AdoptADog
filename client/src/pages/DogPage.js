@@ -1,12 +1,43 @@
-import React, { useEffect, useState }  from "react";
+import React, { useContext, useEffect, useState }  from "react";
 import { useParams } from "react-router-dom";
+import { DogContext } from "../components/AppContext";
 
 
 function DogPage(){
 
     const { id } = useParams();
     const [dogInfo, setDogInfo] = useState("")
-    const [adopted, setAdopted] = useState("")
+
+    
+    
+
+    function handleClick(e){
+        fetch(`/dogs/${id}`, {
+          method: 'PATCH',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            is_adopted: true
+          })
+        })
+        .then(response => {
+          if(!response.ok) {
+            throw new Error('Network response was not ok')
+          }
+          return response.json();
+        })
+        .then(data => {
+            
+            console.log('Success:', data);
+            // Handle success response here
+            
+        })
+        .catch(error => {
+          console.error('Error:', error);
+          // Handle error here
+        });
+      }
    
 
     useEffect(() => {
@@ -20,10 +51,9 @@ function DogPage(){
             }
         })
         .then(data => {
-            setAdopted(data.is_adopted)
             return setDogInfo(data)
         })
-    }, [])
+    }, [dogInfo])
 
     if (!dogInfo) {
         return <div>Loading...</div>;
@@ -31,7 +61,7 @@ function DogPage(){
 
     return (
         <div className="dog-page-container">
-            <h1 className="dog-page-title">{ adopted ? "Adopted" : `Adopt ${dogInfo['name']}`}</h1>
+            <h1 className="dog-page-title">{ dogInfo['is_adopted'] ? "Adopted" : `Adopt ${dogInfo['name']}`}</h1>
             <div className="dog-page-content">
                 <div className="dog-page-left">
                     <div className="dog-page-image-container">
@@ -41,7 +71,11 @@ function DogPage(){
                         <h3 className="dog-page-breed">{dogInfo['breed']}</h3>
                         <h3 className="dog-page-price">${dogInfo['price']}</h3>
                         <h3 className="dog-page-age">Age: {dogInfo['age']}</h3>
-                    </div>
+                    </div>{
+                        dogInfo['is_adopted'] ? ""
+                        :
+                        <button onClick={handleClick} className="adopt-btn">Adopt Me</button>
+                    }
                 </div>
                 <div className="dog-page-description">
                     <p>
