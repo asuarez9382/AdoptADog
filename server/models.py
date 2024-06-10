@@ -17,6 +17,9 @@ class Dog(db.Model, SerializerMixin):
     is_adopted = db.Column(db.Boolean, default=False)
     image = db.Column(db.String, nullable=False)
     price = db.Column(db.Integer, default=500)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+    
+    user = db.relationship('User', back_populates='dogs', cascade='all')
     
     def __repr__(self):
         return f'<Dog: ID: {self.id} Name: {self.name} Age: {self.age} Breed: {self.breed}'
@@ -30,6 +33,7 @@ class User(db.Model, SerializerMixin):
     email = db.Column(db.String, nullable=False)
     _password_hash = db.Column(db.String)
     
+    dogs = db.relationship('Dog', back_populates='user', cascade='all')
     
     def __repr__(self):
         return f'User: ID:{self.id} Username: {self.username} Email: {self.email}'
