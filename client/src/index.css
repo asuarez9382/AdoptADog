@@ -659,7 +659,7 @@ button[type="submit"]:hover {
   gap: 20px; /* Space between list items */
 }
 
-/* DogPage styles */
+/*Dog Page Styles */
 .dog-page-container {
   display: flex;
   flex-direction: column;
@@ -669,58 +669,50 @@ button[type="submit"]:hover {
   padding: 20px;
   width: 100%;
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 50px auto; /* Add margin for space */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for the container */
 }
 
-.dog-page-container h1 {
-  color: #F4A460; /* Sandy brown for the title */
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-  text-align: center;
+.dog-page-title {
+  text-align: center; /* Center the title */
+  margin-bottom: 50px;
 }
 
-.dog-page-card {
+.dog-page-content {
+  display: flex;
+  flex-wrap: wrap; /* Allow content to wrap */
+  justify-content: center; /* Center content horizontally */
+  gap: 20px; /* Add gap between left and right sections */
+}
+
+.dog-page-left {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  width: 100%;
 }
 
 .dog-page-image-container {
-  width: 100%;
-  max-width: 600px;
+  width: 300px; /* Adjust image width as needed */
 }
 
 .dog-page-image {
   width: 100%;
   border-radius: 10px; /* Rounded corners for the image */
-  margin-bottom: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for the image */
 }
 
-.dog-page-name, .dog-page-status, .dog-page-breed, .dog-page-price, .dog-page-age {
-  color: #D2691E; /* Darker brown for the text */
-  font-size: 1.2rem;
-  margin: 10px 0;
-}
-
-.dog-page-status.available {
-  color: #32CD32; /* Green for available status */
-}
-
-.dog-page-status.adopted {
-  color: #D2691E; /* Darker brown for adopted status */
+.dog-page-details {
+  max-width: 300px; /* Limit details width */
+  margin-top: 20px;
+  text-align: center;
 }
 
 .dog-page-description {
-  text-align: left;
-  color: #D2691E; /* Darker brown for the text */
-  font-size: 1rem;
-  margin-top: 20px;
+  flex: 1; /* Take remaining space */
+  max-width: 600px; /* Limit description width */
+  text-align: left; /* Align description text to the left */
 }
+
+
 
 
 
