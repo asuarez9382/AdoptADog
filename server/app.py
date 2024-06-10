@@ -62,6 +62,26 @@ class Dogs(Resource):
         except:
             return { "errors": ["validation errors"] }, 400
         
+class DogByID(Resource):
+    
+    def get(self, id):
+        
+        dog = Dog.query.filter_by(id=id).first()
+        
+        if dog:
+            
+            dog_dict = dog.to_dict()
+            
+            response = make_response(
+                dog_dict,
+                200
+            )
+            
+            return response
+        
+        else:
+            return { "error": "Dog not found" }, 404
+    
     
 class Users(Resource):
     
@@ -187,6 +207,7 @@ class CheckSession(Resource):
             return { 'error': '401 Unauthorized' }, 401
 
 api.add_resource(Dogs, "/dogs")
+api.add_resource(DogByID, "/dogs/<int:id>")
 api.add_resource(Users, "/users")
 api.add_resource(UserByID, "/users/<int:id>")
 api.add_resource(Login, "/login")

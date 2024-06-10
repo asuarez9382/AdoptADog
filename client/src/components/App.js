@@ -10,7 +10,7 @@ import Login from "../pages/Login";
 import Signup from "../pages/Signup";
 import UserPage from "../pages/UserPage";
 import FilteredDogs from "../pages/FilteredDogs";
-
+import DogPage from "../pages/DogPage";
 
 
 function App() {
@@ -24,6 +24,7 @@ function App() {
           <Routes> 
             <Route path="/" element={<Home />} /> 
             <Route path="/dogs" element={<AvailableDogs/>} />
+            <Route path="/dogs/:id" element={<DogPage/>} />
             <Route path="/listdog" element={<ListDog/>} />
             <Route path="/about" element={<About/>} />
             <Route path="/login" element={<Login/>} />

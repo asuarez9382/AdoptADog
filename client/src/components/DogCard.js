@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function DogCard({
   id,
@@ -13,7 +14,9 @@ function DogCard({
   return (
     <div className="dog-card">
         <div className="dog-image-container">
+          <Link to={`/dogs/${id}`}>
             <img src={image} alt={breed} className="dog-image" />
+          </Link>
         </div>
         <h3 className="dog-name">{name}</h3>
         <h3 className={`dog-status ${isAdopted ? 'adopted' : 'available'}`}>
