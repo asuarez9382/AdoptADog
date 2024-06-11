@@ -8,10 +8,8 @@ import { userFormSchema } from "../formSchema";
 
 function UserForm() {
 
-    const { setFormSubmitted } = useContext(DogContext);
-    const { userData, setUserData } = useContext(DogContext)
+    const { setFormSubmitted, userData, setUserData, showLogOn, setShowLogOn, userList, setUserList } = useContext(DogContext);
     const navigate = useNavigate();
-    const { userList, setUserList } = useContext(DogContext)
     const [ uniqueUsernameError, setUniqueUsernameError ] = useState(false)
     const [ uniqueEmailError, setUniqEmailError ] = useState(false)
 
@@ -79,6 +77,7 @@ function UserForm() {
                     setUserList([...userList, data]);
                     setFormSubmitted(true)
                     setUserData(data)
+                    setShowLogOn(false)
                     setTimeout(() => {
                         //Get rid of this when implementing login feature
                         setFormSubmitted(false);

@@ -5,11 +5,12 @@ import DogCard from "../components/DogCard";
 
 function FilteredDogs() {
 
-    const { filteredList, setFilteredList, currentBreed, showLogOn, setShowLogOn } = useContext(DogContext);
+    const { filteredList, setFilteredList, currentBreed, showLogOn, setShowLogOn, userData } = useContext(DogContext);
 
     const navigate = useNavigate();
 
-    
+    console.log(showLogOn)
+
     if(!filteredList){
         console.log("took me to home")
         navigate("/");
@@ -31,6 +32,7 @@ function FilteredDogs() {
                         age={dog.age}
                         description={dog.description} 
                         price={dog.price}
+                        userData={userData}
                     />
                 ))}
             </div>

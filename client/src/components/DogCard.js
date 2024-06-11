@@ -40,7 +40,6 @@ function DogCard({
     })
     .then(data => {
       setAdoptTrigger(status => !status)
-      console.log(adoptTrigger)
     }
     )
     .catch(error => {

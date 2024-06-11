@@ -50,7 +50,7 @@ const Provider = ({ children }) => {
         })
     },[adoptTrigger])
 
-    //Figure out how to get shared state can't put [dogList]
+    
     useEffect(() => {
 
         //Get request for users
