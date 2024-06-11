@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import { DogContext } from "./AppContext";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 function DogCard({
   id,
@@ -15,6 +15,10 @@ function DogCard({
 
   
   const { dogList, setDogList, adoptTrigger, setAdoptTrigger } = useContext(DogContext)
+
+  const { filteredBreed } = useParams()
+
+  console.log(`from filtered ${filteredBreed}`)
 
   function handleClick(e){
     
@@ -60,7 +64,11 @@ function DogCard({
         <h3 className="dog-price">${price}</h3>
         <h3 className="dog-age">Age: {age}</h3>
         <p className="dog-description">{description}</p>
-        <button onClick={handleClick} className="adopt-btn">Adopt Me</button>
+        {
+          filteredBreed ? ""
+          :
+          <button onClick={handleClick} className="adopt-btn">Adopt Me</button>
+        }
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { DogContext } from "../components/AppContext";
 import DogCard from "../components/DogCard";
@@ -10,7 +10,8 @@ function FilteredDogs() {
     const navigate = useNavigate();
 
     
-    if(filteredList){
+    if(!filteredList){
+        console.log("took me to home")
         navigate("/");
     }
 
