@@ -10,15 +10,16 @@ function DogCard({
   description,
   is_adopted,
   image,
-  price
+  price,
+  userData
 }) {
 
   
-  const { dogList, setDogList, adoptTrigger, setAdoptTrigger } = useContext(DogContext)
+  const { dogList, setDogList, adoptTrigger, setAdoptTrigger, handleLoggedOffClick } = useContext(DogContext)
 
   const { filteredBreed } = useParams()
 
-  console.log(`from filtered ${filteredBreed}`)
+  console.log(userData)
 
   function handleClick(e){
     
@@ -38,7 +39,6 @@ function DogCard({
       return response.json();
     })
     .then(data => {
-      console.log('Success:', data);
       setAdoptTrigger(status => !status)
       console.log(adoptTrigger)
     }
@@ -64,11 +64,15 @@ function DogCard({
         <h3 className="dog-price">${price}</h3>
         <h3 className="dog-age">Age: {age}</h3>
         <p className="dog-description">{description}</p>
-        {
-          filteredBreed ? ""
-          :
-          <button onClick={handleClick} className="adopt-btn">Adopt Me</button>
-        }
+        {userData ? (
+          filteredBreed ? (
+            ""
+          ) : (
+            <button onClick={handleClick} className="adopt-btn">Adopt Me</button>
+          )
+        ) : (
+          <button onClick={handleLoggedOffClick} className="adopt-btn">Adopt Me</button>
+        )}
     </div>
   );
 }

@@ -740,6 +740,12 @@ button[type="submit"]:hover {
   color: #4caf50;
 }
 
+/*Log on to adopt a dog message */
+.log-on-adopt-message {
+  color: #4caf50;
+  margin-bottom: 20px;
+  text-align: center;
+}
 
 
 

@@ -8,7 +8,7 @@ function DogPage(){
     const { id } = useParams();
     const [dogInfo, setDogInfo] = useState("");
 
-    const { adoptTrigger, setAdoptTrigger } = useContext(DogContext);
+    const { adoptTrigger, setAdoptTrigger, handleLoggedOffClick, showLogOn, setShowLogOn } = useContext(DogContext);
     
 
     function handleClick(e){
@@ -63,6 +63,7 @@ function DogPage(){
     return (
         <div className="dog-page-container">
             <h1 className="dog-page-title">{ dogInfo['is_adopted'] ? "Adopted" : `Adopt ${dogInfo['name']}`}</h1>
+            { showLogOn ? <h2 className="log-on-adopt-message">Log on to adopt a dog</h2> : "" }
             <div className="dog-page-content">
                 <div className="dog-page-left">
                     <div className="dog-page-image-container">
@@ -73,9 +74,12 @@ function DogPage(){
                         <h3 className="dog-page-price">${dogInfo['price']}</h3>
                         <h3 className="dog-page-age">Age: {dogInfo['age']}</h3>
                     </div>{
-                        dogInfo['is_adopted'] ? ""
+                        showLogOn ? ( "" )
+                        : (
+                            dogInfo['is_adopted'] ? ""
                         :
                         <button onClick={handleClick} className="adopt-btn">Adopt Me</button>
+                        )
                     }
                 </div>
                 <div className="dog-page-description">

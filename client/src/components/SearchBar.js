@@ -37,12 +37,10 @@ function SearchBar({ showMessage, setShowMessage }) {
       })
       setFilteredList(uniqueDogs)
       setValue("")
-      console.log(uniqueDogs)
       setCurrentBreed(uniqueDogs[0].breed)
       navigate(`/filtered-dogs/${uniqueDogs[0].breed}`)
     }
     catch {
-      console.log("didnt work")
       setShowMessage(true)
     }
   }

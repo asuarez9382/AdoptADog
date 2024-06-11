@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 
+
 const DogContext = React.createContext();
 
  
@@ -13,6 +14,8 @@ const Provider = ({ children }) => {
     const [filteredList, setFilteredList] = useState([]);
     const [currentBreed, setCurrentBreed] = useState("");
     const [adoptTrigger, setAdoptTrigger] = useState(false);
+    const [showLogOn, setShowLogOn] = useState(false);
+    
     
     
     useEffect(() => {
@@ -73,6 +76,10 @@ const Provider = ({ children }) => {
         });
       }, []);
 
+    function handleLoggedOffClick(e) {
+        setShowLogOn(true)
+    }
+
 
   return (
     <DogContext.Provider
@@ -90,7 +97,10 @@ const Provider = ({ children }) => {
             currentBreed,
             setCurrentBreed,
             adoptTrigger,
-            setAdoptTrigger
+            setAdoptTrigger,
+            showLogOn,
+            setShowLogOn,
+            handleLoggedOffClick
         } }    
     >
         { children }

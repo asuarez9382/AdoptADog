@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import DogList from "../components/DogList";
 
 
+
 function AvailableDogs() {
+
+    
 
     return (
             <div className="dog-list-container">
