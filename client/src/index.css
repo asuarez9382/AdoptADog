@@ -735,7 +735,10 @@ button[type="submit"]:hover {
   background-color: #de8612; /* Darker orange on hover */
 }
 
-
+/*Available message */
+.availability-message {
+  color: #4caf50;
+}
 
 
 

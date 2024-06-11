@@ -4,7 +4,7 @@ import Autosuggest from 'react-autosuggest';
 import { DogContext } from './AppContext';
 import DogCard from './DogCard';
 
-function SearchBar() {
+function SearchBar({ showMessage, setShowMessage }) {
   const [value, setValue] = useState('');
   const [suggestions, setSuggestions] = useState([]);
   const [uniqueBreeds, setUniqueBreeds] = useState([]);
@@ -30,12 +30,21 @@ function SearchBar() {
   function handleClick(e) {
     console.log(value);
 
-    const uniqueDogs = dogList.filter(dog => dog.breed == value)
-    setFilteredList(uniqueDogs)
-    setValue("")
-    console.log(uniqueDogs)
-    setCurrentBreed(uniqueDogs[0].breed)
-    navigate(`/filtered-dogs/${uniqueDogs[0].breed}`)
+    try {
+      const uniqueDogs = dogList.filter(dog => {
+        console.log(dog.breed)
+        return dog.breed == value && dog.is_adopted === false;
+      })
+      setFilteredList(uniqueDogs)
+      setValue("")
+      console.log(uniqueDogs)
+      setCurrentBreed(uniqueDogs[0].breed)
+      navigate(`/filtered-dogs/${uniqueDogs[0].breed}`)
+    }
+    catch {
+      console.log("didnt work")
+      setShowMessage(true)
+    }
   }
 
   function escapeRegexCharacters(str) {
@@ -56,6 +65,7 @@ function SearchBar() {
 
   const onChange = (event, { newValue }) => {
     setValue(newValue);
+    setShowMessage(false);
   };
   
   const onSuggestionsFetchRequested = ({ value }) => {
