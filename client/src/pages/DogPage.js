@@ -6,9 +6,9 @@ import { DogContext } from "../components/AppContext";
 function DogPage(){
 
     const { id } = useParams();
-    const [dogInfo, setDogInfo] = useState("")
+    const [dogInfo, setDogInfo] = useState("");
 
-    
+    const { adoptTrigger, setAdoptTrigger } = useContext(DogContext);
     
 
     function handleClick(e){
@@ -31,6 +31,7 @@ function DogPage(){
             
             console.log('Success:', data);
             // Handle success response here
+            setAdoptTrigger(status => !status)
             
         })
         .catch(error => {

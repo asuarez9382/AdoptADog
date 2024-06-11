@@ -9,6 +9,8 @@ from config import db, bcrypt
 class Dog(db.Model, SerializerMixin):
     __tablename__ = 'dogs'
     
+    #Serializatin as well
+    
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String, nullable=False)
     age = db.Column(db.Integer, nullable=False)
@@ -27,6 +29,8 @@ class Dog(db.Model, SerializerMixin):
     
 class User(db.Model, SerializerMixin):
     __tablename__='users'
+    
+    
     
     
     id = db.Column(db.Integer, primary_key=True)

@@ -9,15 +9,13 @@ const Provider = ({ children }) => {
     const [dogList, setDogList] = useState([]);
     const [userList, setUserList] = useState([]);
     const [ formSubmitted, setFormSubmitted ] = useState(false);
-    const [ userData, setUserData ] = useState("")
+    const [ userData, setUserData ] = useState("");
     const [filteredList, setFilteredList] = useState([]);
     const [currentBreed, setCurrentBreed] = useState("");
+    const [adoptTrigger, setAdoptTrigger] = useState(false);
     
     
-    
-
     useEffect(() => {
-
         //Get request for dogs
         fetch("/dogs")
         .then(r => {
@@ -25,11 +23,32 @@ const Provider = ({ children }) => {
                 r.json()
                 .then(dogs => {
                     setDogList(dogs)
+                    console.log("ran")
                 })
             } else {
                 console.log(r)
             }
         })
+    },[])
+
+    useEffect(() => {
+        //Get request for dogs
+        fetch("/dogs")
+        .then(r => {
+            if(r.ok){
+                r.json()
+                .then(dogs => {
+                    setDogList(dogs)
+                    console.log("ran")
+                })
+            } else {
+                console.log(r)
+            }
+        })
+    },[adoptTrigger])
+
+    //Figure out how to get shared state can't put [dogList]
+    useEffect(() => {
 
         //Get request for users
         fetch("/users")
@@ -43,7 +62,7 @@ const Provider = ({ children }) => {
                 console.log(r)
             }
         })
-    },[dogList]);
+    }, []);
 
     useEffect(() => {
         // auto-login
@@ -70,6 +89,8 @@ const Provider = ({ children }) => {
             setFilteredList,
             currentBreed,
             setCurrentBreed,
+            adoptTrigger,
+            setAdoptTrigger
         } }    
     >
         { children }

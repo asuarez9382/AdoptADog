@@ -14,9 +14,10 @@ function DogCard({
 }) {
 
   
-  const { dogList, setDogList } = useContext(DogContext)
+  const { dogList, setDogList, adoptTrigger, setAdoptTrigger } = useContext(DogContext)
 
   function handleClick(e){
+    
     fetch(`/dogs/${id}`, {
       method: 'PATCH',
       headers: {
@@ -34,7 +35,10 @@ function DogCard({
     })
     .then(data => {
       console.log('Success:', data);
-    })
+      setAdoptTrigger(status => !status)
+      console.log(adoptTrigger)
+    }
+    )
     .catch(error => {
       console.error('Error:', error);
       // Handle error here
