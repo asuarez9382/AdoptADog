@@ -19,7 +19,7 @@ function DogCard({
 
   const { filteredBreed } = useParams()
 
-  console.log(userData)
+  //console.log(userData)
 
   function handleClick(e){
     
@@ -38,8 +38,10 @@ function DogCard({
       }
       return response.json();
     })
-    .then(data => {
+    .then(dogData => {
       setAdoptTrigger(status => !status)
+      userData.dogs.push(dogData)
+      dogData.user = userData.id
     }
     )
     .catch(error => {

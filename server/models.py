@@ -30,7 +30,10 @@ class Dog(db.Model, SerializerMixin):
 class User(db.Model, SerializerMixin):
     __tablename__='users'
     
-    
+    serialize_rules = (
+        "-dogs.user",
+        "-dogs.user_id"
+    )
     
     
     id = db.Column(db.Integer, primary_key=True)
@@ -42,7 +45,7 @@ class User(db.Model, SerializerMixin):
     
     
     def __repr__(self):
-        return f'User: ID:{self.id} Username: {self.username} Email: {self.email}'
+        return f'<User: ID:{self.id} Username: {self.username} Email: {self.email}>'
     
     
     @hybrid_property
