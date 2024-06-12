@@ -23,6 +23,7 @@ class Dog(db.Model, SerializerMixin):
     
     user = db.relationship('User', back_populates='dogs', cascade='all')
     
+    favorites = db.relationship('Favorite', back_populates='dog', cascade='all')
     
     def __repr__(self):
         return f'<Dog: ID: {self.id} Name: {self.name} Age: {self.age} Breed: {self.breed}>'
@@ -43,6 +44,7 @@ class User(db.Model, SerializerMixin):
     
     dogs = db.relationship('Dog', back_populates='user', cascade='all')
     
+    favorites = db.relationship('Favorite', back_populates='user', cascade='all')
     
     def __repr__(self):
         return f'<User: ID:{self.id} Username: {self.username} Email: {self.email}>'
@@ -70,6 +72,9 @@ class Favorite(db.Model, SerializerMixin):
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     dog_id = db.Column(db.Integer, db.ForeignKey('dogs.id'))
     note = db.Column(db.String, default='Favorited')
+    
+    user = db.relationship('User', back_populates='favorites')
+    dog = db.relationship('Dog', back_populates='favorites')
     
     def __repr__(self):
         return f'<Favorite: ID: {self.id} User: {self.user_id} Dog: {self.dog_id} >'
