@@ -17,24 +17,24 @@ function App() {
   
 
   return (
-    <Provider>
       <BrowserRouter>
-        <div className="app">
-          <Header />
-          <Routes> 
-            <Route path="/" element={<Home />} /> 
-            <Route path="/dogs" element={<AvailableDogs/>} />
-            <Route path="/dogs/:id" element={<DogPage/>} />
-            <Route path="/listdog" element={<ListDog/>} />
-            <Route path="/about" element={<About/>} />
-            <Route path="/login" element={<Login/>} />
-            <Route path="/signup" element={<Signup/>} />
-            <Route path="/users/:id" element={<UserPage/>} />
-            <Route path="/filtered-dogs/:filteredBreed" element={<FilteredDogs />} />
-          </Routes>
-        </div>
+        <Provider>
+          <div className="app">
+              <Header />
+              <Routes> 
+                <Route path="/" element={<Home />} /> 
+                <Route path="/dogs" element={<AvailableDogs/>} />
+                <Route path="/dogs/:id" element={<DogPage/>} />
+                <Route path="/listdog" element={<ListDog/>} />
+                <Route path="/about" element={<About/>} />
+                <Route path="/login" element={<Login/>} />
+                <Route path="/signup" element={<Signup/>} />
+                <Route path="/users/:id" element={<UserPage/>} />
+                <Route path="/filtered-dogs/:filteredBreed" element={<FilteredDogs />} />
+              </Routes>
+            </div>
+        </Provider>
       </BrowserRouter>
-    </Provider>
   )
 }
 

@@ -18,7 +18,7 @@ function UserPage() {
         fetch(`/users/${id}`)
         .then(r => r.json())
         .then(data => setUserData(data))
-    },[])
+    },[id])
 
     if (!userData.dogs) {
         return <div>Loading...</div>;

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useLocation } from "react-router-dom"
 
 
 
@@ -10,13 +11,13 @@ const Provider = ({ children }) => {
     const [dogList, setDogList] = useState([]);
     const [userList, setUserList] = useState([]);
     const [ formSubmitted, setFormSubmitted ] = useState(false);
-    const [ userData, setUserData ] = useState("");
+    const [userData, setUserData] = useState("");
     const [filteredList, setFilteredList] = useState([]);
     const [currentBreed, setCurrentBreed] = useState("");
     const [adoptTrigger, setAdoptTrigger] = useState(false);
     const [showLogOn, setShowLogOn] = useState(false);
     
-    
+    const location = useLocation();
     
     
     useEffect(() => {
@@ -72,10 +73,13 @@ const Provider = ({ children }) => {
         // auto-login
         fetch("/check_session").then((r) => {
           if (r.ok) {
-            r.json().then((data) => setUserData(data));
+            r.json().then((data) => {
+                console.log(data)
+                setUserData(data)
+            });
           }
         });
-      }, []);
+      }, [location.pathname]);
 
     function handleLoggedOffClick(e) {
         setShowLogOn(true)
