@@ -52,7 +52,6 @@ function LoginForm(){
                 username: "",
                 password: ""
             })
-
             //Starts calling userByID endpoint in api
             fetch(`/users/${data['id']}`)
             .then(response => {

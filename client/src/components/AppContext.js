@@ -18,6 +18,7 @@ const Provider = ({ children }) => {
     
     
     
+    
     useEffect(() => {
         //Get request for dogs
         fetch("/dogs")
@@ -65,7 +66,7 @@ const Provider = ({ children }) => {
                 console.log(r)
             }
         })
-    }, []);
+    },[]);
 
     useEffect(() => {
         // auto-login

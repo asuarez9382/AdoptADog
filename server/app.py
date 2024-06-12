@@ -206,7 +206,9 @@ class Login(Resource):
         if user:
             if user.authenticate(password):
                 session['user_id'] = user.id
-                return user.to_dict(), 200
+                user_data = user.to_dict()
+                user_data['dogs'] = [dog.to_dict() for dog in user.dogs]
+                return user_data, 200
             return { 'error': '401 Unauthorized' }, 401
         else:
             return { 'error': '401 Unauthorized' }, 401
