@@ -61,3 +61,15 @@ class User(db.Model, SerializerMixin):
         
     def authenticate(self, password):
         return bcrypt.check_password_hash(self._password_hash, password.encode('utf-8'))
+    
+
+class Favorite(db.Model, SerializerMixin):
+    __tablename__ = "favorites"
+    
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+    dog_id = db.Column(db.Integer, db.ForeignKey('dogs.id'))
+    note = db.Column(db.String, default='Favorited')
+    
+    def __repr__(self):
+        return f'<Favorite: ID: {self.id} User: {self.user_id} Dog: {self.dog_id} >'
