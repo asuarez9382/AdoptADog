@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { DogContext } from "../components/AppContext";
 
 function UserPage() {
@@ -9,8 +9,7 @@ function UserPage() {
     const [userData, setUserData] = useState("");
 
     const { id } = useParams()
-    //Problems:
-    //userData.dogs.map dies on relogin
+    
 
     console.log(id)
     
@@ -30,10 +29,15 @@ function UserPage() {
                 <div className="welcome-banner">
                     <h1>Welcome, {userData.username}!</h1>
                 </div>
-                <div>
-                        <h2>My Adopted Dogs:</h2>
+                <div className="user-dog-container">
+                        <h2 className="user-dog-title">My Adopted Dogs:</h2>
                         {userData.dogs.map(dog=>(
-                            <h2>{dog.name}</h2>
+                            <div className="user-dog-details" key={dog.id}>
+                                <h2>{dog.name}</h2>
+                                <Link to={`/dogs/${dog.id}`}>
+                                    <img src={dog.image} alt={dog.breed} className="user-dog-image" />
+                                </Link>
+                            </div>
                         )
                         )}
                 </div>
