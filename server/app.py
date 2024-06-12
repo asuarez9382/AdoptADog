@@ -91,6 +91,7 @@ class DogByID(Resource):
         if dog:
             
             dog.is_adopted = dog_data['is_adopted']
+            dog.user_id = dog_data['user_id']
             
             db.session.commit()
     

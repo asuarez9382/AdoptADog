@@ -7,8 +7,7 @@ function UserPage() {
 
     //Problems:
     //userData.dogs.map dies on relogin
-    //multiple users can adopt the same dog 
-    //user_id and dogs [] not getting commited to database therefore above
+
 
     return(
         

@@ -19,35 +19,40 @@ function DogCard({
 
   const { filteredBreed } = useParams()
 
-  //console.log(userData)
+  console.log(userData['id'])
 
   function handleClick(e){
     
-    fetch(`/dogs/${id}`, {
-      method: 'PATCH',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        is_adopted: true
+    if(!is_adopted){
+      fetch(`/dogs/${id}`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          is_adopted: true,
+          user_id: userData['id']
+        })
       })
-    })
-    .then(response => {
-      if(!response.ok) {
-        throw new Error('Network response was not ok')
+      .then(response => {
+        if(!response.ok) {
+          throw new Error('Network response was not ok')
+        }
+        return response.json();
+      })
+      .then(dogData => {
+        setAdoptTrigger(status => !status)
+        userData.dogs.push(dogData)
       }
-      return response.json();
-    })
-    .then(dogData => {
-      setAdoptTrigger(status => !status)
-      userData.dogs.push(dogData)
-      dogData.user = userData.id
+      )
+      .catch(error => {
+        console.error('Error:', error);
+        // Handle error here
+      });
     }
-    )
-    .catch(error => {
-      console.error('Error:', error);
-      // Handle error here
-    });
+    else{
+      console.log("Already adopted!")
+    }
   }
 
   return (
