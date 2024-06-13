@@ -4,12 +4,19 @@ from sqlalchemy.ext.associationproxy import association_proxy
 
 from config import db, bcrypt
 
+#Figure out serialize rules
 # Models go here!
 
 class Dog(db.Model, SerializerMixin):
     __tablename__ = 'dogs'
     
     #Serializatin as well
+    serialize_rules = (
+        '-favorites.dog',  # Exclude deeper nested favorite dog info
+        '-favorites.user',  # Exclude deeper nested favorite user info
+        '-user.dogs',       # Exclude deeper nested user's dogs info
+        '-user.favorites'   # Exclude deeper nested user's favorites info
+    )
     
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String, nullable=False)
@@ -32,8 +39,10 @@ class User(db.Model, SerializerMixin):
     __tablename__='users'
     
     serialize_rules = (
-        "-dogs.user",
-        "-dogs.user_id"
+        '-dogs.user',       # Exclude deeper nested dog's user info
+        '-dogs.favorites',  # Exclude deeper nested dog's favorites info
+        '-favorites.user',  # Exclude deeper nested favorite's user info
+        '-favorites.dog'    # Exclude deeper nested favorite's dog info
     )
     
     
@@ -67,6 +76,13 @@ class User(db.Model, SerializerMixin):
 
 class Favorite(db.Model, SerializerMixin):
     __tablename__ = "favorites"
+    
+    serialize_rules = (
+        '-user.favorites',  # Exclude deeper nested user's favorites info
+        '-user.dogs',       # Exclude deeper nested user's dogs info
+        '-dog.favorites',   # Exclude deeper nested dog's favorites info
+        '-dog.user'         # Exclude deeper nested dog's user info
+    )
     
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))

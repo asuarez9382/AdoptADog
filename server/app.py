@@ -9,7 +9,7 @@ from flask_restful import Resource
 # Local imports
 from config import app, db, api
 # Add your model imports
-from models import Dog, User
+from models import Dog, User, Favorite
 
 
 # Views go here!
@@ -234,11 +234,26 @@ class CheckSession(Resource):
             return user.to_dict(), 200
         else:
             return { 'error': '401 Unauthorized' }, 401
+        
+class Favorites(Resource):
+    
+    def get(self):
+        favorites = Favorite.query.all()
+        
+        favorites_dict = [ favorite.to_dict() for favorite in favorites ]
+        
+        response = make_response(
+            favorites_dict,
+            200
+        )
+        
+        return response
 
 api.add_resource(Dogs, "/dogs")
 api.add_resource(DogByID, "/dogs/<int:id>")
 api.add_resource(Users, "/users")
 api.add_resource(UserByID, "/users/<int:id>")
+api.add_resource(Favorites, "/favorites")
 api.add_resource(Login, "/login")
 api.add_resource(Logout, "/logout")
 api.add_resource(CheckSession, "/check_session")
