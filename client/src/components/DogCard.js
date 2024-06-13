@@ -32,7 +32,25 @@ function DogCard({
   console.log(userData['id'])
 
   const toggleLike = () => {
-    setIsLiked(!isLiked);
+    setIsLiked(prevIsLiked => {
+      // Toggle the state
+      const newIsLiked = !prevIsLiked;
+  
+      // If isLiked is now true, make the GET request
+      if (newIsLiked) {
+        fetch("/favorites")
+          .then(response => {
+            if (!response.ok) {
+              throw new Error('Network response was not ok')
+            }
+            return response.json();
+          })
+          .then(data => console.log(data))
+          .catch(error => console.error('Error fetching favorites:', error));
+        }
+      // Return the new state value
+      return newIsLiked;
+    });
   };
 
   function handleClick(e){

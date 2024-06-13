@@ -249,6 +249,33 @@ class Favorites(Resource):
         
         return response
     
+    def post(self):
+        favorite_data = request.get_json()
+        
+        try:
+            new_favorite = Favorite(
+                user_id = favorite_data['user_id'],
+                dog_id = favorite_data['dog_id']
+            )
+            
+            db.session.add(new_favorite)
+            db.session.commit()
+            
+            new_favorite_dict = new_favorite.to_dict()
+            
+            response = make_response(
+                new_favorite_dict,
+                201
+            )
+            
+            return response
+        
+        except:
+            return { "errors": "Unable to create favorite" }, 400
+        
+        
+        
+    
 class FavoriteByID(Resource):
     
     def get(self,id):
@@ -266,6 +293,7 @@ class FavoriteByID(Resource):
         
         else:
             return { "error": "Favorite item does not exist" }, 404
+                
         
     def delete(self, id):
         favorite = Favorite.query.filter_by(id=id).first()
