@@ -17,9 +17,15 @@ function DogCard({
   
   const { dogList, setDogList, adoptTrigger, setAdoptTrigger, handleLoggedOffClick } = useContext(DogContext)
 
+  const [isLiked, setIsLiked] = useState(false);
+
   const { filteredBreed } = useParams()
 
   console.log(userData['id'])
+
+  const toggleLike = () => {
+    setIsLiked(!isLiked);
+  };
 
   function handleClick(e){
     
@@ -62,7 +68,16 @@ function DogCard({
             <img src={image} alt={breed} className="dog-image" />
           </Link>
         </div>
-        <h3 className="dog-name">{name}</h3>
+        <div className="dog-header">
+          <div className="dog-name-container">
+            <h3 className="dog-name">{name}</h3>
+          </div>
+          <div className="dog-heart-container">
+            <span className={`heart ${isLiked ? "liked" : ""}`} onClick={toggleLike}>
+              ♥️
+            </span>
+          </div>
+        </div>
         <h3 className={`dog-status ${is_adopted ? 'adopted' : 'available'}`}>
             {is_adopted ? "Adopted" : "Available for Adoption"}
         </h3>

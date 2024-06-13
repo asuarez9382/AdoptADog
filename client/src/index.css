@@ -136,6 +136,7 @@ button:hover {
   padding: 20px;
 }
 
+/*Dog Card styles*/
 .dog-card {
   background-color: #fff8e1; /* Light cream background */
   border: 2px solid #ff9800; /* Orange border */
@@ -172,10 +173,33 @@ button:hover {
   object-position: center;
 }
 
+.dog-header {
+  display: grid;
+  grid-template-columns: 1fr auto; /* First column takes up remaining space, second column adjusts to content */
+  grid-column-gap: 5px;
+  align-items: center; /* Align items vertically in the center */
+}
+
+.dog-name-container {
+  justify-self: center; /* Center the dog name horizontally in its column */
+}
+
 .dog-name {
-  font-size: 1.5rem;
-  color: #ff9800; /* Orange color for the name */
-  margin-bottom: 10px;
+  color: #795548;
+}
+
+.dog-heart-container {
+  justify-self: end; /* Align the heart container to the end of its column (right side) */
+}
+
+.heart {
+  font-size: 24px;
+  cursor: pointer;
+  color: #F4A460;
+}
+
+.heart.liked {
+  color: red; /* Change to your desired color */
 }
 
 .dog-status {
