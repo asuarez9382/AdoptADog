@@ -30,11 +30,10 @@ function DogCard({
   
 
   const { filteredBreed } = useParams()
-
-  console.log(favoriteList)
   
+  
+  // Check if the current dog ID is in favoriteList
   useEffect(() => {
-    // Check if the current dog ID is in favoriteList
     const isDogLiked = favoriteList.some(dog => dog.dog_id === id);
     setIsLiked(isDogLiked);
   }, [favoriteList, id]);
@@ -69,11 +68,34 @@ function DogCard({
           .catch(error => {
               console.error('Error adding new dog:', error);
           });
-        }
-      // Return the new state value
+        } else {
+          // Remove from favorites in backend
+          const favoriteToRemove = favoriteList.filter(favorite => favorite.dog_id === id);
+          if (!favoriteToRemove) return;
+
+        fetch(`/favorites/${favoriteToRemove[0]['id']}`, {
+          method: 'DELETE',
+        })
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          return response;
+        })
+        .then(() => {
+          setFavoriteList(favoriteList.filter(favorite => favorite.dog_id !== id)); // Update local state
+        })
+        .catch(error => {
+          console.error('Error removing favorite:', error);
+        });
+      }
+
       return newIsLiked;
     });
   };
+
+//Problems:
+//favoriteList is not deleting deleted favorited dog
 
   function handleClick(e){
     

@@ -73,7 +73,7 @@ const Provider = ({ children }) => {
 
     useEffect(() => {
 
-        //Get request for users
+        //Get request for favorites
         fetch("/favorites")
         .then(r => {
             if(r.ok){
@@ -88,7 +88,7 @@ const Provider = ({ children }) => {
                 console.log(r)
             }
         })
-    },[]);
+    },[userData]);
 
     useEffect(() => {
         // auto-login
