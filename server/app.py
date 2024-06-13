@@ -266,6 +266,19 @@ class FavoriteByID(Resource):
         
         else:
             return { "error": "Favorite item does not exist" }, 404
+        
+    def delete(self, id):
+        favorite = Favorite.query.filter_by(id=id).first()
+        
+        if favorite:
+            db.session.delete(favorite)
+            db.session.commit()
+            
+            return {}, 204
+        
+        else:
+            return {"error": "Favorite item not found"}, 404
+            
 
 api.add_resource(Dogs, "/dogs")
 api.add_resource(DogByID, "/dogs/<int:id>")
