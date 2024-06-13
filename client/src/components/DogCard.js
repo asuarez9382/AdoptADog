@@ -38,15 +38,28 @@ function DogCard({
   
       // If isLiked is now true, make the GET request
       if (newIsLiked) {
-        fetch("/favorites")
-          .then(response => {
-            if (!response.ok) {
-              throw new Error('Network response was not ok')
-            }
-            return response.json();
+        fetch('/favorites', {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+              user_id: userData['id'],
+              dog_id: id
           })
-          .then(data => console.log(data))
-          .catch(error => console.error('Error fetching favorites:', error));
+          })
+          .then(response => {
+              if (!response.ok) {
+                  throw new Error('Network response was not ok');
+              }
+              return response.json();
+          })
+          .then(data => {
+              console.log('New favorite data:', data);
+          })
+          .catch(error => {
+              console.error('Error adding new dog:', error);
+          });
         }
       // Return the new state value
       return newIsLiked;
