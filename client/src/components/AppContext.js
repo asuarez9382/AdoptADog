@@ -10,6 +10,7 @@ const Provider = ({ children }) => {
     
     const [dogList, setDogList] = useState([]);
     const [userList, setUserList] = useState([]);
+    const [favoriteList, setFavoriteList] = useState([]);
     const [ formSubmitted, setFormSubmitted ] = useState(false);
     const [userData, setUserData] = useState("");
     const [filteredList, setFilteredList] = useState([]);
@@ -71,6 +72,25 @@ const Provider = ({ children }) => {
     },[]);
 
     useEffect(() => {
+
+        //Get request for users
+        fetch("/favorites")
+        .then(r => {
+            if(r.ok){
+                r.json()
+                .then(favorites => {
+                    const isFavorited = favorites.filter(favorite => {
+                        return favorite.user_id === userData.id
+                    })
+                    setFavoriteList(isFavorited)
+                })
+            } else {
+                console.log(r)
+            }
+        })
+    },[]);
+
+    useEffect(() => {
         // auto-login
         fetch("/check_session").then((r) => {
           if (r.ok) {
@@ -113,7 +133,9 @@ const Provider = ({ children }) => {
             handleLoggedOffClick,
             showLikedMessage, 
             setShowLikedMessage,
-            handleLikedLoggedOffClick
+            handleLikedLoggedOffClick,
+            favoriteList, 
+            setFavoriteList
         } }    
     >
         { children }

@@ -21,7 +21,9 @@ function DogCard({
       adoptTrigger, 
       setAdoptTrigger, 
       handleLoggedOffClick,
-      handleLikedLoggedOffClick
+      handleLikedLoggedOffClick,
+      favoriteList,
+      setFavoriteList
      } = useContext(DogContext)
 
   const [isLiked, setIsLiked] = useState(false);
@@ -29,7 +31,8 @@ function DogCard({
 
   const { filteredBreed } = useParams()
 
-  console.log(userData['id'])
+  console.log(favoriteList)
+  
 
   const toggleLike = () => {
     setIsLiked(prevIsLiked => {
@@ -56,6 +59,7 @@ function DogCard({
           })
           .then(data => {
               console.log('New favorite data:', data);
+              setFavoriteList([...favoriteList, data])
           })
           .catch(error => {
               console.error('Error adding new dog:', error);
