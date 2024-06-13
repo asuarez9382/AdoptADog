@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { DogContext } from "./AppContext";
 import { Link, useParams } from "react-router-dom";
 
@@ -33,6 +33,11 @@ function DogCard({
 
   console.log(favoriteList)
   
+  useEffect(() => {
+    // Check if the current dog ID is in favoriteList
+    const isDogLiked = favoriteList.some(dog => dog.dog_id === id);
+    setIsLiked(isDogLiked);
+  }, [favoriteList, id]);
 
   const toggleLike = () => {
     setIsLiked(prevIsLiked => {
