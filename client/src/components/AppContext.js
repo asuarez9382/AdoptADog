@@ -16,6 +16,7 @@ const Provider = ({ children }) => {
     const [currentBreed, setCurrentBreed] = useState("");
     const [adoptTrigger, setAdoptTrigger] = useState(false);
     const [showLogOn, setShowLogOn] = useState(false);
+    const [showLikedMessage, setShowLikedMessage] = useState(false);
     
     const location = useLocation();
     
@@ -85,6 +86,10 @@ const Provider = ({ children }) => {
         setShowLogOn(true)
     }
 
+    function handleLikedLoggedOffClick(e) {
+        setShowLikedMessage(true)
+    }
+
 
   return (
     <DogContext.Provider
@@ -105,7 +110,10 @@ const Provider = ({ children }) => {
             setAdoptTrigger,
             showLogOn,
             setShowLogOn,
-            handleLoggedOffClick
+            handleLoggedOffClick,
+            showLikedMessage, 
+            setShowLikedMessage,
+            handleLikedLoggedOffClick
         } }    
     >
         { children }

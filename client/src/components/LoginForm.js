@@ -10,7 +10,7 @@ function LoginForm(){
     });
     const [ loginFail, setLoginFail ] = useState(false)
 
-    const { userData, setUserData, showLogOn, setShowLogOn } = useContext(DogContext)
+    const { userData, setUserData, showLogOn, setShowLogOn, setShowLikedMessage } = useContext(DogContext)
     const navigate = useNavigate();
 
     function handleChange(e) {
@@ -66,6 +66,7 @@ function LoginForm(){
                     email: userData.email
                 })
                 setShowLogOn(false)
+                setShowLikedMessage(false)
                 navigate(`/users/${userData.id}`);
             })
         })

@@ -15,9 +15,17 @@ function DogCard({
 }) {
 
   
-  const { dogList, setDogList, adoptTrigger, setAdoptTrigger, handleLoggedOffClick } = useContext(DogContext)
+  const { 
+      dogList, 
+      setDogList, 
+      adoptTrigger, 
+      setAdoptTrigger, 
+      handleLoggedOffClick,
+      handleLikedLoggedOffClick
+     } = useContext(DogContext)
 
   const [isLiked, setIsLiked] = useState(false);
+  
 
   const { filteredBreed } = useParams()
 
@@ -73,9 +81,16 @@ function DogCard({
             <h3 className="dog-name">{name}</h3>
           </div>
           <div className="dog-heart-container">
-            <span className={`heart ${isLiked ? "liked" : ""}`} onClick={toggleLike}>
-              ♥️
-            </span>
+            {userData ? (
+              <span className={`heart ${isLiked ? "liked" : ""}`} onClick={toggleLike}>
+                ♥️
+              </span>
+            ) : (
+              <span className='heart' onClick={handleLikedLoggedOffClick}>
+                ♥️
+              </span>
+            )
+            }
           </div>
         </div>
         <h3 className={`dog-status ${is_adopted ? 'adopted' : 'available'}`}>

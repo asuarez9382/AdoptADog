@@ -5,7 +5,15 @@ import { DogContext } from "./AppContext";
 
 function DogList(){
 
-    const { dogList, userData, setUserData, showLogOn, setShowLogOn } = useContext(DogContext);
+    const { 
+            dogList, 
+            userData, 
+            setUserData, 
+            showLogOn, 
+            setShowLogOn, 
+            showLikedMessage, 
+            setShowLikedMessage,
+        } = useContext(DogContext);
     
     console.log(userData)
 
@@ -17,6 +25,7 @@ function DogList(){
     return (
         <div className="dog-list-container">
             <h1 className="dog-list-title">Available Dogs</h1>
+            { showLikedMessage ? <h2 className="log-on-adopt-message">Log on to favorite a dog</h2> : "" }
             { showLogOn ? <h2 className="log-on-adopt-message">Log on to adopt a dog</h2> : "" }
             <div className="dog-list">
                 {dogList.map(dog => (
