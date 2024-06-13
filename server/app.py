@@ -248,12 +248,31 @@ class Favorites(Resource):
         )
         
         return response
+    
+class FavoriteByID(Resource):
+    
+    def get(self,id):
+        favorite = Favorite.query.filter_by(id=id).first()
+        
+        if favorite:
+            favorite_dict = favorite.to_dict()
+            
+            response = make_response(
+                favorite_dict,
+                200
+            )
+            
+            return response
+        
+        else:
+            return { "error": "Favorite item does not exist" }, 404
 
 api.add_resource(Dogs, "/dogs")
 api.add_resource(DogByID, "/dogs/<int:id>")
 api.add_resource(Users, "/users")
 api.add_resource(UserByID, "/users/<int:id>")
 api.add_resource(Favorites, "/favorites")
+api.add_resource(FavoriteByID, "/favorites/<int:id>")
 api.add_resource(Login, "/login")
 api.add_resource(Logout, "/logout")
 api.add_resource(CheckSession, "/check_session")
