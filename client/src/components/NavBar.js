@@ -38,6 +38,9 @@ function NavBar() {
         {userData ? (
           <>
             <div>
+                <Link to="/favorites" className="heart-link">
+                  ♥
+                </Link>
                 <Link to={`/users/${userData.id}`} className="nav-link">
                     {userData.username}
                 </Link>

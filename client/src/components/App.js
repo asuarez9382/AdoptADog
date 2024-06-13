@@ -11,6 +11,7 @@ import Signup from "../pages/Signup";
 import UserPage from "../pages/UserPage";
 import FilteredDogs from "../pages/FilteredDogs";
 import DogPage from "../pages/DogPage";
+import MyFavorites from "../pages/MyFavorites";
 
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
                 <Route path="/signup" element={<Signup/>} />
                 <Route path="/users/:id" element={<UserPage/>} />
                 <Route path="/filtered-dogs/:filteredBreed" element={<FilteredDogs />} />
+                <Route path="/favorites" element={<MyFavorites />} />
               </Routes>
             </div>
         </Provider>
