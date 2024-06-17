@@ -15,6 +15,12 @@ function FavoriteCard({ favorite, onDelete }) {
     console.log(e.target.value)
   }
 
+  function handleSubmit(e){
+    e.preventDefault()
+    console.log("Submitted!")
+    setNote("")
+  }
+
   //Next steps:
   //style button to be centered get input not patch working
 
@@ -35,15 +41,20 @@ function FavoriteCard({ favorite, onDelete }) {
         </button>
       </div>
       <div className='note-container'>
-      {showInput ? <input
-                        type="text"
-                        name="note"
-                        className="note-input"
-                        value= {note} 
-                        onChange={handleChange}
-                    /> 
-                    : ""}
-      </div>
+        {showInput ? (
+            <div className="note-input-container">
+                <input
+                    type="text"
+                    name="note"
+                    className="note-input"
+                    value={note} 
+                    onChange={handleChange}
+                    placeholder="Enter your note..."
+                />
+                <button className='note-button' onClick={handleSubmit}>Submit</button>
+            </div>
+        ) : ""}
+        </div>
     </div>
   );
 }
