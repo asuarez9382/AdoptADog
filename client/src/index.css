@@ -1001,10 +1001,10 @@ button[type="submit"]:hover {
 }
 
 .note-display {
-  margin-top: 20px; /* Adjust space between input/button and displayed note */
+  margin-top: 10px; /* Adjust space between input/button and displayed note */
 }
 
 .note {
   font-size: 16px;
-  color:#795548; /* Adjust text color */
+  color:#795548; 
 }

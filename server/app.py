@@ -274,7 +274,7 @@ class Favorites(Resource):
             return { "errors": "Unable to create favorite" }, 400
         
         
-        
+# Add a patch method to favoriteByID
     
 class FavoriteByID(Resource):
     
