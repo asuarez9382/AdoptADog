@@ -4,7 +4,7 @@ import { DogContext } from "../components/AppContext";
 
 function UserPage() {
 
-    //const { userData, setUserData } = useContext(DogContext)
+    
 
     const [userData, setUserData] = useState("");
 
