@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 function FavoriteCard({ favorite, onDelete }) {
   const [showInput, setShowInput] = useState(false);
   const [note, setNote] = useState("")
+  
 
   function handleNoteToggle() {
     setShowInput(prevState => !prevState);
@@ -42,16 +43,21 @@ function FavoriteCard({ favorite, onDelete }) {
       </div>
       <div className='note-container'>
         {showInput ? (
-            <div className="note-input-container">
-                <input
-                    type="text"
-                    name="note"
-                    className="note-input"
-                    value={note} 
-                    onChange={handleChange}
-                    placeholder="Enter your note..."
-                />
-                <button className='note-button' onClick={handleSubmit}>Submit</button>
+            <div className='note-sub-container'>
+                <div className="note-input-container">
+                    <input
+                        type="text"
+                        name="note"
+                        className="note-input"
+                        value={note} 
+                        onChange={handleChange}
+                        placeholder="Enter your note..."
+                    />
+                    <button className='note-button' onClick={handleSubmit}>Submit</button>
+                </div>
+                <div className='note-display'>
+                    <span className='note'>{note}</span>
+                </div>
             </div>
         ) : ""}
         </div>

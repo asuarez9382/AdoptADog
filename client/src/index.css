@@ -964,6 +964,13 @@ button[type="submit"]:hover {
   margin-top: 20px;
 }
 
+.note-sub-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
 .note-input-container {
   display: flex;
   align-items: center;
@@ -974,6 +981,7 @@ button[type="submit"]:hover {
   font-size: 16px;
   border: 1px solid #ccc;
   border-radius: 5px;
+  margin-right: 10px; /* Adjust margin between input and button */
   flex: 1;
 }
 
@@ -990,4 +998,13 @@ button[type="submit"]:hover {
 
 .note-button:hover {
   background-color: #A0522D; /* Darker brown */
+}
+
+.note-display {
+  margin-top: 20px; /* Adjust space between input/button and displayed note */
+}
+
+.note {
+  font-size: 16px;
+  color:#795548; /* Adjust text color */
 }
