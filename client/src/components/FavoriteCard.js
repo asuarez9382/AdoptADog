@@ -4,9 +4,15 @@ import { Link } from 'react-router-dom';
 
 function FavoriteCard({ favorite, onDelete }) {
   const [showInput, setShowInput] = useState(false);
+  const [note, setNote] = useState("")
 
   function handleNoteToggle() {
     setShowInput(prevState => !prevState);
+  }
+
+  function handleChange(e) {
+    setNote(e.target.value)
+    console.log(e.target.value)
   }
 
   //Next steps:
@@ -25,10 +31,18 @@ function FavoriteCard({ favorite, onDelete }) {
       </div>
       <div className="note-button-container">
         <button className="toggle-note-button" onClick={handleNoteToggle}>
-          &#x25BC;
+          { showInput ? <span>&#x25B2;</span> : <span>&#x25BC;</span>}
         </button>
-        {/* Show input or "hi" only if showInput is true */}
-        {showInput && <p>hi</p>}
+      </div>
+      <div className='note-container'>
+      {showInput ? <input
+                        type="text"
+                        name="note"
+                        className="note-input"
+                        value= {note} 
+                        onChange={handleChange}
+                    /> 
+                    : ""}
       </div>
     </div>
   );

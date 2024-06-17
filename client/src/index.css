@@ -944,13 +944,11 @@ button[type="submit"]:hover {
 }
 
 .toggle-note-button {
-  position: absolute;
   background: none;
   border: none;
   color: #F4A460;
   font-size: 16px;
   cursor: pointer;
-  align-content: center;
 }
 
 /* Prevent hover effects on delete button */
@@ -959,5 +957,6 @@ button[type="submit"]:hover {
   color: initial;
 }
 
-
-
+.note-container {
+  text-align: center;
+}
