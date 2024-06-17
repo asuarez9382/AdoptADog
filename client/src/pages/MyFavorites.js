@@ -34,22 +34,26 @@ function MyFavorites(){
   //Add button to add a note about favorited dog
 
     return(
-      <div className="user-page-container">
-        <div className="user-dog-container">
-            <h2 className="user-dog-title">My Favorited Dogs:</h2>
-            {favoriteList.map(favorite=>(
-              <div className="user-dog-details" key={favorite.dog.id}>
-                
-                <h2>{favorite.dog.name}</h2>
-                <Link to={`/dogs/${favorite.dog.id}`}>
+      <div className="fav-page-container">
+        <div className="fav-dog-container">
+          <h2 className="fav-dog-title">My Favorited Dogs:</h2>
+          <div className="fav-dog-grid">
+            {favoriteList.map(favorite => (
+              <div className="fav-dog-card" key={favorite.dog.id}>
+                <button className="delete-button" onClick={() => handleClick(favorite.id)}>x</button>
+                <Link to={`/dogs/${favorite.dog.id}`} className="fav-dog-link">
                   <img src={favorite.dog.image} alt={favorite.dog.breed} className="user-dog-image" />
+                  <div className="fav-dog-details">
+                    <h3 className="fav-dog-name">{favorite.dog.name}</h3>
+                    <p className="fav-dog-breed">{favorite.dog.breed}</p>
+                    <p className="fav-dog-price">${favorite.dog.price}</p>
+                  </div>
                 </Link>
-                <button onClick={() => handleClick(favorite.id)}>x</button>
               </div>
-              )
-            )}
+            ))}
+          </div>
         </div>
-      </div>
+    </div>
     );
 }
 

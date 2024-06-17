@@ -64,6 +64,9 @@ function DogCard({
           .then(data => {
               console.log('New favorite data:', data);
               setFavoriteList([...favoriteList, data])
+              const { dog_id, id, note, user_id } = data;
+              const selectedData = {dog_id, id, note, user_id }
+              userData.favorites.push(selectedData)
           })
           .catch(error => {
               console.error('Error adding new dog:', error);
@@ -83,7 +86,10 @@ function DogCard({
           return response;
         })
         .then(() => {
+          console.log(id)
+          console.log(userData)
           setFavoriteList(favoriteList.filter(favorite => favorite.dog_id !== id)); // Update local state
+          userData.favorites = userData.favorites.filter(favorite => favorite.dog_id !== id)
         })
         .catch(error => {
           console.error('Error removing favorite:', error);
@@ -94,8 +100,6 @@ function DogCard({
     });
   };
 
-//Problems:
-//favoriteList is not deleting deleted favorited dog
 
   function handleClick(e){
     

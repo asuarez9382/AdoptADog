@@ -8,7 +8,7 @@ function DogPage(){
     const { id } = useParams();
     const [dogInfo, setDogInfo] = useState("");
 
-    const { adoptTrigger, setAdoptTrigger, handleLoggedOffClick, showLogOn, setShowLogOn } = useContext(DogContext);
+    const { adoptTrigger, setAdoptTrigger, handleLoggedOffClick, showLogOn, setShowLogOn, userData } = useContext(DogContext);
     
 
     function handleClick(e){
@@ -18,7 +18,8 @@ function DogPage(){
             'Content-Type': 'application/json'
           },
           body: JSON.stringify({
-            is_adopted: true
+            is_adopted: true,
+            user_id: userData['id']
           })
         })
         .then(response => {
@@ -32,7 +33,7 @@ function DogPage(){
             console.log('Success:', data);
             // Handle success response here
             setAdoptTrigger(status => !status)
-            
+            userData.dogs.push(data)
         })
         .catch(error => {
           console.error('Error:', error);

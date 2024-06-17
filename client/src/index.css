@@ -784,7 +784,7 @@ button[type="submit"]:hover {
 
 /*Adopt button */
 .adopt-btn {
-  background-color: #F4A460; /* Green background */
+  background-color: #F4A460; 
   margin-top: 10px;
   color: #fff; /* White text */
   border: none; /* No border */
@@ -811,7 +811,88 @@ button[type="submit"]:hover {
   text-align: center;
 }
 
+/*My Favorites styles */
+.fav-page-container {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
 
+.fav-dog-container {
+  width: 100%;
+  max-width: 1200px;
+}
+
+.fav-dog-title {
+  text-align: center;
+  margin-bottom: 40px;
+  color:#795548;
+}
+
+.fav-dog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.fav-dog-card {
+  position: relative;
+  border: 1px solid #ccc;
+  width:auto;
+  border-radius: 10px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.delete-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  color: #795548;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.delete-button:hover {
+  background-color: initial;
+  color: initial;
+}
+
+.fav-dog-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.fav-dog-image {
+  display: block;
+  margin: 0 auto 10px auto;
+  max-width: 100%;
+  border-radius: 10px;
+  width: 100%; /* Ensure it fills the card width */
+  height: auto;
+}
+
+.fav-dog-details {
+  text-align: left;
+  display: block;
+}
+
+.fav-dog-name {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  color: #F4A460;
+}
+
+.fav-dog-breed,
+.fav-dog-price {
+  margin-bottom: 5px;
+  font-size: 1em;
+  color: #795548;
+}
 
 
 
