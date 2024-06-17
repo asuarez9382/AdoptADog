@@ -42,13 +42,13 @@ function MyFavorites(){
               <div className="fav-dog-card" key={favorite.dog.id}>
                 <button className="delete-button" onClick={() => handleClick(favorite.id)}>x</button>
                 <Link to={`/dogs/${favorite.dog.id}`} className="fav-dog-link">
-                  <img src={favorite.dog.image} alt={favorite.dog.breed} className="user-dog-image" />
+                  <img src={favorite.dog.image} alt={favorite.dog.breed} className="fav-dog-image" />
+                </Link>
                   <div className="fav-dog-details">
                     <h3 className="fav-dog-name">{favorite.dog.name}</h3>
                     <p className="fav-dog-breed">{favorite.dog.breed}</p>
                     <p className="fav-dog-price">${favorite.dog.price}</p>
                   </div>
-                </Link>
               </div>
             ))}
           </div>

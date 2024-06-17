@@ -25,23 +25,25 @@ function UserPage() {
 
     return(
         
-            <div className="user-page-container">
-                <div className="welcome-banner">
-                    <h1>Welcome, {userData.username}!</h1>
-                </div>
-                <div className="user-dog-container">
-                        <h2 className="user-dog-title">My Adopted Dogs:</h2>
-                        {userData.dogs.map(dog=>(
-                            <div className="user-dog-details" key={dog.id}>
-                                <h2>{dog.name}</h2>
-                                <Link to={`/dogs/${dog.id}`}>
-                                    <img src={dog.image} alt={dog.breed} className="user-dog-image" />
-                                </Link>
-                            </div>
-                        )
-                        )}
+        <div className="user-page-container">
+            <div className="welcome-banner">
+                <h1>Welcome, {userData.username}!</h1>
+            </div>
+            <div className="user-dog-container">
+                <h2 className="user-dog-title">My Adopted Dogs:</h2>
+                <div className="user-dog-grid">
+                {userData.dogs.map(dog => (
+                    <div className="user-dog-details" key={dog.id}>
+                    <h2>{dog.name}</h2>
+                    <Link to={`/dogs/${dog.id}`}>
+                        <img src={dog.image} alt={dog.breed} className="user-dog-image" />
+                    </Link>
+                    </div>
+                ))}
                 </div>
             </div>
+        </div>
+      
         
     );
 }

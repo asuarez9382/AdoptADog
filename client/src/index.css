@@ -461,15 +461,14 @@ button[type="submit"]:hover {
   transform: translateY(-2px);
 }
 
-
-/* UserPage.css */
-
+/*User Page styles */
 .user-page-container {
   background-color: #fff; /* White background for the whole page */
-  height: 100vh; /* Full viewport height */
+  min-height: 100vh; /* Full viewport height, with a minimum height */
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 20px; /* Padding for spacing */
 }
 
 .welcome-banner {
@@ -492,7 +491,10 @@ button[type="submit"]:hover {
 }
 
 .user-dog-container {
+  width: 100%;
+  max-width: 1200px; /* Limit the width for better readability */
   margin-top: 40px;
+  text-align: center; /* Center the content */
 }
 
 .user-dog-title {
@@ -501,30 +503,55 @@ button[type="submit"]:hover {
   margin-bottom: 20px;
 }
 
+.user-dog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Three columns with responsive width */
+  gap: 30px; /* Space between cards */
+  padding: 20px;
+}
+
 .user-dog-details {
+  position: relative;
+  background-color: #fff8e1; /* Light cream background */
+  border: 2px solid #ff9800; /* Orange border */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 30px;
-  margin-bottom: 20px;
-  padding: 15px;
-  border: 1px solid #ddd;
+  flex-direction: column;
+  justify-content: space-between; /* Ensure details are at the bottom */
+}
+
+.user-dog-details:hover {
+  transform: translateY(-10px); /* Lift effect on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
+}
+
+.user-dog-image {
+  width: 250px; /* Set a fixed width for the images */
+  height: 200px; /* Set a fixed height for the images */
+  max-width: 100%;
   border-radius: 10px;
-  background-color: #f9f9f9;
+  object-fit: cover; /* Ensure the images cover the specified area */
+  object-fit: contain;
 }
 
 .user-dog-details h2 {
-  margin: 0 20px 0 0;
+  margin: 0 0 10px 0; /* Adjust margin for spacing */
   font-size: 1.5rem;
   color: #795548;
 }
 
-.user-dog-image {
-  width: 100px;
-  height: 100px;
-  border-radius: 10px;
-  object-fit: contain;
+.user-dog-link {
+  text-decoration: none;
+  color: inherit;
 }
+
+
+
+
+
 
 /*Logout Button */
 
@@ -811,7 +838,7 @@ button[type="submit"]:hover {
   text-align: center;
 }
 
-/*My Favorites styles */
+/* Favorites Page Styles */
 .fav-page-container {
   display: flex;
   justify-content: center;
@@ -824,28 +851,41 @@ button[type="submit"]:hover {
 }
 
 .fav-dog-title {
+  color: #F4A460; /* Sandy brown color for title */
+  font-size: 2rem;
   text-align: center;
-  margin-bottom: 40px;
-  color:#795548;
+  margin-bottom: 30px;
+  margin-top: 20px;
 }
 
+/* Grid for Favorites */
 .fav-dog-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns */
+  gap: 30px; /* Space between cards */
+  padding: 20px;
 }
 
+/* Individual Favorite Dog Card */
 .fav-dog-card {
   position: relative;
-  border: 1px solid #ccc;
-  width:auto;
-  border-radius: 10px;
+  background-color: #fff8e1; /* Light cream background */
+  border: 2px solid #ff9800; /* Orange border */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
   padding: 20px;
-  background-color: #f9f9f9;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Ensure the details are at the bottom */
 }
 
+.fav-dog-card:hover {
+  transform: translateY(-10px); /* Lift effect on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
+}
+
+/* Delete Button */
 .delete-button {
   position: absolute;
   top: 10px;
@@ -857,6 +897,7 @@ button[type="submit"]:hover {
   cursor: pointer;
 }
 
+/* Prevent hover effects on delete button */
 .delete-button:hover {
   background-color: initial;
   color: initial;
@@ -867,18 +908,22 @@ button[type="submit"]:hover {
   color: inherit;
 }
 
+/* Dog Image Styles */
 .fav-dog-image {
   display: block;
-  margin: 0 auto 10px auto;
+  margin: 0 auto 20px auto; /* Increased margin-bottom for more space below the image */
   max-width: 100%;
+  width: 250px; /* Set a fixed width for the images */
+  height: 200px; /* Set a fixed height for the images */
+  object-fit: cover; /* Ensure the images cover the specified area */
+  object-fit: contain;
   border-radius: 10px;
-  width: 100%; /* Ensure it fills the card width */
-  height: auto;
 }
 
+/* Dog Details Styles */
 .fav-dog-details {
   text-align: left;
-  display: block;
+  padding: 0 10px;
 }
 
 .fav-dog-name {
@@ -893,6 +938,7 @@ button[type="submit"]:hover {
   font-size: 1em;
   color: #795548;
 }
+
 
 
 
