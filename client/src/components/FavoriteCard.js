@@ -44,8 +44,7 @@ function FavoriteCard({ favorite, onDelete }) {
     })
   }
 
-  //Next steps:
-  //style button to be centered get input not patch working
+
 
   return (
     <div className="fav-dog-card">
