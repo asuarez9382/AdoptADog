@@ -101,6 +101,11 @@ class Favorite(db.Model, SerializerMixin):
 class Appointment(db.Model, SerializerMixin):
     __tablename__='appointments'
     
+    serialize_rules = (
+        '-dog.appointments',
+        '-dog.id'
+    )
+    
     id = db.Column(db.Integer, primary_key=True)
     dog_id = db.Column(db.Integer, db.ForeignKey('dogs.id'), nullable=False)
     date = db.Column(db.DateTime, nullable=False)

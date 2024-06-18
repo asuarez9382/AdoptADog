@@ -9,7 +9,7 @@ from flask_restful import Resource
 # Local imports
 from config import app, db, api
 # Add your model imports
-from models import Dog, User, Favorite
+from models import Dog, User, Favorite, Appointment
 
 
 # Views go here!
@@ -331,6 +331,20 @@ class FavoriteByID(Resource):
         else:
             return { "error": "Favorite with ID does not exist" }, 404
             
+class Appointments(Resource):
+    
+    def get(self):
+        
+        appointments = Appointment.query.all()
+        
+        appointments_dict = [ appointment.to_dict() for appointment in appointments ]
+        
+        response = make_response(
+            appointments_dict,
+            200
+        )
+        
+        return response 
 
 api.add_resource(Dogs, "/dogs")
 api.add_resource(DogByID, "/dogs/<int:id>")
@@ -338,6 +352,7 @@ api.add_resource(Users, "/users")
 api.add_resource(UserByID, "/users/<int:id>")
 api.add_resource(Favorites, "/favorites")
 api.add_resource(FavoriteByID, "/favorites/<int:id>")
+api.add_resource(Appointments, "/appointments")
 api.add_resource(Login, "/login")
 api.add_resource(Logout, "/logout")
 api.add_resource(CheckSession, "/check_session")
