@@ -364,6 +364,18 @@ class  AppointmentsByID(Resource):
             return response
         else:
             return { "error": "Appointment not found" }, 404
+        
+    def delete(self, id):
+        
+        appointment = Appointment.query.filter_by(id=id).first()
+        
+        if appointment:
+            
+            db.session.delete(appointment)
+            db.session.commit()
+            return {}, 204
+        else:
+            return { "error": "Appointment does not exist" }, 404
 
 api.add_resource(Dogs, "/dogs")
 api.add_resource(DogByID, "/dogs/<int:id>")
