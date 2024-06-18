@@ -87,7 +87,7 @@ class Favorite(db.Model, SerializerMixin):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     dog_id = db.Column(db.Integer, db.ForeignKey('dogs.id'))
-    note = db.Column(db.String, default='Favorited')
+    note = db.Column(db.String)
     
     user = db.relationship('User', back_populates='favorites')
     dog = db.relationship('Dog', back_populates='favorites')
