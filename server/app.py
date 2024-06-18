@@ -306,6 +306,30 @@ class FavoriteByID(Resource):
         
         else:
             return {"error": "Favorite item not found"}, 404
+        
+    def patch(self, id):
+        
+        favorite_data = request.get_json()
+        
+        favorite = Favorite.query.filter_by(id = id).first()
+        
+        if favorite:
+        
+            favorite.note = favorite_data['note']
+            
+            db.session.commit()
+            
+            favorite_dict = favorite.to_dict()
+            
+            response = make_response(
+                favorite_data,
+                200
+            )
+            
+            return response
+        
+        else:
+            return { "error": "Favorite with ID does not exist" }, 404
             
 
 api.add_resource(Dogs, "/dogs")
