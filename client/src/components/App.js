@@ -37,7 +37,7 @@ function App() {
                 <Route path="/filtered-dogs/:filteredBreed" element={<FilteredDogs />} />
                 <Route path="/favorites" element={<MyFavorites />} />
                 <Route path='/adopted-dogs/:id' element={<AdoptedDog/>}/>
-                <Route path='/appointment' element={<Appointment/>}/>
+                <Route path='/appointment/:name' element={<Appointment/>}/>
               </Routes>
             </div>
         </Provider>
