@@ -1,10 +1,12 @@
 import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
-
+import { DogContext } from './AppContext';
 
 function FavoriteCard({ favorite, onDelete }) {
   const [showInput, setShowInput] = useState(false);
-  const [note, setNote] = useState("")
+  const [note, setNote] = useState("");
+
+  const { setNoteTrigger } = useContext(DogContext);
   
 
   function handleNoteToggle() {
@@ -20,6 +22,26 @@ function FavoriteCard({ favorite, onDelete }) {
     e.preventDefault()
     console.log("Submitted!")
     setNote("")
+
+    fetch(`/favorites/${favorite.id}`, {
+        method: 'PATCH',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            note: note
+        })
+    })
+    .then(response => {
+        if(!response.ok){
+            throw new Error('Network response was not ok')
+        }
+        return response.json()
+    })
+    .then(data => {
+        favorite.note = note
+        setNoteTrigger(prevStatus => !prevStatus)
+    })
   }
 
   //Next steps:
@@ -61,6 +83,7 @@ function FavoriteCard({ favorite, onDelete }) {
             </div>
         ) : ""}
         </div>
+        <span>{favorite.note}</span>
     </div>
   );
 }

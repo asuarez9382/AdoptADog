@@ -18,6 +18,7 @@ const Provider = ({ children }) => {
     const [adoptTrigger, setAdoptTrigger] = useState(false);
     const [showLogOn, setShowLogOn] = useState(false);
     const [showLikedMessage, setShowLikedMessage] = useState(false);
+    const [noteTrigger, setNoteTrigger] = useState(false)
     
     const location = useLocation();
     
@@ -88,7 +89,7 @@ const Provider = ({ children }) => {
                 console.log(r)
             }
         })
-    },[userData]);
+    },[userData, noteTrigger]);
 
     useEffect(() => {
         // auto-login
@@ -135,7 +136,8 @@ const Provider = ({ children }) => {
             setShowLikedMessage,
             handleLikedLoggedOffClick,
             favoriteList, 
-            setFavoriteList
+            setFavoriteList,
+            setNoteTrigger
         } }    
     >
         { children }
