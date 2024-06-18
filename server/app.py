@@ -344,7 +344,26 @@ class Appointments(Resource):
             200
         )
         
-        return response 
+        return response
+    
+class  AppointmentsByID(Resource):
+    
+    def get(self,id):
+        
+        appointment = Appointment.query.filter_by(id=id).first()
+        
+        if appointment:
+            
+            appointment_dict = appointment.to_dict()
+            
+            response = make_response(
+                appointment_dict,
+                200
+            )
+            
+            return response
+        else:
+            return { "error": "Appointment not found" }, 404
 
 api.add_resource(Dogs, "/dogs")
 api.add_resource(DogByID, "/dogs/<int:id>")
@@ -353,6 +372,7 @@ api.add_resource(UserByID, "/users/<int:id>")
 api.add_resource(Favorites, "/favorites")
 api.add_resource(FavoriteByID, "/favorites/<int:id>")
 api.add_resource(Appointments, "/appointments")
+api.add_resource(AppointmentsByID, "/appointments/<int:id>")
 api.add_resource(Login, "/login")
 api.add_resource(Logout, "/logout")
 api.add_resource(CheckSession, "/check_session")
