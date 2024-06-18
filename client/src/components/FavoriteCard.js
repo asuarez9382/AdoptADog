@@ -78,12 +78,11 @@ function FavoriteCard({ favorite, onDelete }) {
                     <button className='note-button' onClick={handleSubmit}>Submit</button>
                 </div>
                 <div className='note-display'>
-                    <span className='note'>{note}</span>
+                    <span className='note'>{favorite.note}</span>
                 </div>
             </div>
         ) : ""}
         </div>
-        <span>{favorite.note}</span>
     </div>
   );
 }
