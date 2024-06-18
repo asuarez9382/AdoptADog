@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import { DogContext } from "../components/AppContext";
+import AdoptedDog from "../components/AdoptedDog";
 
 function UserPage() {
 
@@ -33,12 +33,13 @@ function UserPage() {
                 <h2 className="user-dog-title">My Adopted Dogs:</h2>
                 <div className="user-dog-grid">
                 {userData.dogs.map(dog => (
-                    <div className="user-dog-details" key={dog.id}>
-                    <h2>{dog.name}</h2>
-                    <Link to={`/dogs/${dog.id}`}>
-                        <img src={dog.image} alt={dog.breed} className="user-dog-image" />
-                    </Link>
-                    </div>
+                    <AdoptedDog 
+                        id ={dog.id} 
+                        name={dog.name} 
+                        breed={dog.breed}
+                        image={dog.image}
+                        key={dog.id}
+                    />
                 ))}
                 </div>
             </div>
