@@ -13,6 +13,7 @@ import FilteredDogs from "../pages/FilteredDogs";
 import DogPage from "../pages/DogPage";
 import MyFavorites from "../pages/MyFavorites";
 import AdoptedDog from "./AdoptedDog";
+import Appointment from "../pages/Appointment";
 
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
                 <Route path="/filtered-dogs/:filteredBreed" element={<FilteredDogs />} />
                 <Route path="/favorites" element={<MyFavorites />} />
                 <Route path='/adopted-dogs/:id' element={<AdoptedDog/>}/>
+                <Route path='/appointment' element={<Appointment/>}/>
               </Routes>
             </div>
         </Provider>
