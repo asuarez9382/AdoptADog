@@ -12,10 +12,12 @@ import UserPage from "../pages/UserPage";
 import FilteredDogs from "../pages/FilteredDogs";
 import DogPage from "../pages/DogPage";
 import MyFavorites from "../pages/MyFavorites";
+import AdoptedDog from "./AdoptedDog";
 
 
 function App() {
   
+  //Add error 404 page
 
   return (
       <BrowserRouter>
@@ -33,6 +35,7 @@ function App() {
                 <Route path="/users/:id" element={<UserPage/>} />
                 <Route path="/filtered-dogs/:filteredBreed" element={<FilteredDogs />} />
                 <Route path="/favorites" element={<MyFavorites />} />
+                <Route path='/adopted-dogs/:id' element={<AdoptedDog/>}/>
               </Routes>
             </div>
         </Provider>

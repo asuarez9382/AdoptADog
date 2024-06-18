@@ -126,7 +126,7 @@ if __name__ == '__main__':
         Dog.query.delete()
         User.query.delete()
         
-        print("Seeding activities...")
+        print("Seeding dogs...")
         
         print("Creating users...")
 
