@@ -111,3 +111,5 @@ class Appointment(db.Model, SerializerMixin):
     
     def __repr__(self):
         return f'<Appointment: ID: {self.id} Dog: {self.dog_id} Date: {self.date} Type: {self.type}>'
+    
+    
