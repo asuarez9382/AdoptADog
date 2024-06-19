@@ -23,7 +23,6 @@ function Appointment(){
     };
 
     //Next steps:
-    //Stylize form
     //make api endpoint for get by name
     //add post method to appointments
     //add confirmation message
@@ -38,13 +37,14 @@ function Appointment(){
                     <DatePicker
                         selected={date}
                         onChange={(date) => setDate(date)}
-                        dateFormat="yyyy/MM/dd"
+                        dateFormat="MM/dd/yyyy"
                         className="date-picker"
+                        minDate={new Date()}
                     />
                 </div>
                 <div className="form-group">
                     <label>Type: </label>
-                    <select id="type" className="form-control" value={selectedType} onChange={handleTypeChange}>
+                    <select id="type" className="form-control custom select" value={selectedType} onChange={handleTypeChange}>
                         <option value="">Select a type</option>
                         <option value="check-up">Check-up</option>
                         <option value="vaccination">Vaccination</option>
