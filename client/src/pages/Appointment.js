@@ -24,7 +24,6 @@ function Appointment(){
 
     //Next steps:
     //make api endpoint for get by name
-    //add post method to appointments
     //add confirmation message
     //add appointments list
 
