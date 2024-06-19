@@ -5,6 +5,7 @@
 # Remote library imports
 from flask import request, make_response, jsonify, session
 from flask_restful import Resource
+from datetime import datetime
 
 # Local imports
 from config import app, db, api
@@ -345,6 +346,36 @@ class Appointments(Resource):
         )
         
         return response
+    
+    def post(self):
+        appointment_data = request.get_json()
+        
+        try:
+            
+            date_str = appointment_data['date']
+            date = datetime.strptime(date_str, '%Y-%m-%dT%H:%M:%SZ')
+            
+            new_appointment = Appointment(
+                dog_id=appointment_data['dog_id'],
+                date=date,
+                type=appointment_data['type'],
+                notes=appointment_data['notes']
+            )
+            
+            db.session.add(new_appointment)
+            db.session.commit()
+            
+            new_appointment_dict = new_appointment.to_dict()
+            
+            response = make_response(
+                new_appointment_dict,
+                201
+            )
+            
+            return response
+            
+        except:
+            return { "error": "Unable to create appointment" }, 400
     
 class  AppointmentsByID(Resource):
     

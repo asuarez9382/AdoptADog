@@ -108,7 +108,7 @@ class Appointment(db.Model, SerializerMixin):
     
     id = db.Column(db.Integer, primary_key=True)
     dog_id = db.Column(db.Integer, db.ForeignKey('dogs.id'), nullable=False)
-    date = db.Column(db.DateTime, nullable=False)
+    date = db.Column(db.DateTime)
     type = db.Column(db.String, nullable=False)
     notes = db.Column(db.String)
     
