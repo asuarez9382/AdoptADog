@@ -24,8 +24,6 @@ function Appointment(){
 
     //Next steps:
     //Stylize form
-    //Do date calendar input
-    // Add submit button
     //make api endpoint for get by name
     //add post method to appointments
     //add confirmation message
@@ -41,11 +39,12 @@ function Appointment(){
                         selected={date}
                         onChange={(date) => setDate(date)}
                         dateFormat="yyyy/MM/dd"
+                        className="date-picker"
                     />
                 </div>
                 <div className="form-group">
                     <label>Type: </label>
-                    <select id="type" value={selectedType} onChange={handleTypeChange}>
+                    <select id="type" className="form-control" value={selectedType} onChange={handleTypeChange}>
                         <option value="">Select a type</option>
                         <option value="check-up">Check-up</option>
                         <option value="vaccination">Vaccination</option>
@@ -56,11 +55,14 @@ function Appointment(){
                     <label>Notes: </label>
                     <textarea
                     id="notes"
+                    className="form-control"
                     value={notes}
                     onChange={(e) => setNotes(e.target.value)}
                     ></textarea>
                 </div>
-                <button type="submit">Book Appointment</button>
+                <div className="form-button-container">
+                    <button type="submit" className="form-submit-button">Book Appointment</button>
+                </div>
             </form>
         </div>
         

@@ -1029,3 +1029,66 @@ button[type="submit"]:hover {
   color:#795548; 
 }
 
+/* Container for the appointment form */
+.appointment-container {
+  background-color: #fff8e1; /* Light cream background */
+  border: 2px solid #ff9800; /* Orange border */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  padding: 20px;
+  max-width: 600px; /* Max width for the form */
+  margin: 40px auto; /* Center the form */
+  text-align: left; /* Align text to the left */
+}
+
+/* Title for the appointment form */
+.appointment-title {
+  color: #ff9800; /* Orange color for the title */
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center; /* Center the title */
+}
+
+/* Form group styling */
+.form-group {
+  margin-bottom: 20px; /* Space between form groups */
+}
+
+/* Label styling */
+.form-group label {
+  display: block; /* Make label a block element */
+  margin-bottom: 5px; /* Space between label and input */
+  font-weight: bold; /* Bold labels */
+  color: #795548; /* Brown color */
+}
+
+/* Input and textarea styling */
+.form-control, .date-picker {
+  width: 100%; /* Full width */
+  padding: 10px; /* Padding inside inputs */
+  border: 2px solid #ddd; /* Light border */
+  border-radius: 5px; /* Rounded corners */
+  font-size: 1rem; /* Font size */
+  margin-bottom: 10px; /* Space below inputs */
+}
+
+/* Button styling */
+.form-button-container{
+  text-align: center;
+}
+
+.form-submit-button {
+  background-color: #D2691E; /* Chocolate brown */
+  color: #FFFFFF; /* White text */
+  border: none; /* No border */
+  padding: 0.75rem 1.5rem; /* Padding inside button */
+  font-size: 1rem; /* Font size */
+  cursor: pointer; /* Pointer cursor on hover */
+  border-radius: 5px; /* Rounded corners */
+  transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+.form-submit-button:hover {
+  background-color: #A0522D; /* Darker brown on hover */
+}
