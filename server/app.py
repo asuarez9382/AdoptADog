@@ -5,6 +5,7 @@
 # Remote library imports
 from flask import request, make_response, jsonify, session
 from flask_restful import Resource
+from dateutil import parser
 from datetime import datetime
 
 # Local imports
@@ -352,8 +353,7 @@ class Appointments(Resource):
         
         try:
             
-            date_str = appointment_data['date']
-            date = datetime.strptime(date_str, '%Y-%m-%dT%H:%M:%SZ')
+            date = parser.parse(appointment_data['date'])
             
             new_appointment = Appointment(
                 dog_id=appointment_data['dog_id'],

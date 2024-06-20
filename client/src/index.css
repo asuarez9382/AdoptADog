@@ -1066,8 +1066,6 @@ button[type="submit"]:hover {
 /* Input and textarea styling */
 .form-control, .date-picker {
   width: 100%; /* Full width */
-  padding: 10px; /* Padding inside inputs */
-  border: 2px solid #ddd; /* Light border */
   border-radius: 5px; /* Rounded corners */
   font-size: 1rem; /* Font size */
   margin-bottom: 10px; /* Space below inputs */
