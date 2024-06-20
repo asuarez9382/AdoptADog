@@ -41,6 +41,8 @@ function Appointment(){
         const dog = dogList.filter(dog => dog.name == name)
         const dog_id = dog[0]['id']
         
+        console.log(dog)
+
         fetch("http://127.0.0.1:5555/appointments", {
             method: "POST",
             headers: {
@@ -59,11 +61,13 @@ function Appointment(){
             }
             return response.json()
         })
-        .then(data => console.log(`After post request data: ${data}`))
+        .then(data => {
+            dog[0]["appointments"].push(data)
+        })
     };
 
     //Next steps:
-    //make api endpoint for get by name
+    //Solve problem with appending appointment to dog.appointments
     //add confirmation message
     //add appointments list
 
