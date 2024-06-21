@@ -29,6 +29,7 @@ function Appointment(){
         e.preventDefault();
         // Submit form logic
 
+
         const datetime = moment.utc(date).hour(parseInt(time)).minute(0).second(0).toISOString();
 
         const appointmentData = {
@@ -36,12 +37,17 @@ function Appointment(){
             type: selectedType,
             notes: notes
         };
-        console.log(appointmentData);
 
-        const dog = dogList.filter(dog => dog.name == name)
-        const dog_id = dog[0]['id']
+
+        const dog = dogList.find(dog => dog.name === name);
         
-        console.log(dog)
+        if (!dog) {
+            console.error("Dog not found");
+            return;
+        }
+
+        const dog_id = dog.id;
+
 
         fetch("http://127.0.0.1:5555/appointments", {
             method: "POST",
@@ -62,7 +68,7 @@ function Appointment(){
             return response.json()
         })
         .then(data => {
-            dog[0]["appointments"].push(data)
+            dog.appointments.push(data)
         })
     };
 
