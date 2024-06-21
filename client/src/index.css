@@ -315,65 +315,74 @@ button[type="submit"]:hover {
 /* Styles for SignupForm component */
 .signup-form {
   max-width: 500px;
-  text-align: center;
   margin: 100px auto;
   padding: 20px;
-  border-radius: 10px;
   background-color: #fff8e1; /* Light cream background */
+  border: 2px solid #ff9800; /* Orange border */
+  border-radius: 10px; /* Rounded corners */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  text-align: center; /* Center-align the text content */
 }
 
-
-
+/* Title for the signup form */
 .signup-form h1 {
   color: #ff9800; /* Orange color for the title */
-  margin-bottom: 20px;
   font-size: 2rem;
-  text-align: center;
+  font-weight: bold;
+  margin-bottom: 20px; /* Space below the heading */
 }
 
+/* Form group styling */
 .signup-form .form-group {
   margin-bottom: 20px;
   text-align: left;
 }
 
+/* Label styling */
 .signup-form .form-group label {
   display: block;
   font-size: 1rem;
   color: #795548; /* Brown color for labels */
   margin-bottom: 5px;
+  font-weight: bold; /* Bold labels */
 }
 
+/* Input styling */
 .signup-form .form-group input {
-  width: 100%;
+  width: 100%; /* Full width */
   padding: 10px;
   font-size: 1rem;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: 5px; /* Rounded corners */
   box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif; /* Font family */
+  margin-bottom: 10px; /* Space below inputs */
 }
 
+/* Button styling */
 .signup-form button[type="submit"] {
-  background-color: #ff9800; /* Orange background */
-  color: #fff; /* White text */
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  background-color:#ff9800; /* Orange */
+  color: #FFFFFF; /* White text */
+  border: none; /* No border */
+  padding: 0.75rem 1.5rem; /* Padding inside button */
+  font-size: 1rem; /* Font size */
+  cursor: pointer; /* Pointer cursor on hover */
+  border-radius: 5px; /* Rounded corners */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition */
 }
 
 .signup-form button[type="submit"]:hover {
   background-color: #e68900; /* Darker orange on hover */
-  transform: translateY(-2px);
+  transform: translateY(-2px); /* Slight lift on hover */
 }
 
+/* Error message styling */
 .signup-form .form-error {
-  color:#4caf50;
-  font-weight:bold;
+  color: #4caf50; /* Green color for error messages */
+  font-weight: bold; /* Bold text for error messages */
   margin-top: 5px;
 }
+
 
 .confirmation-container {
   background-color: #fff; /* White background for the whole page */
@@ -456,7 +465,7 @@ button[type="submit"]:hover {
 
 /* Button styling */
 .login-form .form-button {
-  background-color:#ff9800; /* Chocolate brown */
+  background-color:#ff9800; /* Orange */
   color: #FFFFFF; /* White text */
   border: none; /* No border */
   padding: 0.75rem 1.5rem; /* Padding inside button */
