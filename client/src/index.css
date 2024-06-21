@@ -1029,16 +1029,60 @@ button[type="submit"]:hover {
   color:#795548; 
 }
 
+/* Container for the entire appointment page */
+.appointment-page {
+  display: flex;
+  justify-content: space-between; /* Distribute space between columns */
+  padding: 20px; /* Padding around the container */
+  gap: 20px; /* Gap between columns */
+  align-items: flex-start; /* Align items to the top */
+}
+
+/* Container for the appointment list */
+.appointment-list-container {
+  flex: 1; /* Allow this column to grow */
+  background-color: #fff8e1; /* Light cream background */
+  border: 2px solid #ff9800; /* Orange border */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  padding: 20px;
+  max-width: 300px; /* Max width for the list */
+  text-align: left; /* Align text to the left */
+  overflow-y: auto; /* Allow scrolling if content overflows */
+}
+
+.appointment-list-container h2 {
+  color:#e68900;
+  margin-bottom: 10px;
+}
+
+.appointment-list-container p {
+  color:#795548;
+  font-weight: bold;
+}
+
+/* Single appointment container */
+.single-appointment-container {
+  background-color: #fff8e1; /* Light cream background */
+  border: 2px solid #ff9800; /* Orange border */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  padding: 20px;
+  margin-bottom: 20px; /* Space between appointments */
+  text-align: left; /* Align text to the left */
+}
+
 /* Container for the appointment form */
 .appointment-container {
+  flex: 2; /* Allow this column to grow more than the list */
   background-color: #fff8e1; /* Light cream background */
   border: 2px solid #ff9800; /* Orange border */
   border-radius: 10px; /* Rounded corners */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
   padding: 20px;
   max-width: 600px; /* Max width for the form */
-  margin: 40px auto; /* Center the form */
   text-align: left; /* Align text to the left */
+  margin: 0 auto; /* Center the form within its flex column */
 }
 
 /* Title for the appointment form */
@@ -1076,7 +1120,7 @@ button[type="submit"]:hover {
 }
 
 /* Button styling */
-.form-button-container{
+.form-button-container {
   text-align: center;
 }
 
@@ -1094,3 +1138,5 @@ button[type="submit"]:hover {
 .form-submit-button:hover {
   background-color: #A0522D; /* Darker brown on hover */
 }
+
+

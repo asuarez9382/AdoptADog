@@ -20,6 +20,9 @@ function Appointment(){
 
     const navigate = useNavigate();
 
+    const selectedDog = dogList.find(dog => dog.name === name)
+
+
     const handleTypeChange = (e) => {
         setSelectedType(e.target.value);
     };
@@ -43,6 +46,7 @@ function Appointment(){
 
 
         const dog = dogList.find(dog => dog.name === name);
+
         
         if (!dog) {
             console.error("Dog not found");
@@ -98,59 +102,75 @@ function Appointment(){
     return (
         showConfirmation ? (
             <div className="confirmation-container">
-            <div className="confirmation-card">
-                <h1 className="confirmation-message">Appointment Confirmed!</h1>
+                <div className="confirmation-card">
+                    <h1 className="confirmation-message">Appointment Confirmed!</h1>
+                </div>
             </div>
-        </div>
         ) : (
-            <div className="appointment-container">
-                <h1 className="appointment-title">Make an Appointment for {name}</h1>
-                <form onSubmit={handleSubmit}>
-                    <div className="form-group">
-                        <label htmlFor="date">Appointment Date and Time:</label>
-                        <Datetime
-                            value={date}
-                            onChange={setDate}
-                            dateFormat="MM-DD-YYYY"
-                            timeFormat={false}
-                            className="date-picker"
-                            isValidDate={valid}
-                        />
-                    </div>
-                    {date && (
+            <div className="appointment-page">
+                <div className="appointment-list-container">
+                    <h2>Appointments for {name}</h2>
+                    {selectedDog && selectedDog.appointments && selectedDog.appointments.length > 0 ? selectedDog['appointments'].map(appointment => (
+                        <div className="single-appointment-container">
+                            <ul>
+                                <p>Date: {moment(appointment['date']).format('MM/DD/YYYY')}</p>
+                                <p>Time: {moment(appointment['date']).format('HH:mm')}</p>
+                                <p>Type: {appointment['type']}</p>
+                                <p>Notes: {appointment['notes']}</p>
+                            </ul>
+                        </div>
+                    ))
+                    : <p>No appointments</p> }
+                </div>
+                <div className="appointment-container">
+                    <h1 className="appointment-title">Make an Appointment for {name}</h1>
+                    <form onSubmit={handleSubmit}>
                         <div className="form-group">
-                            <label htmlFor="time">Select Time:</label>
-                            <select id="time" className="form-control custom-select" value={time} onChange={handleTimeChange}>
-                                <option value="">Select a time</option>
-                                {renderTimeOptions()}
+                            <label htmlFor="date">Appointment Date and Time:</label>
+                            <Datetime
+                                value={date}
+                                onChange={setDate}
+                                dateFormat="MM-DD-YYYY"
+                                timeFormat={false}
+                                className="date-picker"
+                                isValidDate={valid}
+                            />
+                        </div>
+                        {date && (
+                            <div className="form-group">
+                                <label htmlFor="time">Select Time:</label>
+                                <select id="time" className="form-control custom-select" value={time} onChange={handleTimeChange}>
+                                    <option value="">Select a time</option>
+                                    {renderTimeOptions()}
+                                </select>
+                            </div>
+                        )}
+                        <div className="form-group">
+                            <label>Type: </label>
+                            <select id="type" className="form-control custom-select" value={selectedType} onChange={handleTypeChange}>
+                                <option value="">Select a type</option>
+                                <option value="check-up">Check-up</option>
+                                <option value="vaccination">Vaccination</option>
+                                <option value="surgery">Surgery</option>
                             </select>
                         </div>
-                    )}
-                    <div className="form-group">
-                        <label>Type: </label>
-                        <select id="type" className="form-control custom-select" value={selectedType} onChange={handleTypeChange}>
-                            <option value="">Select a type</option>
-                            <option value="check-up">Check-up</option>
-                            <option value="vaccination">Vaccination</option>
-                            <option value="surgery">Surgery</option>
-                        </select>
-                    </div>
-                    <div className="form-group">
-                        <label>Notes: </label>
-                        <textarea
-                            id="notes"
-                            className="form-control"
-                            value={notes}
-                            onChange={(e) => setNotes(e.target.value)}
-                        ></textarea>
-                    </div>
-                    <div className="form-button-container">
-                        <button type="submit" className="form-submit-button">Book Appointment</button>
-                    </div>
-                </form>
+                        <div className="form-group">
+                            <label>Notes: </label>
+                            <textarea
+                                id="notes"
+                                className="form-control"
+                                value={notes}
+                                onChange={(e) => setNotes(e.target.value)}
+                            ></textarea>
+                        </div>
+                        <div className="form-button-container">
+                            <button type="submit" className="form-submit-button">Book Appointment</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         )
     );
-}    
+}
 
 export default Appointment;
