@@ -19,6 +19,7 @@ const Provider = ({ children }) => {
     const [showLogOn, setShowLogOn] = useState(false);
     const [showLikedMessage, setShowLikedMessage] = useState(false);
     const [noteTrigger, setNoteTrigger] = useState(false)
+    const [showConfirmation, setShowConfirmation] = useState(false);
     
     const location = useLocation();
     
@@ -137,7 +138,9 @@ const Provider = ({ children }) => {
             handleLikedLoggedOffClick,
             favoriteList, 
             setFavoriteList,
-            setNoteTrigger
+            setNoteTrigger,
+            showConfirmation, 
+            setShowConfirmation
         } }    
     >
         { children }
