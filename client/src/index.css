@@ -402,25 +402,29 @@ button[type="submit"]:hover {
   margin: 0;
 }
 
-/* Login card styling */
+/* Container for the login form */
 .login-container {
   max-width: 500px;
   margin: 100px auto;
   padding: 20px;
-  border-radius: 10px;
   background-color: #fff8e1; /* Light cream background */
+  border: 2px solid #ff9800; /* Orange border */
+  border-radius: 10px; /* Rounded corners */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
   text-align: center; /* Center-align the text content */
 }
 
+/* Title for the login form */
 .login-container h1 {
   color: #ff9800; /* Orange color for the title */
   font-size: 2rem;
+  font-weight: bold;
   margin-bottom: 20px; /* Space below the heading */
 }
 
+/* Paragraph styling */
 .login-container p {
-  color:#4caf50
+  color: #4caf50; /* Green color for paragraph text */
 }
 
 /* Form styling */
@@ -429,37 +433,44 @@ button[type="submit"]:hover {
   text-align: left;
 }
 
+/* Label styling */
 .login-form .form-group label {
   display: block;
   font-size: 1rem;
   color: #795548; /* Brown color for labels */
   margin-bottom: 5px;
+  font-weight: bold; /* Bold labels */
 }
 
+/* Input styling */
 .login-form .form-group .form-input {
-  width: 100%;
+  width: 100%; /* Full width */
   padding: 10px;
   font-size: 1rem;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: 5px; /* Rounded corners */
   box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif; /* Font family */
+  margin-bottom: 10px; /* Space below inputs */
 }
 
+/* Button styling */
 .login-form .form-button {
-  background-color: #ff9800; /* Orange background */
-  color: #fff; /* White text */
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  background-color:#ff9800; /* Chocolate brown */
+  color: #FFFFFF; /* White text */
+  border: none; /* No border */
+  padding: 0.75rem 1.5rem; /* Padding inside button */
+  font-size: 1rem; /* Font size */
+  cursor: pointer; /* Pointer cursor on hover */
+  border-radius: 5px; /* Rounded corners */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition */
 }
 
 .login-form .form-button:hover {
   background-color: #e68900; /* Darker orange on hover */
-  transform: translateY(-2px);
+  transform: translateY(-2px); /* Slight lift on hover */
 }
+
 
 /*User Page styles */
 .user-page-container {

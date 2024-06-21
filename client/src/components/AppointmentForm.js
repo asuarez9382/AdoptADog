@@ -21,17 +21,6 @@ function AppointmentForm() {
 
     const navigate = useNavigate();
 
-    const selectedDog = dogList.find(dog => dog.name === name)
-
-    //refactor code in this page
-    //style dog form to match this form
-    //check if adding a new dog navigates user to home page
-    // style filtered dogs page to look like available dogs page
-    //style log in and sign up forms to look like this form
-    // make about page
-    // make error page
-    //make a footer
-
     const handleTypeChange = (e) => {
         setSelectedType(e.target.value);
     };
