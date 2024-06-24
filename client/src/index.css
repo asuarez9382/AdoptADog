@@ -114,7 +114,7 @@ button:hover {
   background-color: #A0522D; /* Darker brown */
 }
 
-
+/*Dog list styles */
 .dog-list-container {
   text-align: center; /* Center the contents horizontally */
   margin-bottom: 20px; /* Add some space below the title */
@@ -791,16 +791,17 @@ button:hover {
 
 /*Filtered List */
 .filtered-list-container {
-  max-width: 800px; /* Adjust the max-width as needed */
   margin: 0 auto;
   padding: 20px;
-  border-radius: 8px;
+  border-radius: 10px;
+  text-align: center; /* Center-align the text content */
 }
 
 .filtered-list {
-  display: flex;
-  flex-direction: column;
-  gap: 20px; /* Space between list items */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns */
+  gap: 30px; /* Space between cards increased */
+  padding: 20px;
 }
 
 /*Dog Page Styles */
@@ -1158,7 +1159,7 @@ button:hover {
 }
 
 .form-submit-button {
-  background-color: #D2691E; /* Chocolate brown */
+  background-color: #ff9800; /* Orange color for the title */
   color: #FFFFFF; /* White text */
   border: none; /* No border */
   padding: 0.75rem 1.5rem; /* Padding inside button */
@@ -1169,7 +1170,7 @@ button:hover {
 }
 
 .form-submit-button:hover {
-  background-color: #A0522D; /* Darker brown on hover */
+  background-color:#e68900;
 }
 
 
