@@ -8,7 +8,15 @@ function DogPage(){
     const { id } = useParams();
     const [dogInfo, setDogInfo] = useState("");
 
-    const { adoptTrigger, setAdoptTrigger, handleLoggedOffClick, showLogOn, setShowLogOn, userData } = useContext(DogContext);
+    const { adoptTrigger, 
+            setAdoptTrigger, 
+            handleLoggedOffClick, 
+            showLogOn, 
+            setShowLogOn, 
+            userData, 
+            showLikedMessage, 
+            setShowLikedMessage,
+         } = useContext(DogContext);
     
 
     function handleClick(e){

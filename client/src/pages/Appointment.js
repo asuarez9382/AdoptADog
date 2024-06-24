@@ -12,7 +12,6 @@ function Appointment(){
     
     const { showConfirmation } = useContext(DogContext);
 
-    // style filtered dogs page to look like available dogs page
     // make about page
     // make error page
     //make a footer

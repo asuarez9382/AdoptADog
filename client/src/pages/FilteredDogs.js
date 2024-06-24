@@ -5,7 +5,14 @@ import DogCard from "../components/DogCard";
 
 function FilteredDogs() {
 
-    const { filteredList, setFilteredList, currentBreed, showLogOn, setShowLogOn, userData } = useContext(DogContext);
+    const { filteredList, 
+            setFilteredList, 
+            currentBreed, 
+            showLogOn, 
+            setShowLogOn, 
+            userData, 
+            showLikedMessage 
+        } = useContext(DogContext);
 
     const navigate = useNavigate();
 
@@ -19,6 +26,7 @@ function FilteredDogs() {
     return(
         <div className="filtered-list-container">
             <h1 className="dog-list-title">Available {currentBreed}'s</h1>
+            { showLikedMessage ? <h2 className="log-on-adopt-message">Log on to favorite a dog</h2> : "" }
             { showLogOn ? <h2 className="log-on-adopt-message">Log on to adopt a dog</h2> : "" }
             <div className="filtered-list">
                 {filteredList.map(dog => (
