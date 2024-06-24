@@ -41,6 +41,7 @@ function FavoriteCard({ favorite, onDelete }) {
     .then(data => {
         favorite.note = note
         setNoteTrigger(prevStatus => !prevStatus)
+        setShowInput(prevStatus => !prevStatus)
     })
   }
 
@@ -59,7 +60,15 @@ function FavoriteCard({ favorite, onDelete }) {
       </div>
       <div className="note-button-container">
         <button className="toggle-note-button" onClick={handleNoteToggle}>
-          { showInput ? <span>&#x25B2;</span> : <span>&#x25BC;</span>}
+          {showInput ? (
+            <p className='up-arrow'>&#x25B2;</p>
+          ) : (
+            favorite.note ? (
+              <button className='add-note'>Change Note</button>
+            ) : (
+              <button className='add-note'>Add a note</button>
+            )
+          )}
         </button>
       </div>
       <div className='note-container'>
@@ -76,11 +85,13 @@ function FavoriteCard({ favorite, onDelete }) {
                     />
                     <button className='note-button' onClick={handleSubmit}>Submit</button>
                 </div>
-                <div className='note-display'>
-                    <span className='note'>{favorite.note}</span>
-                </div>
             </div>
         ) : ""}
+        </div>
+        <div className='note-display'>
+          {
+            favorite.note ? <span className='note'>Note: {favorite.note}</span> : ""
+          }
         </div>
     </div>
   );

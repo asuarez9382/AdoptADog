@@ -14,6 +14,7 @@ import DogPage from "../pages/DogPage";
 import MyFavorites from "../pages/MyFavorites";
 import AdoptedDog from "./AdoptedDog";
 import Appointment from "../pages/Appointment";
+import Footer from "./Footer";
 
 
 function App() {
@@ -24,22 +25,25 @@ function App() {
       <BrowserRouter>
         <Provider>
           <div className="app">
+            <div className="main-content">
               <Header />
-              <Routes> 
-                <Route path="/" element={<Home />} /> 
-                <Route path="/dogs" element={<AvailableDogs/>} />
-                <Route path="/dogs/:id" element={<DogPage/>} />
-                <Route path="/listdog" element={<ListDog/>} />
-                <Route path="/about" element={<About/>} />
-                <Route path="/login" element={<Login/>} />
-                <Route path="/signup" element={<Signup/>} />
-                <Route path="/users/:id" element={<UserPage/>} />
-                <Route path="/filtered-dogs/:filteredBreed" element={<FilteredDogs />} />
-                <Route path="/favorites" element={<MyFavorites />} />
-                <Route path='/adopted-dogs/:id' element={<AdoptedDog/>}/>
-                <Route path='/appointment/:name' element={<Appointment/>}/>
-              </Routes>
+                <Routes> 
+                  <Route path="/" element={<Home />} /> 
+                  <Route path="/dogs" element={<AvailableDogs/>} />
+                  <Route path="/dogs/:id" element={<DogPage/>} />
+                  <Route path="/listdog" element={<ListDog/>} />
+                  <Route path="/about" element={<About/>} />
+                  <Route path="/login" element={<Login/>} />
+                  <Route path="/signup" element={<Signup/>} />
+                  <Route path="/users/:id" element={<UserPage/>} />
+                  <Route path="/filtered-dogs/:filteredBreed" element={<FilteredDogs />} />
+                  <Route path="/favorites" element={<MyFavorites />} />
+                  <Route path='/adopted-dogs/:id' element={<AdoptedDog/>}/>
+                  <Route path='/appointment/:name' element={<Appointment/>}/>
+                </Routes>
             </div>
+            <Footer />
+          </div>
         </Provider>
       </BrowserRouter>
   )

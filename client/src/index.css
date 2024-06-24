@@ -657,7 +657,6 @@ button:hover {
   flex-direction: column; /* Stack items vertically */
   align-items: center; /* Center horizontally */
   justify-content: center; /* Center vertically */
-  height: 100vh; /* Full height of the viewport */
   background-color: #fff8e1; /* Light cream background for the home page */
 }
 
@@ -897,6 +896,7 @@ button:hover {
   display: flex;
   justify-content: center;
   padding: 20px;
+  margin: 50px auto;
 }
 
 .fav-dog-container {
@@ -1008,7 +1008,6 @@ button:hover {
 /* Prevent hover effects on delete button */
 .toggle-note-button:hover {
   background-color: initial;
-  color: initial;
 }
 
 .note-container {
@@ -1056,6 +1055,7 @@ button:hover {
 
 .note-display {
   margin-top: 10px; /* Adjust space between input/button and displayed note */
+  text-align: center;
 }
 
 .note {
@@ -1063,13 +1063,34 @@ button:hover {
   color:#795548; 
 }
 
+.add-note {
+  background-color: #F4A460; 
+  margin-top: 10px;
+  color: #fff; /* White text */
+  border: none; /* No border */
+  border-radius: 5px; /* Rounded corners */
+  padding: 10px 20px; /* Padding for button size */
+  font-size: 1rem; /* Font size */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s ease; /* Transition effect for background color */
+}
+
+.add-note:hover {
+  background-color: #de8612; /* Darker orange on hover */
+}
+
+.up-arrow:hover {
+  color: #de8612;
+}
+
 /* Container for the entire appointment page */
 .appointment-page {
   display: flex;
+  margin: 50px auto;
   justify-content: space-between; /* Distribute space between columns */
-  padding: 20px; /* Padding around the container */
   gap: 20px; /* Gap between columns */
   align-items: flex-start; /* Align items to the top */
+  
 }
 
 /* Container for the appointment list */
@@ -1173,4 +1194,142 @@ button:hover {
   background-color:#e68900;
 }
 
+/* src/AboutPage.css */
 
+/* About Page Styling */
+.about-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 100px auto;
+  background-color: #f8f9fa; /* Light background for the entire page */
+}
+
+.about-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #fff8e1; /* Light cream background */
+  border: 2px solid #ff9800; /* Orange border */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  text-align: left; /* Align text to the left */
+}
+
+.about-container h1 {
+  color: #ff9800; /* Orange color for the title */
+  font-size: 2rem;
+  margin-bottom: 20px;
+  text-align: center; /* Center-align the title */
+}
+
+.about-container p {
+  font-size: 1rem;
+  color: #795548; /* Brown color for text */
+  margin-bottom: 20px;
+  line-height: 1.5; /* Line height for better readability */
+}
+
+.about-container ul {
+  list-style-type: disc; /* Bullet points */
+  padding-left: 20px; /* Padding for the list */
+  margin-bottom: 20px;
+}
+
+.about-container li {
+  font-size: 1rem;
+  color: #795548; /* Brown color for text */
+  margin-bottom: 10px;
+  line-height: 1.5; /* Line height for better readability */
+}
+
+/* src/Footer.css */
+
+/* App styles */
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Main content should take available space */
+.main-content {
+  flex: 1;
+}
+
+/* Footer styles */
+
+
+/* Footer Styling */
+.footer {
+  flex: 2;
+  background-color: #F4A460;
+  color: white;
+  padding: 20px 0;
+  max-height: 300px;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-around; /* Distributes space evenly between sections */
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.footer-section {
+  flex: 2; /* Ensures each section takes up equal space */
+  margin: 0 10px;
+}
+
+.footer-section h4 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.footer-section p,
+.footer-section ul {
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 5px;
+}
+
+.footer-section ul li a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+  color: #D2691E; /* Change color on hover */
+}
+
+.footer-section p a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-section p a:hover {
+  color: #D2691E; /* Change color on hover */
+}
+
+.footer-bottom {
+  background-color: #D2691E;
+  text-align: center;
+  padding: 10px 0;
+  font-size: 0.9rem;
+}
+
+.footer-bottom p {
+  margin: 0;
+}
