@@ -249,68 +249,81 @@ button:hover {
 .list-dog-container {
   max-width: 600px;
   margin: 50px auto;
-  padding: 20px;
   text-align: center;
-}
-
-.list-dog-container h1 {
-  color: #ff9800; /* Orange color for the title */
-  font-size: 2rem;
-  margin-bottom: 60px;
 }
 
 /* Styles for DogForm component */
 .dog-form {
   max-width: 500px;
-  margin: 0 auto;
+  margin: 100px auto;
   padding: 20px;
-  border-radius: 10px;
   background-color: #fff8e1; /* Light cream background */
+  border: 2px solid #ff9800; /* Orange border */
+  border-radius: 10px; /* Rounded corners */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  text-align: center; /* Center-align the text content */
 }
 
+/* Title for the dog form */
 .dog-form h1 {
   color: #ff9800; /* Orange color for the title */
   margin-bottom: 20px;
   font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
 }
 
-.form-group {
+/* Form group styling */
+.dog-form .form-group {
   margin-bottom: 20px;
   text-align: left;
 }
 
-.form-group label {
+/* Label styling */
+.dog-form .form-group label {
   display: block;
   font-size: 1rem;
   color: #795548; /* Brown color for labels */
   margin-bottom: 5px;
+  font-weight: bold; /* Bold labels */
 }
 
-.form-group input {
-  width: 100%;
+/* Input styling */
+.dog-form .form-group input {
+  width: 100%; /* Full width */
   padding: 10px;
   font-size: 1rem;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: 5px; /* Rounded corners */
   box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif; /* Font family */
+  margin-bottom: 10px; /* Space below inputs */
 }
 
-button[type="submit"] {
-  background-color: #ff9800; /* Orange background */
-  color: #fff; /* White text */
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+/* Button styling */
+.dog-form button[type="submit"] {
+  background-color:#ff9800; /* Orange */
+  color: #FFFFFF; /* White text */
+  border: none; /* No border */
+  padding: 0.75rem 1.5rem; /* Padding inside button */
+  font-size: 1rem; /* Font size */
+  cursor: pointer; /* Pointer cursor on hover */
+  border-radius: 5px; /* Rounded corners */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition */
 }
 
-button[type="submit"]:hover {
+.dog-form button[type="submit"]:hover {
   background-color: #e68900; /* Darker orange on hover */
-  transform: translateY(-2px);
+  transform: translateY(-2px); /* Slight lift on hover */
 }
+
+/* Error message styling */
+.dog-form .form-error {
+  color: #4caf50; /* Green color for error messages */
+  font-weight: bold; /* Bold text for error messages */
+  margin-top: 5px;
+}
+
 
 /* Styles for SignupForm component */
 .signup-form {

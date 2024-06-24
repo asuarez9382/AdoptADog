@@ -1,4 +1,5 @@
 import React, { useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import { DogContext } from "./AppContext";
 import { useFormik } from "formik";
 import { dogFormSchema } from "../formSchema";
@@ -8,6 +9,8 @@ import { dogFormSchema } from "../formSchema";
 function DogForm(){
 
     const { dogList, setDogList } = useContext(DogContext)
+
+    const navigate = useNavigate();
 
     const formik = useFormik({
         initialValues: {
@@ -42,8 +45,8 @@ function DogForm(){
             })
             .then(data => {
                 console.log('New dog data:', data);
-                return setDogList([...dogList, data])
-    
+                setDogList([...dogList, data])
+                navigate('/')
             })
             .catch(error => {
                 console.error('Error adding new dog:', error);

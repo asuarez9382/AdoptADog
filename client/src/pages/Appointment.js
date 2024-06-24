@@ -12,8 +12,6 @@ function Appointment(){
     
     const { showConfirmation } = useContext(DogContext);
 
-    //style dog form to match this form
-    //check if adding a new dog navigates user to home page
     // style filtered dogs page to look like available dogs page
     // make about page
     // make error page
