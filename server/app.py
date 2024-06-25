@@ -275,9 +275,6 @@ class Favorites(Resource):
         except:
             return { "errors": "Unable to create favorite" }, 400
         
-        
-# Add a patch method to favoriteByID
-    
 class FavoriteByID(Resource):
     
     def get(self,id):
