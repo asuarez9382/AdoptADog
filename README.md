@@ -1,4 +1,4 @@
-# AdoptADog a dog adoption app
+# AdoptADog - a dog adoption app
 
 Welcome to AdoptADog a web application designed to facilitate the adoption of dogs. Users can browse available dogs, make appointments, and keep notes on their favorite dogs. 
 
