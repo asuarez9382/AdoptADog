@@ -12,7 +12,7 @@ from faker.providers import BaseProvider
 
 # Local imports
 from app import app
-from models import db, Dog, User
+from models import db, Dog, User, Favorite, Appointment
 from my_secrets import API_KEY
 
 
@@ -125,6 +125,8 @@ if __name__ == '__main__':
         
         Dog.query.delete()
         User.query.delete()
+        Favorite.query.delete()
+        Appointment.query.delete()
         
         print("Seeding dogs...")
         
