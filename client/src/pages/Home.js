@@ -20,7 +20,7 @@ function Home() {
                 <button className="explore-button" onClick={handleClick}>Explore Available Dogs</button>
             </div>
             {
-                showMessage ? <span className="availability-message">There are no more dogs availble of this breed.</span>
+                showMessage ? <span className="availability-message">There are no more dogs available of this breed.</span>
                 :
                 ""
             }
