@@ -9,6 +9,9 @@ Welcome to AdoptADog a web application designed to facilitate the adoption of do
 - Add and manage notes for favorite dogs
 - User authentication (sign up, login)
 
+![video1007040793-ezgif com-optimize](https://github.com/asuarez9382/AdoptADog/assets/12467862/77bdc984-84d8-45bd-a62c-d1766320e855)
+
+
 ## Technologies Used
 
 - Frontend: React, React Router, Formik, Yup, Moment.js
