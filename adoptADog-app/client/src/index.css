@@ -1,0 +1,1335 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;600&display=swap');
+
+/* Reset some basic styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  background-color: #F5F5F5;
+  color: #333;
+}
+
+/* Header styling */
+header {
+  background-color: #D2691E; /* Chocolate brown */
+  color: #FFFFFF;
+  padding: 1rem;
+  text-align: center;
+}
+
+header h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2rem;
+  margin: 0;
+}
+
+/* Navbar styling */
+nav {
+  display: flex;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+  justify-content: space-between; /* Space between left and right links */
+  align-items: center; /* Center vertically */
+  background-color: #F4A460; /* Sandy brown */
+  padding: 1rem;
+}
+
+.nav-left,
+.nav-right {
+  display: flex;
+}
+
+.nav-left a,
+.nav-right a {
+  color: #FFFFFF; /* White text for contrast */
+  text-decoration: none;
+  margin: 0 1rem;
+  font-weight: 600;
+  transition: color 0.3s ease, background-color 0.3s ease;
+  padding: 0.5rem 1rem; /* Add padding for better hover effect */
+}
+
+.nav-left a:hover,
+.nav-right a:hover {
+  color: #D2691E; /* Chocolate brown for strong contrast */
+  background-color: #FFF0E0; /* Light cream background for visibility */
+  border-radius: 5px; /* Rounded corners for hover effect */
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+}
+
+.nav-right > div {
+  display: flex;
+  align-items: center;
+}
+
+.logout-button {
+  margin-left: 10px; /* Adjust the margin as needed */
+  color: #FFFFFF; /* White text for contrast */
+  background-color: #D2691E; /* Chocolate brown background */
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.logout-button:hover {
+  background-color: #FFA07A; /* Lighter shade of chocolate brown on hover */
+}
+
+.heart-link {
+  font-size: 24px; /* Makes the heart symbol larger */
+  margin-left: 10px;
+}
+
+
+/* Page containers */
+.container {
+  padding: 2rem;
+}
+
+/* Buttons */
+button {
+  background-color: #D2691E; /* Chocolate brown */
+  color: #FFFFFF;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #A0522D; /* Darker brown */
+}
+
+/*Dog list styles */
+.dog-list-container {
+  text-align: center; /* Center the contents horizontally */
+  margin-bottom: 20px; /* Add some space below the title */
+  padding-top: 20px; /* Add padding above the title */
+}
+
+.dog-list-title {
+  color: #F4A460; /* Sandy brown color for title */
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 30px;
+  margin-top: 20px;
+}
+
+.dog-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns */
+  gap: 30px; /* Space between cards increased */
+  padding: 20px;
+}
+
+/*Dog Card styles*/
+.dog-card {
+  background-color: #fff8e1; /* Light cream background */
+  border: 2px solid #ff9800; /* Orange border */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px; /* Space between rows increased */
+}
+
+.dog-card:hover {
+  transform: translateY(-10px); /* Lift effect on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
+}
+
+.dog-image-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.dog-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.dog-header {
+  display: grid;
+  grid-template-columns: 1fr auto; /* First column takes up remaining space, second column adjusts to content */
+  grid-column-gap: 5px;
+  align-items: center; /* Align items vertically in the center */
+}
+
+.dog-name-container {
+  justify-self: center; /* Center the dog name horizontally in its column */
+}
+
+.dog-name {
+  color: #795548;
+}
+
+.dog-heart-container {
+  justify-self: end; /* Align the heart container to the end of its column (right side) */
+}
+
+.heart {
+  font-size: 24px;
+  cursor: pointer;
+  color: #F4A460;
+}
+
+.heart.liked {
+  color: red; /* Change to your desired color */
+}
+
+.dog-status {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.dog-status.available {
+  color: #4caf50; /* Green color for available */
+}
+
+.dog-status.adopted {
+  color: #f44336; /* Red color for adopted */
+}
+
+.dog-breed {
+  font-size: 1.2rem;
+  color: #795548; /* Brown color for breed */
+  margin-bottom: 10px;
+}
+
+.dog-age {
+  font-size: 1.2rem;
+  color: #795548; /* Brown color for age */
+  margin-bottom: 10px;
+}
+
+.dog-description {
+  font-size: 1rem;
+  color: #757575; /* Grey color for description */
+}
+
+.form-error{
+  color:#4caf50;
+  font-weight:bold;
+}
+
+.dog-price {
+  font-size: 1.2rem;
+  color: #ff9800; /* Orange color for price */
+  margin-top: 10px; /* Space above the price */
+  font-weight: bold; /* Make the price bold */
+}
+
+/* Styles for ListDog component */
+.list-dog-container {
+  max-width: 600px;
+  margin: 50px auto;
+  text-align: center;
+}
+
+/* Styles for DogForm component */
+.dog-form {
+  max-width: 500px;
+  margin: 100px auto;
+  padding: 20px;
+  background-color: #fff8e1; /* Light cream background */
+  border: 2px solid #ff9800; /* Orange border */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  text-align: center; /* Center-align the text content */
+}
+
+/* Title for the dog form */
+.dog-form h1 {
+  color: #ff9800; /* Orange color for the title */
+  margin-bottom: 20px;
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Form group styling */
+.dog-form .form-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+/* Label styling */
+.dog-form .form-group label {
+  display: block;
+  font-size: 1rem;
+  color: #795548; /* Brown color for labels */
+  margin-bottom: 5px;
+  font-weight: bold; /* Bold labels */
+}
+
+/* Input styling */
+.dog-form .form-group input {
+  width: 100%; /* Full width */
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px; /* Rounded corners */
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif; /* Font family */
+  margin-bottom: 10px; /* Space below inputs */
+}
+
+/* Button styling */
+.dog-form button[type="submit"] {
+  background-color:#ff9800; /* Orange */
+  color: #FFFFFF; /* White text */
+  border: none; /* No border */
+  padding: 0.75rem 1.5rem; /* Padding inside button */
+  font-size: 1rem; /* Font size */
+  cursor: pointer; /* Pointer cursor on hover */
+  border-radius: 5px; /* Rounded corners */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition */
+}
+
+.dog-form button[type="submit"]:hover {
+  background-color: #e68900; /* Darker orange on hover */
+  transform: translateY(-2px); /* Slight lift on hover */
+}
+
+/* Error message styling */
+.dog-form .form-error {
+  color: #4caf50; /* Green color for error messages */
+  font-weight: bold; /* Bold text for error messages */
+  margin-top: 5px;
+}
+
+
+/* Styles for SignupForm component */
+.signup-form {
+  max-width: 500px;
+  margin: 100px auto;
+  padding: 20px;
+  background-color: #fff8e1; /* Light cream background */
+  border: 2px solid #ff9800; /* Orange border */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  text-align: center; /* Center-align the text content */
+}
+
+/* Title for the signup form */
+.signup-form h1 {
+  color: #ff9800; /* Orange color for the title */
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 20px; /* Space below the heading */
+}
+
+/* Form group styling */
+.signup-form .form-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+/* Label styling */
+.signup-form .form-group label {
+  display: block;
+  font-size: 1rem;
+  color: #795548; /* Brown color for labels */
+  margin-bottom: 5px;
+  font-weight: bold; /* Bold labels */
+}
+
+/* Input styling */
+.signup-form .form-group input {
+  width: 100%; /* Full width */
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px; /* Rounded corners */
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif; /* Font family */
+  margin-bottom: 10px; /* Space below inputs */
+}
+
+/* Button styling */
+.signup-form button[type="submit"] {
+  background-color:#ff9800; /* Orange */
+  color: #FFFFFF; /* White text */
+  border: none; /* No border */
+  padding: 0.75rem 1.5rem; /* Padding inside button */
+  font-size: 1rem; /* Font size */
+  cursor: pointer; /* Pointer cursor on hover */
+  border-radius: 5px; /* Rounded corners */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition */
+}
+
+.signup-form button[type="submit"]:hover {
+  background-color: #e68900; /* Darker orange on hover */
+  transform: translateY(-2px); /* Slight lift on hover */
+}
+
+/* Error message styling */
+.signup-form .form-error {
+  color: #4caf50; /* Green color for error messages */
+  font-weight: bold; /* Bold text for error messages */
+  margin-top: 5px;
+}
+
+
+.confirmation-container {
+  background-color: #fff; /* White background for the whole page */
+  height: 100vh; /* Full viewport height */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.confirmation-card {
+  background-color: #fff8e1; /* Light cream background */
+  border: 2px solid #ff9800; /* Orange border */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  width: 50%; /* Spanning most of the width of the page */
+  margin-top: 20px; /* Space below the navigation bar */
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.confirmation-message {
+  color: #ff9800; /* Orange color for the title */
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+/* Container for the login form */
+.login-container {
+  max-width: 500px;
+  margin: 100px auto;
+  padding: 20px;
+  background-color: #fff8e1; /* Light cream background */
+  border: 2px solid #ff9800; /* Orange border */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  text-align: center; /* Center-align the text content */
+}
+
+/* Title for the login form */
+.login-container h1 {
+  color: #ff9800; /* Orange color for the title */
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 20px; /* Space below the heading */
+}
+
+/* Paragraph styling */
+.login-container p {
+  color: #4caf50; /* Green color for paragraph text */
+}
+
+/* Form styling */
+.login-form .form-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+/* Label styling */
+.login-form .form-group label {
+  display: block;
+  font-size: 1rem;
+  color: #795548; /* Brown color for labels */
+  margin-bottom: 5px;
+  font-weight: bold; /* Bold labels */
+}
+
+/* Input styling */
+.login-form .form-group .form-input {
+  width: 100%; /* Full width */
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px; /* Rounded corners */
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif; /* Font family */
+  margin-bottom: 10px; /* Space below inputs */
+}
+
+/* Button styling */
+.login-form .form-button {
+  background-color:#ff9800; /* Orange */
+  color: #FFFFFF; /* White text */
+  border: none; /* No border */
+  padding: 0.75rem 1.5rem; /* Padding inside button */
+  font-size: 1rem; /* Font size */
+  cursor: pointer; /* Pointer cursor on hover */
+  border-radius: 5px; /* Rounded corners */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition */
+}
+
+.login-form .form-button:hover {
+  background-color: #e68900; /* Darker orange on hover */
+  transform: translateY(-2px); /* Slight lift on hover */
+}
+
+
+/*User Page styles */
+.user-page-container {
+  background-color: #fff; /* White background for the whole page */
+  min-height: 100vh; /* Full viewport height, with a minimum height */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px; /* Padding for spacing */
+}
+
+.welcome-banner {
+  background-color: #fff8e1; /* Light cream background */
+  border: 2px solid #ff9800; /* Orange border */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  width: 50%; /* Spanning most of the width of the page */
+  margin-top: 20px; /* Space below the navigation bar */
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.welcome-banner h1 {
+  color: #ff9800; /* Orange color for the title */
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.user-dog-container {
+  width: 100%;
+  max-width: 1200px; /* Limit the width for better readability */
+  margin-top: 40px;
+  text-align: center; /* Center the content */
+}
+
+.user-dog-title {
+  font-size: 2rem;
+  color: #795548;
+  margin-bottom: 20px;
+}
+
+.user-dog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Three columns with responsive width */
+  gap: 30px; /* Space between cards */
+  padding: 20px;
+}
+
+.user-dog-details {
+  position: relative;
+  background-color: #fff8e1; /* Light cream background */
+  border: 2px solid #ff9800; /* Orange border */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Ensure details are at the bottom */
+  position: relative; /* Relative position for absolute children */
+}
+
+.user-dog-details:hover {
+  transform: translateY(-10px); /* Lift effect on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
+}
+
+.user-dog-image {
+  width: 100%; /* Ensure image spans full width of the container */
+  height: auto; /* Maintain aspect ratio */
+  max-width: 100%; /* Ensure the image does not exceed its container */
+  max-height: 200px; /* Set a maximum height to avoid excessively tall images */
+  border-radius: 20px;
+  object-fit: cover; /* Ensure the images cover the specified area */
+  object-fit: contain;
+}
+
+.user-dog-details h2 {
+  margin: 0 0 10px 0; /* Adjust margin for spacing */
+  font-size: 1.5rem;
+  color: #795548;
+}
+
+.user-dog-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.pharmacy-button {
+  background-color: initial;
+  color: #4CAF50; /* Green color for pharmacy symbol */
+  border: none; /* No border */
+  font-size: 24px; /* Adjust font size as needed */
+  cursor: pointer; /* Pointer cursor */
+  position: absolute; /* Absolute positioning */
+  top: 10px; /* Adjust top position */
+  right: 10px; /* Adjust right position */
+  border-radius: 50%; /* Circular button */
+  padding: 5px; /* Padding for better appearance */
+}
+
+.pharmacy-button:hover {
+  background-color: #45a049; /* Darker green on hover */
+  color: #fff; /* White text on hover */
+}
+
+
+
+
+
+
+/*Logout Button */
+
+.logout-button {
+  background-color: #fff8e1; 
+  border: 10px solid #ff9800;
+  color: #ff9800; 
+  padding: 10px 20px; /* Padding */
+  border: none; /* No border */
+  border-radius: 5px; /* Rounded corners */
+  font-size: 1rem; /* Font size */
+  cursor: pointer; /* Cursor on hover */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Transition effects */
+}
+
+.logout-button:hover {
+  background-color: #ff9800; /* Darker red on hover */
+  color: white;
+}
+
+
+/* Search Bar styles */
+.search-bar {
+  margin: 20px 0;
+  width: 100%;
+  display: flex;  /* Ensure the search bar container is a flex container */
+  justify-content: center;  /* Center the search bar within its container */
+}
+
+.search-bar input {
+  padding: 10px;
+  width: 50%; /* Adjust width to take a larger portion of the container */
+  max-width: 600px; /* Optional: Limit maximum width for better readability on large screens */
+  border: 2px solid #F4A460; /* Sandy brown border */
+  border-radius: 5px; /* Rounded corners */
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+.search-bar input:focus {
+  border-color: #D2691E; /* Darker brown on focus */
+  outline: none;
+}
+
+
+/*Home page styles */
+
+.home-main {
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  align-items: center; /* Center horizontally */
+  justify-content: center; /* Center vertically */
+  background-color: #fff8e1; /* Light cream background for the home page */
+}
+
+.home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center; /* Center text */
+  padding: 20px; /* Padding for spacing */
+  margin-top: calc(33.333vh - 100px); /* Move the home container to the upper 1/3 */
+  width: 80%; /* Take 80% of the page width */
+  max-width: 1200px; /* Optional: Limit maximum width for better readability on large screens */
+}
+
+.home-container h1 {
+  color: #F4A460; /* Sandy brown color for the title */
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.home-container p {
+  color: #D2691E; /* Darker brown for the paragraph text */
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+.explore-button {
+  background-color: #F4A460; /* Sandy brown background for button */
+  color: white; /* White text */
+  border: none; /* Remove border */
+  border-radius: 5px; /* Rounded corners */
+  padding: 10px 20px; /* Padding for button size */
+  font-size: 1rem;
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s ease;
+}
+
+.explore-button:hover {
+  background-color: #D2691E; /* Darker brown on hover */
+}
+
+
+/*Auto-suggest*/
+.react-autosuggest__container {
+  position: relative;
+  width: 74%;
+}
+
+.react-autosuggest__input {
+  height: 30px;
+  margin-top: 10px;
+  padding: 10px 20px;
+  font-family: Helvetica, sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  border: 2px solid #F4A460;
+  border-top-right-radius: 0px; 
+  border-bottom-right-radius: 0px; 
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  width: 100%;
+}
+
+.react-autosuggest__input--focused {
+  outline: none;
+}
+
+.react-autosuggest__input--open {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+
+
+.react-autosuggest__suggestions-container {
+  position: absolute; /* Position suggestions absolutely */
+  top: calc(100% + 10px); /* Position suggestions below input */
+  left: 0;
+  width: 100%;
+  max-height: 200px; /* Set a fixed height for suggestions */
+  overflow-y: auto; /* Enable scrolling for overflow */
+  background-color: #fff;
+  font-family: Helvetica, sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  border-radius: 4px;
+  z-index: 2;
+  text-align: left;
+
+}
+
+.react-autosuggest__suggestions-list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.react-autosuggest__suggestion {
+  cursor: pointer;
+  padding: 10px 20px;
+}
+
+.react-autosuggest__suggestion--highlighted {
+  background-color: #F4A460;
+}
+
+.searchbar-container {
+  position: relative; /* Position relative for absolute positioning */
+  width: 50%;
+  text-align: center;
+  margin-bottom: 66.666vh; /* Move the search bar container to the upper 1/3 */
+}
+
+.searchbar-container div {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.searchbar-container button {
+  display: inline-block;
+  height: 30px;
+  vertical-align: bottom;
+  line-height: 5px;
+  background-color: #F4A460;
+  border-top-right-radius: 4px; /* Round top-right corner */
+  border-bottom-right-radius: 4px; /* Round bottom-right corner */
+  border-top-left-radius: 0; /* Ensure top-left corner is square */
+  border-bottom-left-radius: 0; /* Ensure bottom-left corner is square */
+}
+
+/*Filtered List */
+.filtered-list-container {
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center; /* Center-align the text content */
+}
+
+.filtered-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns */
+  gap: 30px; /* Space between cards increased */
+  padding: 20px;
+}
+
+/*Dog Page Styles */
+.dog-page-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff8e1; /* Light cream background */
+  padding: 20px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 50px auto; /* Add margin for space */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for the container */
+}
+
+.dog-page-title {
+  text-align: center; /* Center the title */
+  margin-bottom: 50px;
+  color: #F4A460;
+}
+
+.dog-page-content {
+  display: flex;
+  flex-wrap: wrap; /* Allow content to wrap */
+  justify-content: center; /* Center content horizontally */
+  gap: 20px; /* Add gap between left and right sections */
+}
+
+.dog-page-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.dog-page-image-container {
+  width: 300px; /* Adjust image width as needed */
+}
+
+.dog-page-price {
+  color:#4caf50;
+}
+
+.dog-page-image {
+  width: 100%;
+  border-radius: 10px; /* Rounded corners for the image */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for the image */
+}
+
+.dog-page-details {
+  max-width: 300px; /* Limit details width */
+  margin-top: 20px;
+  text-align: center;
+  color: #795548;
+}
+
+.dog-page-description {
+  flex: 1; /* Take remaining space */
+  max-width: 600px; /* Limit description width */
+  text-align: justify; /* Align description text to the left */
+}
+
+/*Adopt button */
+.adopt-btn {
+  background-color: #F4A460; 
+  margin-top: 10px;
+  color: #fff; /* White text */
+  border: none; /* No border */
+  border-radius: 5px; /* Rounded corners */
+  padding: 10px 20px; /* Padding for button size */
+  font-size: 1rem; /* Font size */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s ease; /* Transition effect for background color */
+}
+
+.adopt-btn:hover {
+  background-color: #de8612; /* Darker orange on hover */
+}
+
+/*Available message */
+.availability-message {
+  color: #4caf50;
+}
+
+/*Log on to adopt a dog message */
+.log-on-adopt-message {
+  color: #4caf50;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Favorites Page Styles */
+.fav-page-container {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  margin: 50px auto;
+}
+
+.fav-dog-container {
+  width: 100%;
+  max-width: 1200px;
+}
+
+.fav-dog-title {
+  color: #F4A460; /* Sandy brown color for title */
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 30px;
+  margin-top: 20px;
+}
+
+/* Grid for Favorites */
+.fav-dog-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns */
+  gap: 30px; /* Space between cards */
+  padding: 20px;
+}
+
+/* Individual Favorite Dog Card */
+.fav-dog-card {
+  position: relative;
+  background-color: #fff8e1; /* Light cream background */
+  border: 2px solid #ff9800; /* Orange border */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Ensure the details are at the bottom */
+}
+
+.fav-dog-card:hover {
+  transform: translateY(-10px); /* Lift effect on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
+}
+
+/* Delete Button */
+.delete-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  color: #795548;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* Prevent hover effects on delete button */
+.delete-button:hover {
+  background-color: initial;
+  color: initial;
+}
+
+.fav-dog-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Dog Image Styles */
+.fav-dog-image {
+  display: block;
+  margin: 0 auto 20px auto; /* Increased margin-bottom for more space below the image */
+  max-width: 100%;
+  width: 250px; /* Set a fixed width for the images */
+  height: 200px; /* Set a fixed height for the images */
+  object-fit: cover; /* Ensure the images cover the specified area */
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+/* Dog Details Styles */
+.fav-dog-details {
+  text-align: left;
+  padding: 0 10px;
+}
+
+.fav-dog-name {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  color: #F4A460;
+}
+
+.fav-dog-breed,
+.fav-dog-price {
+  margin-bottom: 5px;
+  font-size: 1em;
+  color: #795548;
+}
+
+.note-button-container {
+  text-align: center;
+}
+
+.toggle-note-button {
+  background: none;
+  border: none;
+  color: #F4A460;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* Prevent hover effects on delete button */
+.toggle-note-button:hover {
+  background-color: initial;
+}
+
+.note-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.note-sub-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.note-input-container {
+  display: flex;
+  align-items: center;
+}
+
+.note-input {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-right: 10px; /* Adjust margin between input and button */
+  flex: 1;
+}
+
+.note-button {
+  background-color: #D2691E; /* Chocolate brown */
+  color: #FFFFFF;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.note-button:hover {
+  background-color: #A0522D; /* Darker brown */
+}
+
+.note-display {
+  margin-top: 10px; /* Adjust space between input/button and displayed note */
+  text-align: center;
+}
+
+.note {
+  font-size: 16px;
+  color:#795548; 
+}
+
+.add-note {
+  background-color: #F4A460; 
+  margin-top: 10px;
+  color: #fff; /* White text */
+  border: none; /* No border */
+  border-radius: 5px; /* Rounded corners */
+  padding: 10px 20px; /* Padding for button size */
+  font-size: 1rem; /* Font size */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s ease; /* Transition effect for background color */
+}
+
+.add-note:hover {
+  background-color: #de8612; /* Darker orange on hover */
+}
+
+.up-arrow:hover {
+  color: #de8612;
+}
+
+/* Container for the entire appointment page */
+.appointment-page {
+  display: flex;
+  margin: 50px auto;
+  justify-content: space-between; /* Distribute space between columns */
+  gap: 20px; /* Gap between columns */
+  align-items: flex-start; /* Align items to the top */
+  
+}
+
+/* Container for the appointment list */
+.appointment-list-container {
+  flex: 1; /* Allow this column to grow */
+  background-color: #fff8e1; /* Light cream background */
+  border: 2px solid #ff9800; /* Orange border */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  padding: 20px;
+  max-width: 300px; /* Max width for the list */
+  text-align: left; /* Align text to the left */
+  overflow-y: auto; /* Allow scrolling if content overflows */
+}
+
+.appointment-list-container h2 {
+  color:#e68900;
+  margin-bottom: 10px;
+}
+
+.appointment-list-container p {
+  color:#795548;
+  font-weight: bold;
+}
+
+/* Single appointment container */
+.single-appointment-container {
+  background-color: #fff8e1; /* Light cream background */
+  border: 2px solid #ff9800; /* Orange border */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  padding: 20px;
+  margin-bottom: 20px; /* Space between appointments */
+  text-align: left; /* Align text to the left */
+}
+
+/* Container for the appointment form */
+.appointment-container {
+  flex: 2; /* Allow this column to grow more than the list */
+  background-color: #fff8e1; /* Light cream background */
+  border: 2px solid #ff9800; /* Orange border */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  padding: 20px;
+  max-width: 600px; /* Max width for the form */
+  text-align: left; /* Align text to the left */
+  margin: 0 auto; /* Center the form within its flex column */
+}
+
+/* Title for the appointment form */
+.appointment-title {
+  color: #ff9800; /* Orange color for the title */
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center; /* Center the title */
+}
+
+/* Form group styling */
+.form-group {
+  margin-bottom: 20px; /* Space between form groups */
+}
+
+/* Label styling */
+.form-group label {
+  display: block; /* Make label a block element */
+  margin-bottom: 5px; /* Space between label and input */
+  font-weight: bold; /* Bold labels */
+  color: #795548; /* Brown color */
+}
+
+/* Input and textarea styling */
+.form-control, .date-picker {
+  width: 100%; /* Full width */
+  border-radius: 5px; /* Rounded corners */
+  font-size: 1rem; /* Font size */
+  margin-bottom: 10px; /* Space below inputs */
+}
+
+.form-control {
+  font-family: 'Open Sans', sans-serif;
+}
+
+/* Button styling */
+.form-button-container {
+  text-align: center;
+}
+
+.form-submit-button {
+  background-color: #ff9800; /* Orange color for the title */
+  color: #FFFFFF; /* White text */
+  border: none; /* No border */
+  padding: 0.75rem 1.5rem; /* Padding inside button */
+  font-size: 1rem; /* Font size */
+  cursor: pointer; /* Pointer cursor on hover */
+  border-radius: 5px; /* Rounded corners */
+  transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+.form-submit-button:hover {
+  background-color:#e68900;
+}
+
+/* src/AboutPage.css */
+
+/* About Page Styling */
+.about-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 100px auto;
+  background-color: #f8f9fa; /* Light background for the entire page */
+}
+
+.about-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #fff8e1; /* Light cream background */
+  border: 2px solid #ff9800; /* Orange border */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  text-align: left; /* Align text to the left */
+}
+
+.about-container h1 {
+  color: #ff9800; /* Orange color for the title */
+  font-size: 2rem;
+  margin-bottom: 20px;
+  text-align: center; /* Center-align the title */
+}
+
+.about-container p {
+  font-size: 1rem;
+  color: #795548; /* Brown color for text */
+  margin-bottom: 20px;
+  line-height: 1.5; /* Line height for better readability */
+}
+
+.about-container ul {
+  list-style-type: disc; /* Bullet points */
+  padding-left: 20px; /* Padding for the list */
+  margin-bottom: 20px;
+}
+
+.about-container li {
+  font-size: 1rem;
+  color: #795548; /* Brown color for text */
+  margin-bottom: 10px;
+  line-height: 1.5; /* Line height for better readability */
+}
+
+/* src/Footer.css */
+
+/* App styles */
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Main content should take available space */
+.main-content {
+  flex: 1;
+}
+
+/* Footer styles */
+
+
+/* Footer Styling */
+.footer {
+  flex: 2;
+  background-color: #F4A460;
+  color: white;
+  padding: 20px 0;
+  max-height: 300px;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-around; /* Distributes space evenly between sections */
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.footer-section {
+  flex: 2; /* Ensures each section takes up equal space */
+  margin: 0 10px;
+}
+
+.footer-section h4 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.footer-section p,
+.footer-section ul {
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 5px;
+}
+
+.footer-section ul li a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+  color: #D2691E; /* Change color on hover */
+}
+
+.footer-section p a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-section p a:hover {
+  color: #D2691E; /* Change color on hover */
+}
+
+.footer-bottom {
+  background-color: #D2691E;
+  text-align: center;
+  padding: 10px 0;
+  font-size: 0.9rem;
+}
+
+.footer-bottom p {
+  margin: 0;
+}
