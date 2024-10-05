@@ -4,6 +4,7 @@
 import random
 from random import randint, choice as rc
 import requests
+import os
 
 
 # Remote library imports
@@ -13,8 +14,8 @@ from faker.providers import BaseProvider
 # Local imports
 from app import app
 from models import db, Dog, User, Favorite, Appointment
-from my_secrets import API_KEY
-
+#from my_secrets import API_KEY
+API_KEY = os.environ.get('API_KEY')
 
 
 #To help generate random dog names

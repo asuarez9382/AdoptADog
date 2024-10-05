@@ -11,7 +11,7 @@ from sqlalchemy import MetaData
 #from my_secrets import APP_KEY
 import os
 
-API_KEY = os.environ.get('API_KEY')
+
 APP_KEY = os.environ.get('APP_KEY')
 
 
