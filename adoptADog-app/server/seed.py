@@ -14,8 +14,8 @@ from faker.providers import BaseProvider
 # Local imports
 from app import app
 from models import db, Dog, User, Favorite, Appointment
-#from my_secrets import API_KEY
-API_KEY = os.environ.get('API_KEY')
+from my_secrets import API_KEY
+#API_KEY = os.environ.get('API_KEY')
 
 
 #To help generate random dog names
@@ -88,7 +88,7 @@ if __name__ == '__main__':
             for dog in data:
                 myDog = {}
                 
-                breed = dog['breeds'][0]['name']
+                breed = dog.get('breeds', [{}])[0].get('name', 'Unknown')
                 image = dog['url']
                 
                 myDog['breed'] = breed
