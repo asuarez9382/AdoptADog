@@ -8,7 +8,12 @@ from flask_migrate import Migrate
 from flask_restful import Api
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import MetaData
-from my_secrets import APP_KEY
+#from my_secrets import APP_KEY
+import os
+
+API_KEY = os.environ.get('API_KEY')
+APP_KEY = os.environ.get('APP_KEY')
+
 
 # Local imports
 
