@@ -19,7 +19,7 @@ APP_KEY = os.environ.get('APP_KEY')
 
 # Instantiate app, set attributes
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://adoptadog_db_user:hDeJPC842BF8Lvpb421Vmi8e8ZUeQPJJ@dpg-crs5la0gph6c738pqam0-a.oregon-postgres.render.com/adoptadog_db"
 app.secret_key = APP_KEY
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.json.compact = False
